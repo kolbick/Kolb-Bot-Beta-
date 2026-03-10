@@ -1,3 +1,4 @@
+export * from "./agent-builder.js";
 export * from "./agents.bindings.js";
 export * from "./agents.commands.bind.js";
 export * from "./agents.commands.add.js";

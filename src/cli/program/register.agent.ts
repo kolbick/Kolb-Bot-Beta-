@@ -1,6 +1,7 @@
 import type { Command } from "commander";
 import { agentCliCommand } from "../../commands/agent-via-gateway.js";
 import {
+  agentBuilderCommand,
   agentsAddCommand,
   agentsBindingsCommand,
   agentsBindCommand,
@@ -197,6 +198,41 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.github.com/kolbick/
           },
           defaultRuntime,
           { hasFlags },
+        );
+      });
+    });
+
+  agents
+    .command("build")
+    .description("Beginner-friendly wizard to build and configure a new agent step by step")
+    .option("--json", "Output JSON summary", false)
+    .addHelpText(
+      "after",
+      () =>
+        `
+${theme.heading("Examples:")}
+${formatHelpExamples([
+  ["kolb-bot agents build", "Launch the interactive agent builder wizard."],
+  ["kolb-bot agents build --json", "Launch wizard and output result as JSON."],
+])}
+
+${theme.muted("This guided wizard walks you through every step:")}
+  1. Choose a template (chatbot, coder, researcher, devops, or custom)
+  2. Name your agent
+  3. Set personality (name, emoji, creature, vibe)
+  4. Pick tool permissions (minimal, messaging, coding, full)
+  5. Write a system prompt (instructions for the AI)
+  6. Choose a workspace directory
+  7. Connect messaging channels (optional)
+  8. Configure AI model/auth (optional)
+  9. Review and create
+`,
+    )
+    .action(async (opts) => {
+      await runCommandWithRuntime(defaultRuntime, async () => {
+        await agentBuilderCommand(
+          { json: Boolean(opts.json) },
+          defaultRuntime,
         );
       });
     });
