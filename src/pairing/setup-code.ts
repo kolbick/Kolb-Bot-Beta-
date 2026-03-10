@@ -155,12 +155,12 @@ function pickTailnetIPv4(
 }
 
 function resolveGatewayTokenFromEnv(env: NodeJS.ProcessEnv): string | undefined {
-  return env.KOLB_BOT_GATEWAY_TOKEN?.trim() || env.KOLB_BOT_GATEWAY_TOKEN?.trim() || undefined;
+  return env.KOLB_BOT_GATEWAY_TOKEN?.trim() || undefined;
 }
 
 function resolveGatewayPasswordFromEnv(env: NodeJS.ProcessEnv): string | undefined {
   return (
-    env.KOLB_BOT_GATEWAY_PASSWORD?.trim() || env.KOLB_BOT_GATEWAY_PASSWORD?.trim() || undefined
+    env.KOLB_BOT_GATEWAY_PASSWORD?.trim() || undefined
   );
 }
 
@@ -218,7 +218,7 @@ async function resolveGatewayTokenSecretRef(
   }
   if (mode !== "token") {
     const hasPasswordEnvCandidate = Boolean(
-      env.KOLB_BOT_GATEWAY_PASSWORD?.trim() || env.KOLB_BOT_GATEWAY_PASSWORD?.trim(),
+      env.KOLB_BOT_GATEWAY_PASSWORD?.trim(),
     );
     if (hasPasswordEnvCandidate) {
       return cfg;

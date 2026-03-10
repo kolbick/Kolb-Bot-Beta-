@@ -276,7 +276,7 @@ export function buildNodeServiceEnvironment(params: {
   const platform = params.platform ?? process.platform;
   const sharedEnv = resolveSharedServiceEnvironmentFields(env, platform);
   const gatewayToken =
-    env.KOLB_BOT_GATEWAY_TOKEN?.trim() || env.KOLB_BOT_GATEWAY_TOKEN?.trim() || undefined;
+    env.KOLB_BOT_GATEWAY_TOKEN?.trim() || undefined;
   return {
     ...buildCommonServiceEnvironment(env, sharedEnv),
     KOLB_BOT_GATEWAY_TOKEN: gatewayToken,

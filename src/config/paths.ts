@@ -18,10 +18,10 @@ export function resolveIsNixMode(env: NodeJS.ProcessEnv = process.env): boolean 
 export const isNixMode = resolveIsNixMode();
 
 // Support historical (and occasionally misspelled) legacy state dirs.
-const LEGACY_STATE_DIRNAMES = [".kolb-bot", ".moldbot", ".kolb-bot"] as const;
+const LEGACY_STATE_DIRNAMES = [".moldbot"] as const;
 const NEW_STATE_DIRNAME = ".kolb-bot";
 const CONFIG_FILENAME = "kolb-bot.json";
-const LEGACY_CONFIG_FILENAMES = ["kolb-bot.json", "moldbot.json", "kolb-bot.json"] as const;
+const LEGACY_CONFIG_FILENAMES = ["moldbot.json"] as const;
 
 function resolveDefaultHomeDir(): string {
   return resolveRequiredHomeDir(process.env, os.homedir);
@@ -62,7 +62,7 @@ export function resolveStateDir(
   homedir: () => string = envHomedir(env),
 ): string {
   const effectiveHomedir = () => resolveRequiredHomeDir(env, homedir);
-  const override = env.KOLB_BOT_STATE_DIR?.trim() || env.KOLB_BOT_STATE_DIR?.trim();
+  const override = env.KOLB_BOT_STATE_DIR?.trim();
   if (override) {
     return resolveUserPath(override, env, effectiveHomedir);
   }
@@ -113,13 +113,13 @@ export const STATE_DIR = resolveStateDir();
 /**
  * Config file path (JSON5).
  * Can be overridden via KOLB_BOT_CONFIG_PATH.
- * Default: ~/.kolbick/Kolb-Bot-Beta-.json (or $KOLB_BOT_STATE_DIR/kolb-bot.json)
+ * Default: ~/.kolb-bot/kolb-bot.json (or $KOLB_BOT_STATE_DIR/kolb-bot.json)
  */
 export function resolveCanonicalConfigPath(
   env: NodeJS.ProcessEnv = process.env,
   stateDir: string = resolveStateDir(env, envHomedir(env)),
 ): string {
-  const override = env.KOLB_BOT_CONFIG_PATH?.trim() || env.KOLB_BOT_CONFIG_PATH?.trim();
+  const override = env.KOLB_BOT_CONFIG_PATH?.trim();
   if (override) {
     return resolveUserPath(override, env, envHomedir(env));
   }
@@ -202,13 +202,13 @@ export function resolveDefaultConfigCandidates(
   homedir: () => string = envHomedir(env),
 ): string[] {
   const effectiveHomedir = () => resolveRequiredHomeDir(env, homedir);
-  const explicit = env.KOLB_BOT_CONFIG_PATH?.trim() || env.KOLB_BOT_CONFIG_PATH?.trim();
+  const explicit = env.KOLB_BOT_CONFIG_PATH?.trim();
   if (explicit) {
     return [resolveUserPath(explicit, env, effectiveHomedir)];
   }
 
   const candidates: string[] = [];
-  const kolbBotStateDir = env.KOLB_BOT_STATE_DIR?.trim() || env.KOLB_BOT_STATE_DIR?.trim();
+  const kolbBotStateDir = env.KOLB_BOT_STATE_DIR?.trim();
   if (kolbBotStateDir) {
     const resolved = resolveUserPath(kolbBotStateDir, env, effectiveHomedir);
     candidates.push(path.join(resolved, CONFIG_FILENAME));
@@ -267,7 +267,7 @@ export function resolveGatewayPort(
   cfg?: KolbBotConfig,
   env: NodeJS.ProcessEnv = process.env,
 ): number {
-  const envRaw = env.KOLB_BOT_GATEWAY_PORT?.trim() || env.KOLB_BOT_GATEWAY_PORT?.trim();
+  const envRaw = env.KOLB_BOT_GATEWAY_PORT?.trim();
   if (envRaw) {
     const parsed = Number.parseInt(envRaw, 10);
     if (Number.isFinite(parsed) && parsed > 0) {
