@@ -1,10 +1,10 @@
 {
-  "name": "@openclaw/slack",
+  "name": "@kolb-bot/slack",
   "version": "2026.3.9",
   "private": true,
-  "description": "OpenClaw Slack channel plugin",
+  "description": "Kolb-Bot Slack channel plugin",
   "type": "module",
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ]

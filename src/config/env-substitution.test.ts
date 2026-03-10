@@ -371,8 +371,8 @@ describe("resolveConfigEnvVars", () => {
         },
         {
           name: "gateway auth token",
-          config: { gateway: { auth: { token: "${OPENCLAW_GATEWAY_TOKEN}" } } },
-          env: { OPENCLAW_GATEWAY_TOKEN: "secret-token" },
+          config: { gateway: { auth: { token: "${KOLB_BOT_GATEWAY_TOKEN}" } } },
+          env: { KOLB_BOT_GATEWAY_TOKEN: "secret-token" },
           expected: { gateway: { auth: { token: "secret-token" } } },
         },
         {

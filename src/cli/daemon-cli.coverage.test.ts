@@ -27,8 +27,8 @@ const buildGatewayInstallPlan = vi.fn(
     programArguments: ["/bin/node", "cli", "gateway", "--port", String(params.port)],
     workingDirectory: process.cwd(),
     environment: {
-      OPENCLAW_GATEWAY_PORT: String(params.port),
-      ...(params.token ? { OPENCLAW_GATEWAY_TOKEN: params.token } : {}),
+      KOLB_BOT_GATEWAY_PORT: String(params.port),
+      ...(params.token ? { KOLB_BOT_GATEWAY_TOKEN: params.token } : {}),
     },
   }),
 );
@@ -119,15 +119,15 @@ describe("daemon-cli coverage", () => {
   beforeEach(() => {
     daemonProgram = createDaemonProgram();
     envSnapshot = captureEnv([
-      "OPENCLAW_STATE_DIR",
-      "OPENCLAW_CONFIG_PATH",
-      "OPENCLAW_GATEWAY_PORT",
-      "OPENCLAW_PROFILE",
+      "KOLB_BOT_STATE_DIR",
+      "KOLB_BOT_CONFIG_PATH",
+      "KOLB_BOT_GATEWAY_PORT",
+      "KOLB_BOT_PROFILE",
     ]);
-    process.env.OPENCLAW_STATE_DIR = "/tmp/openclaw-cli-state";
-    process.env.OPENCLAW_CONFIG_PATH = "/tmp/openclaw-cli-state/openclaw.json";
-    delete process.env.OPENCLAW_GATEWAY_PORT;
-    delete process.env.OPENCLAW_PROFILE;
+    process.env.KOLB_BOT_STATE_DIR = "/tmp/kolb-bot-cli-state";
+    process.env.KOLB_BOT_CONFIG_PATH = "/tmp/kolb-bot-cli-state/kolb-bot.json";
+    delete process.env.KOLB_BOT_GATEWAY_PORT;
+    delete process.env.KOLB_BOT_PROFILE;
     serviceReadCommand.mockResolvedValue(null);
     resolveGatewayProbeAuthWithSecretInputs.mockClear();
     buildGatewayInstallPlan.mockClear();
@@ -157,12 +157,12 @@ describe("daemon-cli coverage", () => {
     serviceReadCommand.mockResolvedValueOnce({
       programArguments: ["/bin/node", "cli", "gateway", "--port", "19001"],
       environment: {
-        OPENCLAW_PROFILE: "dev",
-        OPENCLAW_STATE_DIR: "/tmp/openclaw-daemon-state",
-        OPENCLAW_CONFIG_PATH: "/tmp/openclaw-daemon-state/openclaw.json",
-        OPENCLAW_GATEWAY_PORT: "19001",
+        KOLB_BOT_PROFILE: "dev",
+        KOLB_BOT_STATE_DIR: "/tmp/kolb-bot-daemon-state",
+        KOLB_BOT_CONFIG_PATH: "/tmp/kolb-bot-daemon-state/kolb-bot.json",
+        KOLB_BOT_GATEWAY_PORT: "19001",
       },
-      sourcePath: "/tmp/ai.openclaw.gateway.plist",
+      sourcePath: "/tmp/ai.kolb-bot.gateway.plist",
     });
 
     await runDaemonCommand(["daemon", "status", "--json"]);

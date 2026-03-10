@@ -16,7 +16,7 @@ import {
   normalizeUsageDisplay,
   supportsXHighThinking,
 } from "../auto-reply/thinking.js";
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 import type { SessionEntry } from "../config/sessions.js";
 import {
   isAcpSessionKey,
@@ -68,7 +68,7 @@ function supportsSpawnLineage(storeKey: string): boolean {
 }
 
 export async function applySessionsPatchToStore(params: {
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   store: Record<string, SessionEntry>;
   storeKey: string;
   patch: SessionsPatchParams;

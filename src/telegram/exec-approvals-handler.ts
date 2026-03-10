@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 import { loadSessionStore, resolveStorePath } from "../config/sessions.js";
 import { buildGatewayConnectionDetails } from "../gateway/call.js";
 import { GatewayClient } from "../gateway/client.js";
@@ -43,7 +43,7 @@ type TelegramApprovalTarget = {
 export type TelegramExecApprovalHandlerOpts = {
   token: string;
   accountId: string;
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   gatewayUrl?: string;
   runtime?: RuntimeEnv;
 };
@@ -56,7 +56,7 @@ export type TelegramExecApprovalHandlerDeps = {
 };
 
 function matchesFilters(params: {
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   accountId: string;
   request: ExecApprovalRequest;
 }): boolean {
@@ -101,7 +101,7 @@ function matchesFilters(params: {
   return true;
 }
 
-function isHandlerConfigured(params: { cfg: OpenClawConfig; accountId: string }): boolean {
+function isHandlerConfigured(params: { cfg: KolbBotConfig; accountId: string }): boolean {
   const config = resolveTelegramExecApprovalConfig({
     cfg: params.cfg,
     accountId: params.accountId,
@@ -118,7 +118,7 @@ function isHandlerConfigured(params: { cfg: OpenClawConfig; accountId: string })
 }
 
 function resolveRequestSessionTarget(params: {
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   request: ExecApprovalRequest;
 }): { to: string; accountId?: string; threadId?: number; channel?: string } | null {
   const sessionKey = params.request.request.sessionKey?.trim();
@@ -158,7 +158,7 @@ function resolveRequestSessionTarget(params: {
 }
 
 function resolveTelegramSourceTarget(params: {
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   accountId: string;
   request: ExecApprovalRequest;
 }): TelegramApprovalTarget | null {
@@ -255,7 +255,7 @@ export class TelegramExecApprovalHandler {
     const gatewayUrlOverrideSource =
       urlSource === "cli --url"
         ? "cli"
-        : urlSource === "env OPENCLAW_GATEWAY_URL"
+        : urlSource === "env KOLB_BOT_GATEWAY_URL"
           ? "env"
           : undefined;
     const auth = await resolveGatewayConnectionAuth({

@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 import type { AddressInfo } from "node:net";
-import type { ClawdbotConfig } from "openclaw/plugin-sdk/feishu";
+import type { KolbBotConfig } from "kolb-bot/plugin-sdk/feishu";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   createFeishuClientMockModule,
@@ -64,7 +64,7 @@ function buildConfig(params: {
   path: string;
   port: number;
   verificationToken?: string;
-}): ClawdbotConfig {
+}): KolbBotConfig {
   return {
     channels: {
       feishu: {
@@ -83,7 +83,7 @@ function buildConfig(params: {
         },
       },
     },
-  } as ClawdbotConfig;
+  } as KolbBotConfig;
 }
 
 async function withRunningWebhookMonitor(

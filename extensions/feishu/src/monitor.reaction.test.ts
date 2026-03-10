@@ -1,4 +1,4 @@
-import type { ClawdbotConfig, RuntimeEnv } from "openclaw/plugin-sdk/feishu";
+import type { KolbBotConfig, RuntimeEnv } from "kolb-bot/plugin-sdk/feishu";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { hasControlCommand } from "../../../src/auto-reply/command-detection.js";
 import {
@@ -37,7 +37,7 @@ vi.mock("./monitor.transport.js", () => ({
   monitorWebhook: monitorWebhookMock,
 }));
 
-const cfg = {} as ClawdbotConfig;
+const cfg = {} as KolbBotConfig;
 
 function makeReactionEvent(
   overrides: Partial<FeishuReactionCreatedEvent> = {},
@@ -77,7 +77,7 @@ async function resolveReactionWithLookup(params: {
 
 type FeishuMention = NonNullable<FeishuMessageEvent["message"]["mentions"]>[number];
 
-function buildDebounceConfig(): ClawdbotConfig {
+function buildDebounceConfig(): KolbBotConfig {
   return {
     messages: {
       inbound: {
@@ -92,7 +92,7 @@ function buildDebounceConfig(): ClawdbotConfig {
         enabled: true,
       },
     },
-  } as ClawdbotConfig;
+  } as KolbBotConfig;
 }
 
 function buildDebounceAccount(): ResolvedFeishuAccount {
@@ -242,7 +242,7 @@ describe("resolveReactionSyntheticEvent", () => {
             reactionNotifications: "off",
           },
         },
-      } as ClawdbotConfig,
+      } as KolbBotConfig,
       accountId: "default",
       event,
       botOpenId: "ou_bot",
@@ -286,7 +286,7 @@ describe("resolveReactionSyntheticEvent", () => {
             reactionNotifications: "all",
           },
         },
-      } as ClawdbotConfig,
+      } as KolbBotConfig,
       accountId: "default",
       event,
       botOpenId: "ou_bot",
@@ -442,7 +442,7 @@ describe("Feishu inbound debounce regressions", () => {
     vi.spyOn(dedup, "tryRecordMessagePersistent").mockResolvedValue(true);
     vi.spyOn(dedup, "hasRecordedMessage").mockReturnValue(false);
     vi.spyOn(dedup, "hasRecordedMessagePersistent").mockResolvedValue(false);
-    const onMessage = await setupDebounceMonitor({ botName: "OpenClaw Bot" });
+    const onMessage = await setupDebounceMonitor({ botName: "Kolb-Bot Bot" });
 
     await onMessage(
       createTextEvent({
@@ -452,7 +452,7 @@ describe("Feishu inbound debounce regressions", () => {
           {
             key: "@_user_1",
             id: { open_id: "ou_bot" },
-            name: "OpenClaw Bot",
+            name: "Kolb-Bot Bot",
           },
         ],
       }),
@@ -465,7 +465,7 @@ describe("Feishu inbound debounce regressions", () => {
     const firstParams = handleFeishuMessageMock.mock.calls[0]?.[0] as
       | { botName?: string }
       | undefined;
-    expect(firstParams?.botName).toBe("OpenClaw Bot");
+    expect(firstParams?.botName).toBe("Kolb-Bot Bot");
   });
 
   it("does not synthesize mention-forward intent across separate messages", async () => {

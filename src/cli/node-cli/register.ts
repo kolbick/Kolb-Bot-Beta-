@@ -27,13 +27,13 @@ export function registerNodeCli(program: Command) {
       () =>
         `\n${theme.heading("Examples:")}\n${formatHelpExamples([
           [
-            "openclaw node run --host 127.0.0.1 --port 18789",
+            "kolb-bot node run --host 127.0.0.1 --port 18789",
             "Run the node host in the foreground.",
           ],
-          ["openclaw node status", "Check node host service status."],
-          ["openclaw node install", "Install the node host service."],
-          ["openclaw node restart", "Restart the installed node host service."],
-        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/node", "docs.openclaw.ai/cli/node")}\n`,
+          ["kolb-bot node status", "Check node host service status."],
+          ["kolb-bot node install", "Install the node host service."],
+          ["kolb-bot node restart", "Restart the installed node host service."],
+        ])}\n\n${theme.muted("Docs:")} ${formatDocsLink("/cli/node", "docs.github.com/kolbick/Kolb-Bot-Beta-/cli/node")}\n`,
     );
 
   node

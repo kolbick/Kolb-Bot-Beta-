@@ -1,7 +1,7 @@
-import type { WizardPrompter } from "openclaw/plugin-sdk/bluebubbles";
+import type { WizardPrompter } from "kolb-bot/plugin-sdk/bluebubbles";
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("openclaw/plugin-sdk/bluebubbles", () => ({
+vi.mock("kolb-bot/plugin-sdk/bluebubbles", () => ({
   DEFAULT_ACCOUNT_ID: "default",
   addWildcardAllowFrom: vi.fn(),
   formatDocsLink: (_url: string, fallback: string) => fallback,

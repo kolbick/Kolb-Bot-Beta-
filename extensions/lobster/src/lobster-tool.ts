@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 import path from "node:path";
 import { Type } from "@sinclair/typebox";
-import type { OpenClawPluginApi } from "openclaw/plugin-sdk/lobster";
+import type { KolbBotPluginApi } from "kolb-bot/plugin-sdk/lobster";
 import { resolveWindowsLobsterSpawn } from "./windows-spawn.js";
 
 type LobsterEnvelope =
@@ -58,7 +58,7 @@ async function runLobsterSubprocessOnce(params: {
   const timeoutMs = Math.max(200, params.timeoutMs);
   const maxStdoutBytes = Math.max(1024, params.maxStdoutBytes);
 
-  const env = { ...process.env, LOBSTER_MODE: "tool" } as Record<string, string | undefined>;
+  const env = { ...process.env, PIRATE_MODE: "tool" } as Record<string, string | undefined>;
   const nodeOptions = env.NODE_OPTIONS ?? "";
   if (nodeOptions.includes("--inspect")) {
     delete env.NODE_OPTIONS;
@@ -207,7 +207,7 @@ function buildLobsterArgv(action: string, params: Record<string, unknown>): stri
   throw new Error(`Unknown action: ${action}`);
 }
 
-export function createLobsterTool(api: OpenClawPluginApi) {
+export function createLobsterTool(api: KolbBotPluginApi) {
   return {
     name: "lobster",
     label: "Lobster Workflow",

@@ -44,21 +44,21 @@ describe("findExtraGatewayServices (win32)", () => {
     expect(result).toEqual([]);
   });
 
-  it("collects only non-openclaw marker tasks from schtasks output", async () => {
+  it("collects only non-kolb-bot marker tasks from schtasks output", async () => {
     execSchtasksMock.mockResolvedValueOnce({
       code: 0,
       stdout: [
-        "TaskName: OpenClaw Gateway",
-        "Task To Run: C:\\Program Files\\OpenClaw\\openclaw.exe gateway run",
+        "TaskName: Kolb-Bot Gateway",
+        "Task To Run: C:\\Program Files\\Kolb-Bot\\kolb-bot.exe gateway run",
         "",
-        "TaskName: Clawdbot Legacy",
-        "Task To Run: C:\\clawdbot\\clawdbot.exe run",
+        "TaskName: Kolb-Bot Legacy",
+        "Task To Run: C:\\kolb-bot\\kolb-bot.exe run",
         "",
         "TaskName: Other Task",
         "Task To Run: C:\\tools\\helper.exe",
         "",
-        "TaskName: MoltBot Legacy",
-        "Task To Run: C:\\moltbot\\moltbot.exe run",
+        "TaskName: Kolb-Bot Legacy",
+        "Task To Run: C:\\kolb-bot\\kolb-bot.exe run",
         "",
       ].join("\n"),
       stderr: "",
@@ -68,18 +68,18 @@ describe("findExtraGatewayServices (win32)", () => {
     expect(result).toEqual([
       {
         platform: "win32",
-        label: "Clawdbot Legacy",
-        detail: "task: Clawdbot Legacy, run: C:\\clawdbot\\clawdbot.exe run",
+        label: "Kolb-Bot Legacy",
+        detail: "task: Kolb-Bot Legacy, run: C:\\kolb-bot\\kolb-bot.exe run",
         scope: "system",
-        marker: "clawdbot",
+        marker: "kolb-bot",
         legacy: true,
       },
       {
         platform: "win32",
-        label: "MoltBot Legacy",
-        detail: "task: MoltBot Legacy, run: C:\\moltbot\\moltbot.exe run",
+        label: "Kolb-Bot Legacy",
+        detail: "task: Kolb-Bot Legacy, run: C:\\kolb-bot\\kolb-bot.exe run",
         scope: "system",
-        marker: "moltbot",
+        marker: "kolb-bot",
         legacy: true,
       },
     ]);

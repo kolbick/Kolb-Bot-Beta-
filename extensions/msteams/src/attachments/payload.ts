@@ -1,4 +1,4 @@
-import { buildMediaPayload } from "openclaw/plugin-sdk/msteams";
+import { buildMediaPayload } from "kolb-bot/plugin-sdk/msteams";
 
 export function buildMSTeamsMediaPayload(
   mediaList: Array<{ path: string; contentType?: string }>,

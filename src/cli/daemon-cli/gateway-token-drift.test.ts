@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { OpenClawConfig } from "../../config/config.js";
+import type { KolbBotConfig } from "../../config/config.js";
 import { resolveGatewayTokenForDriftCheck } from "./gateway-token-drift.js";
 
 describe("resolveGatewayTokenForDriftCheck", () => {
@@ -12,9 +12,9 @@ describe("resolveGatewayTokenForDriftCheck", () => {
             token: "config-token",
           },
         },
-      } as OpenClawConfig,
+      } as KolbBotConfig,
       env: {
-        OPENCLAW_GATEWAY_TOKEN: "env-token",
+        KOLB_BOT_GATEWAY_TOKEN: "env-token",
       } as NodeJS.ProcessEnv,
     });
 
@@ -33,12 +33,12 @@ describe("resolveGatewayTokenForDriftCheck", () => {
           gateway: {
             mode: "local",
             auth: {
-              token: { source: "env", provider: "default", id: "OPENCLAW_GATEWAY_TOKEN" },
+              token: { source: "env", provider: "default", id: "KOLB_BOT_GATEWAY_TOKEN" },
             },
           },
-        } as OpenClawConfig,
+        } as KolbBotConfig,
         env: {
-          OPENCLAW_GATEWAY_TOKEN: "env-token",
+          KOLB_BOT_GATEWAY_TOKEN: "env-token",
         } as NodeJS.ProcessEnv,
       }),
     ).toThrow(/gateway\.auth\.token/i);

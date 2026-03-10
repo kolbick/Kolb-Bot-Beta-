@@ -4,7 +4,7 @@ import {
   GroupPolicySchema,
   MarkdownConfigSchema,
   requireOpenAllowFrom,
-} from "openclaw/plugin-sdk/mattermost";
+} from "kolb-bot/plugin-sdk/mattermost";
 import { z } from "zod";
 import { buildSecretInputSchema } from "./secret-input.js";
 

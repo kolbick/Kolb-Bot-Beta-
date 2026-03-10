@@ -130,7 +130,7 @@ describe("enableConsoleCapture", () => {
 });
 
 function tempLogPath() {
-  return path.join(os.tmpdir(), `openclaw-log-${crypto.randomUUID()}.log`);
+  return path.join(os.tmpdir(), `kolb-bot-log-${crypto.randomUUID()}.log`);
 }
 
 function eioError() {

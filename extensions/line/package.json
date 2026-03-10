@@ -1,10 +1,10 @@
 {
-  "name": "@openclaw/line",
+  "name": "@kolb-bot/line",
   "version": "2026.3.9",
   "private": true,
-  "description": "OpenClaw LINE channel plugin",
+  "description": "Kolb-Bot LINE channel plugin",
   "type": "module",
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ],
@@ -19,7 +19,7 @@
       "quickstartAllowFrom": true
     },
     "install": {
-      "npmSpec": "@openclaw/line",
+      "npmSpec": "@kolb-bot/line",
       "localPath": "extensions/line",
       "defaultChoice": "npm"
     }

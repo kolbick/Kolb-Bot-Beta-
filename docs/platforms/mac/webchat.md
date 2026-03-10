@@ -21,10 +21,10 @@ agent (with a session switcher for other sessions).
 - Auto‑open for testing:
 
   ```bash
-  dist/OpenClaw.app/Contents/MacOS/OpenClaw --webchat
+  dist/Kolb-Bot.app/Contents/MacOS/Kolb-Bot --webchat
   ```
 
-- Logs: `./scripts/clawlog.sh` (subsystem `ai.openclaw`, category `WebChatSwiftUI`).
+- Logs: `./scripts/kolblog.sh` (subsystem `ai.kolb-bot`, category `WebChatSwiftUI`).
 
 ## How it’s wired
 

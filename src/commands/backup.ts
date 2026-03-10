@@ -290,8 +290,8 @@ export async function backupCreateCommand(
   if (plan.included.length === 0) {
     throw new Error(
       onlyConfig
-        ? "No OpenClaw config file was found to back up."
-        : "No local OpenClaw state was found to back up.",
+        ? "No Kolb-Bot config file was found to back up."
+        : "No local Kolb-Bot state was found to back up.",
     );
   }
 
@@ -324,7 +324,7 @@ export async function backupCreateCommand(
 
   if (!opts.dryRun) {
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
-    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "openclaw-backup-"));
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "kolb-bot-backup-"));
     const manifestPath = path.join(tempDir, "manifest.json");
     const tempArchivePath = buildTempArchivePath(outputPath);
     try {

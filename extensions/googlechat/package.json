@@ -1,21 +1,21 @@
 {
-  "name": "@openclaw/googlechat",
+  "name": "@kolb-bot/googlechat",
   "version": "2026.3.9",
   "private": true,
-  "description": "OpenClaw Google Chat channel plugin",
+  "description": "Kolb-Bot Google Chat channel plugin",
   "type": "module",
   "dependencies": {
     "google-auth-library": "^10.6.1"
   },
   "peerDependencies": {
-    "openclaw": ">=2026.3.7"
+    "kolb-bot": ">=2026.3.7"
   },
   "peerDependenciesMeta": {
-    "openclaw": {
+    "kolb-bot": {
       "optional": true
     }
   },
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ],
@@ -34,7 +34,7 @@
       "order": 55
     },
     "install": {
-      "npmSpec": "@openclaw/googlechat",
+      "npmSpec": "@kolb-bot/googlechat",
       "localPath": "extensions/googlechat",
       "defaultChoice": "npm"
     },

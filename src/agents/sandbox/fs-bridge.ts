@@ -222,7 +222,7 @@ class SandboxFsBridgeImpl implements SandboxFsBridge {
       "sh",
       "-c",
       script,
-      "moltbot-sandbox-fs",
+      "kolb-bot-sandbox-fs",
     ];
     if (options.args?.length) {
       dockerArgs.push(...options.args);
@@ -278,7 +278,7 @@ class SandboxFsBridgeImpl implements SandboxFsBridge {
           'dir=$(dirname -- "$target")',
           'if [ "$dir" != "." ]; then mkdir -p -- "$dir"; fi',
           'base=$(basename -- "$target")',
-          'tmp=$(mktemp "$dir/.openclaw-write-$base.XXXXXX")',
+          'tmp=$(mktemp "$dir/.kolb-bot-write-$base.XXXXXX")',
           'cat >"$tmp"',
           'printf "%s\\n" "$tmp"',
         ].join("\n")
@@ -287,7 +287,7 @@ class SandboxFsBridgeImpl implements SandboxFsBridge {
           'target="$1"',
           'dir=$(dirname -- "$target")',
           'base=$(basename -- "$target")',
-          'tmp=$(mktemp "$dir/.openclaw-write-$base.XXXXXX")',
+          'tmp=$(mktemp "$dir/.kolb-bot-write-$base.XXXXXX")',
           'cat >"$tmp"',
           'printf "%s\\n" "$tmp"',
         ].join("\n");

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 import {
   resolveGatewayConnectionAuth,
   resolveGatewayConnectionAuthFromConfig,
@@ -10,19 +10,19 @@ type ResolvedAuth = { token?: string; password?: string };
 
 type ConnectionAuthCase = {
   name: string;
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   env: NodeJS.ProcessEnv;
   options?: Partial<Omit<GatewayConnectionAuthOptions, "config" | "env">>;
   expected: ResolvedAuth;
 };
 
-function cfg(input: Partial<OpenClawConfig>): OpenClawConfig {
-  return input as OpenClawConfig;
+function cfg(input: Partial<KolbBotConfig>): KolbBotConfig {
+  return input as KolbBotConfig;
 }
 
 const DEFAULT_ENV = {
-  OPENCLAW_GATEWAY_TOKEN: "env-token",
-  OPENCLAW_GATEWAY_PASSWORD: "env-password", // pragma: allowlist secret
+  KOLB_BOT_GATEWAY_TOKEN: "env-token",
+  KOLB_BOT_GATEWAY_PASSWORD: "env-password", // pragma: allowlist secret
 } as NodeJS.ProcessEnv;
 
 describe("resolveGatewayConnectionAuth", () => {
@@ -192,7 +192,7 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     },
     {
-      name: "includeLegacyEnv controls CLAWDBOT fallback",
+      name: "includeLegacyEnv controls KOLBBOT fallback",
       cfg: cfg({
         gateway: {
           mode: "local",
@@ -200,8 +200,8 @@ describe("resolveGatewayConnectionAuth", () => {
         },
       }),
       env: {
-        CLAWDBOT_GATEWAY_TOKEN: "legacy-token",
-        CLAWDBOT_GATEWAY_PASSWORD: "legacy-password", // pragma: allowlist secret
+        KOLB_BOT_GATEWAY_TOKEN: "legacy-token",
+        KOLB_BOT_GATEWAY_PASSWORD: "legacy-password", // pragma: allowlist secret
       } as NodeJS.ProcessEnv,
       options: {
         includeLegacyEnv: true,
@@ -236,8 +236,8 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     });
     const env = {
-      CLAWDBOT_GATEWAY_TOKEN: "legacy-token",
-      CLAWDBOT_GATEWAY_PASSWORD: "legacy-password", // pragma: allowlist secret
+      KOLB_BOT_GATEWAY_TOKEN: "legacy-token",
+      KOLB_BOT_GATEWAY_PASSWORD: "legacy-password", // pragma: allowlist secret
     } as NodeJS.ProcessEnv;
 
     const resolved = await resolveGatewayConnectionAuth({
@@ -266,7 +266,7 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     });
     const env = {
-      CLAWDBOT_GATEWAY_TOKEN: "legacy-token",
+      KOLB_BOT_GATEWAY_TOKEN: "legacy-token",
       LOCAL_SECRET_TOKEN: "resolved-from-secretref", // pragma: allowlist secret
     } as NodeJS.ProcessEnv;
 
@@ -281,7 +281,7 @@ describe("resolveGatewayConnectionAuth", () => {
     });
   });
 
-  it("resolves config-first token SecretRef even when OPENCLAW env token exists", async () => {
+  it("resolves config-first token SecretRef even when KOLB_BOT env token exists", async () => {
     const config = cfg({
       gateway: {
         mode: "local",
@@ -296,7 +296,7 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     });
     const env = {
-      OPENCLAW_GATEWAY_TOKEN: "env-token",
+      KOLB_BOT_GATEWAY_TOKEN: "env-token",
       CONFIG_FIRST_TOKEN: "config-first-token",
     } as NodeJS.ProcessEnv;
 
@@ -312,7 +312,7 @@ describe("resolveGatewayConnectionAuth", () => {
     });
   });
 
-  it("resolves config-first password SecretRef even when OPENCLAW env password exists", async () => {
+  it("resolves config-first password SecretRef even when KOLB_BOT env password exists", async () => {
     const config = cfg({
       gateway: {
         mode: "local",
@@ -328,7 +328,7 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     });
     const env = {
-      OPENCLAW_GATEWAY_PASSWORD: "env-password", // pragma: allowlist secret
+      KOLB_BOT_GATEWAY_PASSWORD: "env-password", // pragma: allowlist secret
       CONFIG_FIRST_PASSWORD: "config-first-password", // pragma: allowlist secret
     } as NodeJS.ProcessEnv;
 
@@ -359,7 +359,7 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     });
     const env = {
-      OPENCLAW_GATEWAY_TOKEN: "env-token",
+      KOLB_BOT_GATEWAY_TOKEN: "env-token",
     } as NodeJS.ProcessEnv;
 
     await expect(
@@ -396,7 +396,7 @@ describe("resolveGatewayConnectionAuth", () => {
       },
     });
     const env = {
-      OPENCLAW_GATEWAY_PASSWORD: "env-password", // pragma: allowlist secret
+      KOLB_BOT_GATEWAY_PASSWORD: "env-password", // pragma: allowlist secret
     } as NodeJS.ProcessEnv;
 
     await expect(

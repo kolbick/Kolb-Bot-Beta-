@@ -8,7 +8,7 @@ function createHost() {
     connectGeneration: 0,
     connected: true,
     tab: "chat",
-    assistantName: "OpenClaw",
+    assistantName: "Kolb-Bot",
     assistantAvatar: null,
     assistantAgentId: null,
     chatHasAutoScrolled: false,
