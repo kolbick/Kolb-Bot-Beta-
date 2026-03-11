@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { AcpRuntimeError } from "../../acp/runtime/errors.js";
-import type { OpenClawConfig } from "../../config/config.js";
+import type { KolbBotConfig } from "../../config/config.js";
 import type { SessionBindingRecord } from "../../infra/outbound/session-binding-service.js";
 
 const hoisted = vi.hoisted(() => {
@@ -169,9 +169,9 @@ const baseCfg = {
       },
     },
   },
-} satisfies OpenClawConfig;
+} satisfies KolbBotConfig;
 
-function createDiscordParams(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+function createDiscordParams(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   const params = buildCommandTestParams(commandBody, cfg, {
     Provider: "discord",
     Surface: "discord",
@@ -303,13 +303,13 @@ function mockBoundThreadSession(options?: {
   );
 }
 
-function createThreadParams(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+function createThreadParams(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   const params = createDiscordParams(commandBody, cfg);
   params.ctx.MessageThreadId = defaultThreadId;
   return params;
 }
 
-function createTelegramTopicParams(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+function createTelegramTopicParams(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   const params = buildCommandTestParams(commandBody, cfg, {
     Provider: "telegram",
     Surface: "telegram",
@@ -322,7 +322,7 @@ function createTelegramTopicParams(commandBody: string, cfg: OpenClawConfig = ba
   return params;
 }
 
-function createTelegramDmParams(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+function createTelegramDmParams(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   const params = buildCommandTestParams(commandBody, cfg, {
     Provider: "telegram",
     Surface: "telegram",
@@ -334,19 +334,19 @@ function createTelegramDmParams(commandBody: string, cfg: OpenClawConfig = baseC
   return params;
 }
 
-async function runDiscordAcpCommand(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+async function runDiscordAcpCommand(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   return handleAcpCommand(createDiscordParams(commandBody, cfg), true);
 }
 
-async function runThreadAcpCommand(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+async function runThreadAcpCommand(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   return handleAcpCommand(createThreadParams(commandBody, cfg), true);
 }
 
-async function runTelegramAcpCommand(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+async function runTelegramAcpCommand(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   return handleAcpCommand(createTelegramTopicParams(commandBody, cfg), true);
 }
 
-async function runTelegramDmAcpCommand(commandBody: string, cfg: OpenClawConfig = baseCfg) {
+async function runTelegramDmAcpCommand(commandBody: string, cfg: KolbBotConfig = baseCfg) {
   return handleAcpCommand(createTelegramDmParams(commandBody, cfg), true);
 }
 
@@ -447,7 +447,7 @@ describe("/acp command", () => {
       backendSessionId: "acpx-1",
     });
 
-    const result = await runDiscordAcpCommand("/acp spawn codex --cwd /home/bob/clawd");
+    const result = await runDiscordAcpCommand("/acp spawn codex --cwd /home/bob/kolb");
 
     expect(result?.reply?.text).toContain("Spawned ACP session agent:codex:acp:");
     expect(result?.reply?.text).toContain("Created thread thread-created and bound it");
@@ -456,7 +456,7 @@ describe("/acp command", () => {
       expect.objectContaining({
         agent: "codex",
         mode: "persistent",
-        cwd: "/home/bob/clawd",
+        cwd: "/home/bob/kolb",
       }),
     );
     expect(hoisted.sessionBindingBindMock).toHaveBeenCalledWith(
@@ -464,7 +464,7 @@ describe("/acp command", () => {
         targetKind: "session",
         placement: "child",
         metadata: expect.objectContaining({
-          introText: expect.stringContaining("cwd: /home/bob/clawd"),
+          introText: expect.stringContaining("cwd: /home/bob/kolb"),
         }),
       }),
     );
@@ -495,7 +495,7 @@ describe("/acp command", () => {
 
   it("accepts unicode dash option prefixes in /acp spawn args", async () => {
     const result = await runThreadAcpCommand(
-      "/acp spawn codex \u2014mode oneshot \u2014thread here \u2014cwd /home/bob/clawd \u2014label jeerreview",
+      "/acp spawn codex \u2014mode oneshot \u2014thread here \u2014cwd /home/bob/kolb \u2014label jeerreview",
     );
 
     expect(result?.reply?.text).toContain("Spawned ACP session agent:codex:acp:");
@@ -504,7 +504,7 @@ describe("/acp command", () => {
       expect.objectContaining({
         agent: "codex",
         mode: "oneshot",
-        cwd: "/home/bob/clawd",
+        cwd: "/home/bob/kolb",
       }),
     );
     expect(hoisted.sessionBindingBindMock).toHaveBeenCalledWith(
@@ -571,7 +571,7 @@ describe("/acp command", () => {
           },
         },
       },
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const result = await runDiscordAcpCommand("/acp spawn codex", cfg);
 
@@ -600,7 +600,7 @@ describe("/acp command", () => {
           sandbox: { mode: "all" },
         },
       },
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const result = await runDiscordAcpCommand("/acp spawn codex", cfg);
 
@@ -695,7 +695,7 @@ describe("/acp command", () => {
         ...baseCfg.acp,
         dispatch: { enabled: false },
       },
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
     const result = await runDiscordAcpCommand("/acp steer tighten logging", cfg);
     expect(result?.reply?.text).toContain("ACP dispatch is disabled by policy");
     expect(hoisted.runTurnMock).not.toHaveBeenCalled();

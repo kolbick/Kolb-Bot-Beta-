@@ -1,10 +1,10 @@
 {
-  "name": "@openclaw/signal",
+  "name": "@kolb-bot/signal",
   "version": "2026.3.9",
   "private": true,
-  "description": "OpenClaw Signal channel plugin",
+  "description": "Kolb-Bot Signal channel plugin",
   "type": "module",
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ]

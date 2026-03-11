@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/irc",
+  "name": "@kolb-bot/irc",
   "version": "2026.3.9",
-  "description": "OpenClaw IRC channel plugin",
+  "description": "Kolb-Bot IRC channel plugin",
   "type": "module",
   "dependencies": {
     "zod": "^4.3.6"
   },
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ]

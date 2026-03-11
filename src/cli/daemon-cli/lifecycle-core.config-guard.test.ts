@@ -67,8 +67,8 @@ describe("runServiceRestart config pre-flight (#35862)", () => {
     service.readCommand.mockResolvedValue({ environment: {} });
     service.restart.mockResolvedValue(undefined);
     vi.unstubAllEnvs();
-    vi.stubEnv("OPENCLAW_GATEWAY_TOKEN", "");
-    vi.stubEnv("CLAWDBOT_GATEWAY_TOKEN", "");
+    vi.stubEnv("KOLB_BOT_GATEWAY_TOKEN", "");
+    vi.stubEnv("KOLB_BOT_GATEWAY_TOKEN", "");
   });
 
   it("aborts restart when config is invalid", async () => {

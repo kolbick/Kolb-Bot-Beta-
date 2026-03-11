@@ -1,60 +1,69 @@
 ---
-summary: "OpenClaw is a multi-channel gateway for AI agents that runs on any OS."
+summary: "Kolb-Bot is a multi-channel gateway for AI agents that runs on any OS."
 read_when:
-  - Introducing OpenClaw to newcomers
-title: "OpenClaw"
+  - Introducing Kolb-Bot to newcomers
+title: "Kolb-Bot"
 ---
 
-# OpenClaw 🦞
+# Kolb-Bot 🏴‍☠️
 
 <p align="center">
     <img
-        src="/assets/openclaw-logo-text-dark.png"
-        alt="OpenClaw"
+        src="/assets/kolb-bot-logo-text-dark.png"
+        alt="Kolb-Bot"
         width="500"
         class="dark:hidden"
     />
     <img
-        src="/assets/openclaw-logo-text.png"
-        alt="OpenClaw"
+        src="/assets/kolb-bot-logo-text.png"
+        alt="Kolb-Bot"
         width="500"
         class="hidden dark:block"
     />
 </p>
 
-> _"EXFOLIATE! EXFOLIATE!"_ — A space lobster, probably
+<p align="center">
+    <img src="/assets/kolb-bot-banner.png" alt="Kolb-Bot Banner" width="800" />
+</p>
 
 <p align="center">
-  <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
-  Send a message, get an agent response from your pocket. Plugins add Mattermost and more.
+    <img src="/assets/kolb-bot-mascot.png" alt="Kolb-Bot Mascot" width="120" />
+</p>
+
+> _Half human. Half AI. All pirate._
+
+<p align="center">
+  <strong>AI made simple. Kolb-Bot explains every step in plain language so anyone can use advanced AI — not just developers.</strong><br />
+  Message your assistant on WhatsApp, Telegram, Discord, iMessage, and more. No PhD required.
 </p>
 
 <Columns>
   <Card title="Get Started" href="/start/getting-started" icon="rocket">
-    Install OpenClaw and bring up the Gateway in minutes.
+    Install Kolb-Bot and bring up the Gateway in minutes.
   </Card>
   <Card title="Run the Wizard" href="/start/wizard" icon="sparkles">
-    Guided setup with `openclaw onboard` and pairing flows.
+    Guided setup with `kolb-bot onboard` and pairing flows.
   </Card>
   <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard">
     Launch the browser dashboard for chat, config, and sessions.
   </Card>
 </Columns>
 
-## What is OpenClaw?
+## What is Kolb-Bot?
 
-OpenClaw is a **self-hosted gateway** that connects your favorite chat apps — WhatsApp, Telegram, Discord, iMessage, and more — to AI coding agents like Pi. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
+Kolb-Bot is a **personal AI assistant** that connects to the messaging apps you already use — WhatsApp, Telegram, Discord, iMessage, and more. It runs on your own machine, so your data stays yours.
 
-**Who is it for?** Developers and power users who want a personal AI assistant they can message from anywhere — without giving up control of their data or relying on a hosted service.
+**Who is it for?** Anyone who wants a smart AI assistant they can message from anywhere. You don't need to be a developer. Kolb-Bot was built because most people only know how to use basic chat models — and the powerful stuff (agents, tools, automations) was too complicated. Kolb-Bot explains everything in simple language.
 
 **What makes it different?**
 
-- **Self-hosted**: runs on your hardware, your rules
-- **Multi-channel**: one Gateway serves WhatsApp, Telegram, Discord, and more simultaneously
-- **Agent-native**: built for coding agents with tool use, sessions, memory, and multi-agent routing
+- **Beginner-friendly**: every step is explained in plain language, not developer jargon
+- **Self-hosted**: runs on your hardware, your data stays private
+- **Multi-channel**: message your assistant on WhatsApp, Telegram, Discord, and more — all at once
+- **Powerful under the hood**: agents, tools, memory, voice, and automations — all accessible
 - **Open source**: MIT licensed, community-driven
 
-**What do you need?** Node 22+, an API key from your chosen provider, and 5 minutes. For best quality and security, use the strongest latest-generation model available.
+**What do you need?** Node 22+, an API key from your chosen provider, and 5 minutes. The setup wizard walks you through everything.
 
 ## How it works
 
@@ -96,20 +105,20 @@ The Gateway is the single source of truth for sessions, routing, and channel con
 ## Quick start
 
 <Steps>
-  <Step title="Install OpenClaw">
+  <Step title="Install Kolb-Bot">
     ```bash
-    npm install -g openclaw@latest
+    npm install -g kolb-bot@latest
     ```
   </Step>
   <Step title="Onboard and install the service">
     ```bash
-    openclaw onboard --install-daemon
+    kolb-bot onboard --install-daemon
     ```
   </Step>
   <Step title="Pair WhatsApp and start the Gateway">
     ```bash
-    openclaw channels login
-    openclaw gateway --port 18789
+    kolb-bot channels login
+    kolb-bot gateway --port 18789
     ```
   </Step>
 </Steps>
@@ -124,14 +133,14 @@ Open the browser Control UI after the Gateway starts.
 - Remote access: [Web surfaces](/web) and [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420" />
+  <img src="/whatsapp-kolb-bot.jpg" alt="Kolb-Bot" width="420" />
 </p>
 
 ## Configuration (optional)
 
-Config lives at `~/.openclaw/openclaw.json`.
+Config lives at `~/.kolbick/Kolb-Bot-Beta-.json`.
 
-- If you **do nothing**, OpenClaw uses the bundled Pi binary in RPC mode with per-sender sessions.
+- If you **do nothing**, Kolb-Bot uses the bundled Pi binary in RPC mode with per-sender sessions.
 - If you want to lock it down, start with `channels.whatsapp.allowFrom` and (for groups) mention rules.
 
 Example:
@@ -144,7 +153,7 @@ Example:
       groups: { "*": { requireMention: true } },
     },
   },
-  messages: { groupChat: { mentionPatterns: ["@openclaw"] } },
+  messages: { groupChat: { mentionPatterns: ["@kolb-bot"] } },
 }
 ```
 

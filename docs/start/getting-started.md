@@ -1,5 +1,5 @@
 ---
-summary: "Get OpenClaw installed and run your first chat in minutes."
+summary: "Get Kolb-Bot installed and run your first chat in minutes."
 read_when:
   - First time setup from zero
   - You want the fastest path to a working chat
@@ -8,31 +8,36 @@ title: "Getting Started"
 
 # Getting Started
 
-Goal: go from zero to a first working chat with minimal setup.
+You're about to set up your own personal AI assistant. This takes about 5 minutes, and we'll explain every step along the way.
 
 <Info>
-Fastest chat: open the Control UI (no channel setup needed). Run `openclaw dashboard`
-and chat in the browser, or open `http://127.0.0.1:18789/` on the
-<Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">gateway host</Tooltip>.
+**Want to skip straight to chatting?** Run `kolb-bot dashboard` and chat in your browser — no extra setup needed. You can connect WhatsApp, Telegram, and other apps later.
 Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 </Info>
 
-## Prereqs
+## What you need first
 
-- Node 22 or newer
+Before you do anything else, you need two things:
+
+1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot. Think of it like how your browser runs websites. Don't have it? The installer script in Step 1 will handle it for you, or you can [download it manually](https://nodejs.org/).
+2. **An AI API key** — this is what powers the AI brain behind your assistant. You can get one from [OpenAI](https://platform.openai.com/api-keys), [Anthropic](https://console.anthropic.com/), or [other providers](/concepts/models). Don't worry — the setup wizard will walk you through this if you don't have one yet.
 
 <Tip>
-Check your Node version with `node --version` if you are unsure.
+**Not sure if you have Node?** Open your terminal (on Mac: search for "Terminal" in Spotlight; on Windows: search for "PowerShell") and type `node --version`. If you see a number like `v22.x.x`, you're good. If you get an error, no worries — the installer script handles it.
 </Tip>
 
-## Quick setup (CLI)
+## Quick setup (step by step)
 
 <Steps>
-  <Step title="Install OpenClaw (recommended)">
+  <Step title="Step 1: Install Kolb-Bot">
+    Pick whichever method feels most familiar — they all do the same thing:
+
     <Tabs>
-      <Tab title="macOS/Linux">
+      <Tab title="Installer script (easiest)">
+        Copy and paste this into your terminal. It installs Node (if needed) and Kolb-Bot in one step:
+
         ```bash
-        curl -fsSL https://openclaw.ai/install.sh | bash
+        curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
         ```
         <img
   src="/assets/install-script.svg"
@@ -40,44 +45,61 @@ Check your Node version with `node --version` if you are unsure.
   className="rounded-lg"
 />
       </Tab>
+      <Tab title="Homebrew (macOS/Linux)">
+        If you use Homebrew (a popular package manager for Mac):
+
+        ```bash
+        brew install kolb-bot
+        ```
+      </Tab>
+      <Tab title="npm (if you have Node)">
+        If you already have Node.js installed:
+
+        ```bash
+        npm install -g kolb-bot@latest
+        ```
+      </Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
-        iwr -useb https://openclaw.ai/install.ps1 | iex
+        iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
         ```
       </Tab>
     </Tabs>
 
     <Note>
-    Other install methods and requirements: [Install](/install).
+    **What's a terminal?** It's the text-based app where you type commands. On Mac, search for "Terminal" in Spotlight. On Windows, search for "PowerShell". More install options: [Install](/install).
     </Note>
 
   </Step>
-  <Step title="Run the onboarding wizard">
+  <Step title="Step 2: Run the setup wizard">
+    This walks you through connecting your AI provider (like OpenAI or Anthropic) and setting up your assistant. It explains each step as you go.
+
     ```bash
-    openclaw onboard --install-daemon
+    kolb-bot onboard --install-daemon
     ```
 
-    The wizard configures auth, gateway settings, and optional channels.
-    See [Onboarding Wizard](/start/wizard) for details.
+    The wizard will ask you questions and explain what each choice means. See [Onboarding Wizard](/start/wizard) for the full guide.
 
   </Step>
-  <Step title="Check the Gateway">
-    If you installed the service, it should already be running:
+  <Step title="Step 3: Check that it's running">
+    This tells you if your assistant is online and ready:
 
     ```bash
-    openclaw gateway status
+    kolb-bot gateway status
     ```
 
   </Step>
-  <Step title="Open the Control UI">
+  <Step title="Step 4: Start chatting">
+    This opens Kolb-Bot in your browser so you can start talking to your assistant:
+
     ```bash
-    openclaw dashboard
+    kolb-bot dashboard
     ```
   </Step>
 </Steps>
 
 <Check>
-If the Control UI loads, your Gateway is ready for use.
+If the dashboard loads in your browser, congratulations — your personal AI assistant is live!
 </Check>
 
 ## Optional checks and extras
@@ -87,7 +109,7 @@ If the Control UI loads, your Gateway is ready for use.
     Useful for quick tests or troubleshooting.
 
     ```bash
-    openclaw gateway --port 18789
+    kolb-bot gateway --port 18789
     ```
 
   </Accordion>
@@ -95,7 +117,7 @@ If the Control UI loads, your Gateway is ready for use.
     Requires a configured channel.
 
     ```bash
-    openclaw message send --target +15555550123 --message "Hello from OpenClaw"
+    kolb-bot message send --target +15555550123 --message "Hello from Kolb-Bot"
     ```
 
   </Accordion>
@@ -103,11 +125,11 @@ If the Control UI loads, your Gateway is ready for use.
 
 ## Useful environment variables
 
-If you run OpenClaw as a service account or want custom config/state locations:
+If you run Kolb-Bot as a service account or want custom config/state locations:
 
-- `OPENCLAW_HOME` sets the home directory used for internal path resolution.
-- `OPENCLAW_STATE_DIR` overrides the state directory.
-- `OPENCLAW_CONFIG_PATH` overrides the config file path.
+- `KOLB_BOT_HOME` sets the home directory used for internal path resolution.
+- `KOLB_BOT_STATE_DIR` overrides the state directory.
+- `KOLB_BOT_CONFIG_PATH` overrides the config file path.
 
 Full environment variable reference: [Environment vars](/help/environment).
 
@@ -122,14 +144,14 @@ Full environment variable reference: [Environment vars](/help/environment).
   </Card>
 </Columns>
 
-## What you will have
+## What you now have
 
-- A running Gateway
-- Auth configured
-- Control UI access or a connected channel
+- A running AI assistant (the "Gateway" — this is the brain that processes your messages)
+- Your AI provider connected (this is the AI model that generates responses)
+- A dashboard where you can chat — and optionally, your messaging apps connected too
 
-## Next steps
+## What's next?
 
-- DM safety and approvals: [Pairing](/channels/pairing)
-- Connect more channels: [Channels](/channels)
-- Advanced workflows and from source: [Setup](/start/setup)
+- **Connect your messaging apps** so you can text your AI from WhatsApp, Telegram, etc.: [Channels](/channels)
+- **Set up who can message your bot** (security basics): [Pairing](/channels/pairing)
+- **Dive deeper** into advanced features: [Setup](/start/setup)

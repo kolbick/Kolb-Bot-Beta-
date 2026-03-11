@@ -9,7 +9,7 @@ title: "Logging"
 
 # Logging
 
-OpenClaw logs in two places:
+Kolb-Bot logs in two places:
 
 - **File logs** (JSON lines) written by the Gateway.
 - **Console output** shown in terminals and the Control UI.
@@ -21,16 +21,16 @@ levels and formats.
 
 By default, the Gateway writes a rolling log file under:
 
-`/tmp/openclaw/openclaw-YYYY-MM-DD.log`
+`/tmp/kolbick/Kolb-Bot-Beta--YYYY-MM-DD.log`
 
 The date uses the gateway host's local timezone.
 
-You can override this in `~/.openclaw/openclaw.json`:
+You can override this in `~/.kolbick/Kolb-Bot-Beta-.json`:
 
 ```json
 {
   "logging": {
-    "file": "/path/to/openclaw.log"
+    "file": "/path/to/kolb-bot.log"
   }
 }
 ```
@@ -42,7 +42,7 @@ You can override this in `~/.openclaw/openclaw.json`:
 Use the CLI to tail the gateway log file via RPC:
 
 ```bash
-openclaw logs --follow
+kolb-bot logs --follow
 ```
 
 Output modes:
@@ -63,7 +63,7 @@ In JSON mode, the CLI emits `type`-tagged objects:
 If the Gateway is unreachable, the CLI prints a short hint to run:
 
 ```bash
-openclaw doctor
+kolb-bot doctor
 ```
 
 ### Control UI (web)
@@ -76,7 +76,7 @@ See [/web/control-ui](/web/control-ui) for how to open it.
 To filter channel activity (WhatsApp/Telegram/etc), use:
 
 ```bash
-openclaw channels logs --channel whatsapp
+kolb-bot channels logs --channel whatsapp
 ```
 
 ## Log formats
@@ -98,13 +98,13 @@ Console formatting is controlled by `logging.consoleStyle`.
 
 ## Configuring logging
 
-All logging configuration lives under `logging` in `~/.openclaw/openclaw.json`.
+All logging configuration lives under `logging` in `~/.kolbick/Kolb-Bot-Beta-.json`.
 
 ```json
 {
   "logging": {
     "level": "info",
-    "file": "/tmp/openclaw/openclaw-YYYY-MM-DD.log",
+    "file": "/tmp/kolbick/Kolb-Bot-Beta--YYYY-MM-DD.log",
     "consoleLevel": "info",
     "consoleStyle": "pretty",
     "redactSensitive": "tools",
@@ -118,7 +118,7 @@ All logging configuration lives under `logging` in `~/.openclaw/openclaw.json`.
 - `logging.level`: **file logs** (JSONL) level.
 - `logging.consoleLevel`: **console** verbosity level.
 
-You can override both via the **`OPENCLAW_LOG_LEVEL`** environment variable (e.g. `OPENCLAW_LOG_LEVEL=debug`). The env var takes precedence over the config file, so you can raise verbosity for a single run without editing `openclaw.json`. You can also pass the global CLI option **`--log-level <level>`** (for example, `openclaw --log-level debug gateway run`), which overrides the environment variable for that command.
+You can override both via the **`KOLB_BOT_LOG_LEVEL`** environment variable (e.g. `KOLB_BOT_LOG_LEVEL=debug`). The env var takes precedence over the config file, so you can raise verbosity for a single run without editing `kolb-bot.json`. You can also pass the global CLI option **`--log-level <level>`** (for example, `kolb-bot --log-level debug gateway run`), which overrides the environment variable for that command.
 
 `--verbose` only affects console output; it does not change file log levels.
 
@@ -152,7 +152,7 @@ diagnostics + the exporter plugin are enabled.
 
 - **OpenTelemetry (OTel)**: the data model + SDKs for traces, metrics, and logs.
 - **OTLP**: the wire protocol used to export OTel data to a collector/backend.
-- OpenClaw exports via **OTLP/HTTP (protobuf)** today.
+- Kolb-Bot exports via **OTLP/HTTP (protobuf)** today.
 
 ### Signals exported
 
@@ -212,7 +212,7 @@ Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 Env override (one-off):
 
 ```
-OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
+KOLB_BOT_DIAGNOSTICS=telegram.http,telegram.payload
 ```
 
 Notes:
@@ -242,7 +242,7 @@ works with any OpenTelemetry collector/backend that accepts OTLP/HTTP.
       "enabled": true,
       "endpoint": "http://otel-collector:4318",
       "protocol": "http/protobuf",
-      "serviceName": "openclaw-gateway",
+      "serviceName": "kolb-bot-gateway",
       "traces": true,
       "metrics": true,
       "logs": true,
@@ -255,7 +255,7 @@ works with any OpenTelemetry collector/backend that accepts OTLP/HTTP.
 
 Notes:
 
-- You can also enable the plugin with `openclaw plugins enable diagnostics-otel`.
+- You can also enable the plugin with `kolb-bot plugins enable diagnostics-otel`.
 - `protocol` currently supports `http/protobuf` only. `grpc` is ignored.
 - Metrics include token usage, cost, context size, run duration, and message-flow
   counters/histograms (webhooks, queueing, session state, queue depth/wait).
@@ -269,60 +269,60 @@ Notes:
 
 Model usage:
 
-- `openclaw.tokens` (counter, attrs: `openclaw.token`, `openclaw.channel`,
-  `openclaw.provider`, `openclaw.model`)
-- `openclaw.cost.usd` (counter, attrs: `openclaw.channel`, `openclaw.provider`,
-  `openclaw.model`)
-- `openclaw.run.duration_ms` (histogram, attrs: `openclaw.channel`,
-  `openclaw.provider`, `openclaw.model`)
-- `openclaw.context.tokens` (histogram, attrs: `openclaw.context`,
-  `openclaw.channel`, `openclaw.provider`, `openclaw.model`)
+- `kolb-bot.tokens` (counter, attrs: `kolb-bot.token`, `kolb-bot.channel`,
+  `kolb-bot.provider`, `kolb-bot.model`)
+- `kolb-bot.cost.usd` (counter, attrs: `kolb-bot.channel`, `kolb-bot.provider`,
+  `kolb-bot.model`)
+- `kolb-bot.run.duration_ms` (histogram, attrs: `kolb-bot.channel`,
+  `kolb-bot.provider`, `kolb-bot.model`)
+- `kolb-bot.context.tokens` (histogram, attrs: `kolb-bot.context`,
+  `kolb-bot.channel`, `kolb-bot.provider`, `kolb-bot.model`)
 
 Message flow:
 
-- `openclaw.webhook.received` (counter, attrs: `openclaw.channel`,
-  `openclaw.webhook`)
-- `openclaw.webhook.error` (counter, attrs: `openclaw.channel`,
-  `openclaw.webhook`)
-- `openclaw.webhook.duration_ms` (histogram, attrs: `openclaw.channel`,
-  `openclaw.webhook`)
-- `openclaw.message.queued` (counter, attrs: `openclaw.channel`,
-  `openclaw.source`)
-- `openclaw.message.processed` (counter, attrs: `openclaw.channel`,
-  `openclaw.outcome`)
-- `openclaw.message.duration_ms` (histogram, attrs: `openclaw.channel`,
-  `openclaw.outcome`)
+- `kolb-bot.webhook.received` (counter, attrs: `kolb-bot.channel`,
+  `kolb-bot.webhook`)
+- `kolb-bot.webhook.error` (counter, attrs: `kolb-bot.channel`,
+  `kolb-bot.webhook`)
+- `kolb-bot.webhook.duration_ms` (histogram, attrs: `kolb-bot.channel`,
+  `kolb-bot.webhook`)
+- `kolb-bot.message.queued` (counter, attrs: `kolb-bot.channel`,
+  `kolb-bot.source`)
+- `kolb-bot.message.processed` (counter, attrs: `kolb-bot.channel`,
+  `kolb-bot.outcome`)
+- `kolb-bot.message.duration_ms` (histogram, attrs: `kolb-bot.channel`,
+  `kolb-bot.outcome`)
 
 Queues + sessions:
 
-- `openclaw.queue.lane.enqueue` (counter, attrs: `openclaw.lane`)
-- `openclaw.queue.lane.dequeue` (counter, attrs: `openclaw.lane`)
-- `openclaw.queue.depth` (histogram, attrs: `openclaw.lane` or
-  `openclaw.channel=heartbeat`)
-- `openclaw.queue.wait_ms` (histogram, attrs: `openclaw.lane`)
-- `openclaw.session.state` (counter, attrs: `openclaw.state`, `openclaw.reason`)
-- `openclaw.session.stuck` (counter, attrs: `openclaw.state`)
-- `openclaw.session.stuck_age_ms` (histogram, attrs: `openclaw.state`)
-- `openclaw.run.attempt` (counter, attrs: `openclaw.attempt`)
+- `kolb-bot.queue.lane.enqueue` (counter, attrs: `kolb-bot.lane`)
+- `kolb-bot.queue.lane.dequeue` (counter, attrs: `kolb-bot.lane`)
+- `kolb-bot.queue.depth` (histogram, attrs: `kolb-bot.lane` or
+  `kolb-bot.channel=heartbeat`)
+- `kolb-bot.queue.wait_ms` (histogram, attrs: `kolb-bot.lane`)
+- `kolb-bot.session.state` (counter, attrs: `kolb-bot.state`, `kolb-bot.reason`)
+- `kolb-bot.session.stuck` (counter, attrs: `kolb-bot.state`)
+- `kolb-bot.session.stuck_age_ms` (histogram, attrs: `kolb-bot.state`)
+- `kolb-bot.run.attempt` (counter, attrs: `kolb-bot.attempt`)
 
 ### Exported spans (names + key attributes)
 
-- `openclaw.model.usage`
-  - `openclaw.channel`, `openclaw.provider`, `openclaw.model`
-  - `openclaw.sessionKey`, `openclaw.sessionId`
-  - `openclaw.tokens.*` (input/output/cache_read/cache_write/total)
-- `openclaw.webhook.processed`
-  - `openclaw.channel`, `openclaw.webhook`, `openclaw.chatId`
-- `openclaw.webhook.error`
-  - `openclaw.channel`, `openclaw.webhook`, `openclaw.chatId`,
-    `openclaw.error`
-- `openclaw.message.processed`
-  - `openclaw.channel`, `openclaw.outcome`, `openclaw.chatId`,
-    `openclaw.messageId`, `openclaw.sessionKey`, `openclaw.sessionId`,
-    `openclaw.reason`
-- `openclaw.session.stuck`
-  - `openclaw.state`, `openclaw.ageMs`, `openclaw.queueDepth`,
-    `openclaw.sessionKey`, `openclaw.sessionId`
+- `kolb-bot.model.usage`
+  - `kolb-bot.channel`, `kolb-bot.provider`, `kolb-bot.model`
+  - `kolb-bot.sessionKey`, `kolb-bot.sessionId`
+  - `kolb-bot.tokens.*` (input/output/cache_read/cache_write/total)
+- `kolb-bot.webhook.processed`
+  - `kolb-bot.channel`, `kolb-bot.webhook`, `kolb-bot.chatId`
+- `kolb-bot.webhook.error`
+  - `kolb-bot.channel`, `kolb-bot.webhook`, `kolb-bot.chatId`,
+    `kolb-bot.error`
+- `kolb-bot.message.processed`
+  - `kolb-bot.channel`, `kolb-bot.outcome`, `kolb-bot.chatId`,
+    `kolb-bot.messageId`, `kolb-bot.sessionKey`, `kolb-bot.sessionId`,
+    `kolb-bot.reason`
+- `kolb-bot.session.stuck`
+  - `kolb-bot.state`, `kolb-bot.ageMs`, `kolb-bot.queueDepth`,
+    `kolb-bot.sessionKey`, `kolb-bot.sessionId`
 
 ### Sampling + flushing
 
@@ -346,7 +346,7 @@ Queues + sessions:
 
 ## Troubleshooting tips
 
-- **Gateway not reachable?** Run `openclaw doctor` first.
+- **Gateway not reachable?** Run `kolb-bot doctor` first.
 - **Logs empty?** Check that the Gateway is running and writing to the file path
   in `logging.file`.
 - **Need more detail?** Set `logging.level` to `debug` or `trace` and retry.

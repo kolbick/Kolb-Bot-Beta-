@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 import { logWarn } from "../logger.js";
 import { redactIdentifier } from "../logging/redact-identifier.js";
 import {
@@ -25,7 +25,7 @@ export type ResolveRunWorkspaceResult = {
 function resolveRunAgentId(params: {
   sessionKey?: string;
   agentId?: string;
-  config?: OpenClawConfig;
+  config?: KolbBotConfig;
 }): {
   agentId: string;
   agentIdSource: AgentIdSource;
@@ -75,7 +75,7 @@ export function resolveRunWorkspaceDir(params: {
   workspaceDir: unknown;
   sessionKey?: string;
   agentId?: string;
-  config?: OpenClawConfig;
+  config?: KolbBotConfig;
 }): ResolveRunWorkspaceResult {
   const requested = params.workspaceDir;
   const { agentId, agentIdSource } = resolveRunAgentId({

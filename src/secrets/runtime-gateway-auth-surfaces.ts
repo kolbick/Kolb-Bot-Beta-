@@ -1,12 +1,12 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 import { coerceSecretRef, hasConfiguredSecretInput } from "../config/types.secrets.js";
 import type { SecretDefaults } from "./runtime-shared.js";
 import { isRecord } from "./shared.js";
 
-const GATEWAY_TOKEN_ENV_KEYS = ["OPENCLAW_GATEWAY_TOKEN", "CLAWDBOT_GATEWAY_TOKEN"] as const;
+const GATEWAY_TOKEN_ENV_KEYS = ["KOLB_BOT_GATEWAY_TOKEN", "KOLB_BOT_GATEWAY_TOKEN"] as const;
 const GATEWAY_PASSWORD_ENV_KEYS = [
-  "OPENCLAW_GATEWAY_PASSWORD",
-  "CLAWDBOT_GATEWAY_PASSWORD",
+  "KOLB_BOT_GATEWAY_PASSWORD",
+  "KOLB_BOT_GATEWAY_PASSWORD",
 ] as const;
 
 export const GATEWAY_AUTH_SURFACE_PATHS = [
@@ -78,7 +78,7 @@ function createState(params: {
 }
 
 export function evaluateGatewayAuthSurfaceStates(params: {
-  config: OpenClawConfig;
+  config: KolbBotConfig;
   env: NodeJS.ProcessEnv;
   defaults?: SecretDefaults;
 }): GatewayAuthSurfaceStateMap {

@@ -1,6 +1,6 @@
-# @openclaw/voice-call
+# @kolb-bot/voice-call
 
-Official Voice Call plugin for **OpenClaw**.
+Official Voice Call plugin for **Kolb-Bot**.
 
 Providers:
 
@@ -9,15 +9,15 @@ Providers:
 - **Plivo** (Voice API + XML transfer + GetInput speech)
 - **Mock** (dev/no network)
 
-Docs: `https://docs.openclaw.ai/plugins/voice-call`
-Plugin system: `https://docs.openclaw.ai/plugin`
+Docs: `https://docs.github.com/kolbick/Kolb-Bot-Beta-/plugins/voice-call`
+Plugin system: `https://docs.github.com/kolbick/Kolb-Bot-Beta-/plugin`
 
 ## Install (local dev)
 
-### Option A: install via OpenClaw (recommended)
+### Option A: install via Kolb-Bot (recommended)
 
 ```bash
-openclaw plugins install @openclaw/voice-call
+kolb-bot plugins install @kolb-bot/voice-call
 ```
 
 Restart the Gateway afterwards.
@@ -25,9 +25,9 @@ Restart the Gateway afterwards.
 ### Option B: copy into your global extensions folder (dev)
 
 ```bash
-mkdir -p ~/.openclaw/extensions
-cp -R extensions/voice-call ~/.openclaw/extensions/voice-call
-cd ~/.openclaw/extensions/voice-call && pnpm install
+mkdir -p ~/.kolb-bot/extensions
+cp -R extensions/voice-call ~/.kolb-bot/extensions/voice-call
+cd ~/.kolb-bot/extensions/voice-call && pnpm install
 ```
 
 ## Config
@@ -143,13 +143,13 @@ Notes:
 ## CLI
 
 ```bash
-openclaw voicecall call --to "+15555550123" --message "Hello from OpenClaw"
-openclaw voicecall continue --call-id <id> --message "Any questions?"
-openclaw voicecall speak --call-id <id> --message "One moment"
-openclaw voicecall end --call-id <id>
-openclaw voicecall status --call-id <id>
-openclaw voicecall tail
-openclaw voicecall expose --mode funnel
+kolb-bot voicecall call --to "+15555550123" --message "Hello from Kolb-Bot"
+kolb-bot voicecall continue --call-id <id> --message "Any questions?"
+kolb-bot voicecall speak --call-id <id> --message "One moment"
+kolb-bot voicecall end --call-id <id>
+kolb-bot voicecall status --call-id <id>
+kolb-bot voicecall tail
+kolb-bot voicecall expose --mode funnel
 ```
 
 ## Tool

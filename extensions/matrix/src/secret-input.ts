@@ -3,7 +3,7 @@ import {
   hasConfiguredSecretInput,
   normalizeResolvedSecretInputString,
   normalizeSecretInputString,
-} from "openclaw/plugin-sdk/matrix";
+} from "kolb-bot/plugin-sdk/matrix";
 
 export {
   buildSecretInputSchema,

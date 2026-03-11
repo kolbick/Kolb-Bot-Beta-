@@ -10,7 +10,7 @@ import {
   type TopLevelComponents,
 } from "@buape/carbon";
 import { ButtonStyle, Routes } from "discord-api-types/v10";
-import type { OpenClawConfig } from "../../config/config.js";
+import type { KolbBotConfig } from "../../config/config.js";
 import { loadSessionStore, resolveStorePath } from "../../config/sessions.js";
 import type { DiscordExecApprovalConfig } from "../../config/types.discord.js";
 import { buildGatewayConnectionDetails } from "../../gateway/call.js";
@@ -105,7 +105,7 @@ export function parseExecApprovalData(
 }
 
 type ExecApprovalContainerParams = {
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   accountId: string;
   title: string;
   description?: string;
@@ -189,7 +189,7 @@ class ExecApprovalActionRow extends Row<Button> {
 }
 
 function resolveExecApprovalAccountId(params: {
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   request: ExecApprovalRequest;
 }): string | null {
   const sessionKey = params.request.request.sessionKey?.trim();
@@ -242,7 +242,7 @@ function formatCommandPreview(commandText: string, maxChars: number): string {
 
 function createExecApprovalRequestContainer(params: {
   request: ExecApprovalRequest;
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   accountId: string;
   actionRow?: Row<Button>;
 }): ExecApprovalContainer {
@@ -267,7 +267,7 @@ function createResolvedContainer(params: {
   request: ExecApprovalRequest;
   decision: ExecApprovalDecision;
   resolvedBy?: string | null;
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   accountId: string;
 }): ExecApprovalContainer {
   const commandText = params.request.request.command;
@@ -300,7 +300,7 @@ function createResolvedContainer(params: {
 
 function createExpiredContainer(params: {
   request: ExecApprovalRequest;
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   accountId: string;
 }): ExecApprovalContainer {
   const commandText = params.request.request.command;
@@ -322,7 +322,7 @@ export type DiscordExecApprovalHandlerOpts = {
   accountId: string;
   config: DiscordExecApprovalConfig;
   gatewayUrl?: string;
-  cfg: OpenClawConfig;
+  cfg: KolbBotConfig;
   runtime?: RuntimeEnv;
   onResolve?: (id: string, decision: ExecApprovalDecision) => Promise<void>;
 };
@@ -415,7 +415,7 @@ export class DiscordExecApprovalHandler {
     const gatewayUrlOverrideSource =
       urlSource === "cli --url"
         ? "cli"
-        : urlSource === "env OPENCLAW_GATEWAY_URL"
+        : urlSource === "env KOLB_BOT_GATEWAY_URL"
           ? "env"
           : undefined;
     const auth = await resolveGatewayConnectionAuth({

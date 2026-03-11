@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 const managerMocks = vi.hoisted(() => ({
   resolveSession: vi.fn(),
   closeSession: vi.fn(),
@@ -35,7 +35,7 @@ const baseCfg = {
   agents: {
     list: [{ id: "codex" }, { id: "claude" }],
   },
-} satisfies OpenClawConfig;
+} satisfies KolbBotConfig;
 
 beforeEach(() => {
   managerMocks.resolveSession.mockReset();
@@ -62,11 +62,11 @@ describe("resolveConfiguredAcpBindingRecord", () => {
             peer: { kind: "channel", id: "1478836151241412759" },
           },
           acp: {
-            cwd: "/repo/openclaw",
+            cwd: "/repo/kolb-bot",
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -96,7 +96,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -133,7 +133,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -170,7 +170,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -196,7 +196,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -226,7 +226,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const canonical = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -263,7 +263,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -305,7 +305,7 @@ describe("resolveConfiguredAcpBindingRecord", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -340,7 +340,7 @@ describe("resolveConfiguredAcpBindingSpecBySessionKey", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -396,7 +396,7 @@ describe("resolveConfiguredAcpBindingSpecBySessionKey", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
 
     const resolved = resolveConfiguredAcpBindingRecord({
       cfg,
@@ -451,7 +451,7 @@ describe("ensureConfiguredAcpBindingSession", () => {
         agent: "codex",
         runtimeSessionName: "existing",
         mode: "persistent",
-        runtimeOptions: { cwd: "/workspace/openclaw" },
+        runtimeOptions: { cwd: "/workspace/kolb-bot" },
         state: "idle",
         lastActivityAt: Date.now(),
       },
@@ -551,7 +551,7 @@ describe("resetAcpSessionInPlace", () => {
           },
         },
       ],
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
     const sessionKey = buildConfiguredAcpSessionKey({
       channel: "discord",
       accountId: "default",
@@ -586,7 +586,7 @@ describe("resetAcpSessionInPlace", () => {
         agent: "claude",
         mode: "persistent",
         backend: "acpx",
-        runtimeOptions: { cwd: "/home/bob/clawd" },
+        runtimeOptions: { cwd: "/home/bob/kolb" },
       },
     });
     managerMocks.initializeSession.mockRejectedValueOnce(new Error("backend unavailable"));
@@ -612,7 +612,7 @@ describe("resetAcpSessionInPlace", () => {
       agents: {
         list: [{ id: "main" }, { id: "coding" }],
       },
-    } satisfies OpenClawConfig;
+    } satisfies KolbBotConfig;
     const sessionKey = "agent:coding:acp:binding:discord:default:9373ab192b2317f4";
     sessionMetaMocks.readAcpSessionEntry.mockReturnValue({
       acp: {

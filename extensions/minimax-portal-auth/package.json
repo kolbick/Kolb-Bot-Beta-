@@ -1,10 +1,10 @@
 {
-  "name": "@openclaw/minimax-portal-auth",
+  "name": "@kolb-bot/minimax-portal-auth",
   "version": "2026.3.9",
   "private": true,
-  "description": "OpenClaw MiniMax Portal OAuth provider plugin",
+  "description": "Kolb-Bot MiniMax Portal OAuth provider plugin",
   "type": "module",
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ]

@@ -87,13 +87,13 @@ describe("gateway auth", () => {
     expect(res.user).toBe(params.expected.user);
   }
 
-  it("resolves token/password from OPENCLAW gateway env vars", () => {
+  it("resolves token/password from KOLB_BOT gateway env vars", () => {
     expect(
       resolveGatewayAuth({
         authConfig: {},
         env: {
-          OPENCLAW_GATEWAY_TOKEN: "env-token",
-          OPENCLAW_GATEWAY_PASSWORD: "env-password",
+          KOLB_BOT_GATEWAY_TOKEN: "env-token",
+          KOLB_BOT_GATEWAY_PASSWORD: "env-password",
         } as NodeJS.ProcessEnv,
       }),
     ).toMatchObject({
@@ -104,13 +104,13 @@ describe("gateway auth", () => {
     });
   });
 
-  it("does not resolve legacy CLAWDBOT gateway env vars", () => {
+  it("does not resolve legacy KOLBBOT gateway env vars", () => {
     expect(
       resolveGatewayAuth({
         authConfig: {},
         env: {
-          CLAWDBOT_GATEWAY_TOKEN: "legacy-token",
-          CLAWDBOT_GATEWAY_PASSWORD: "legacy-password",
+          KOLB_BOT_GATEWAY_TOKEN: "legacy-token",
+          KOLB_BOT_GATEWAY_PASSWORD: "legacy-password",
         } as NodeJS.ProcessEnv,
       }),
     ).toMatchObject({
@@ -129,8 +129,8 @@ describe("gateway auth", () => {
           password: "config-password", // pragma: allowlist secret
         },
         env: {
-          OPENCLAW_GATEWAY_TOKEN: "env-token",
-          OPENCLAW_GATEWAY_PASSWORD: "env-password",
+          KOLB_BOT_GATEWAY_TOKEN: "env-token",
+          KOLB_BOT_GATEWAY_PASSWORD: "env-password",
         } as NodeJS.ProcessEnv,
       }),
     ).toMatchObject({
@@ -143,12 +143,12 @@ describe("gateway auth", () => {
     expect(
       resolveGatewayAuth({
         authConfig: {
-          token: "${OPENCLAW_GATEWAY_TOKEN}",
-          password: "${OPENCLAW_GATEWAY_PASSWORD}",
+          token: "${KOLB_BOT_GATEWAY_TOKEN}",
+          password: "${KOLB_BOT_GATEWAY_PASSWORD}",
         },
         env: {
-          OPENCLAW_GATEWAY_TOKEN: "env-token",
-          OPENCLAW_GATEWAY_PASSWORD: "env-password",
+          KOLB_BOT_GATEWAY_TOKEN: "env-token",
+          KOLB_BOT_GATEWAY_PASSWORD: "env-password",
         } as NodeJS.ProcessEnv,
       }),
     ).toMatchObject({
@@ -434,7 +434,7 @@ describe("gateway auth", () => {
     ).toThrow(/provider reference object/);
   });
 
-  it("accepts password mode when env provides OPENCLAW_GATEWAY_PASSWORD", () => {
+  it("accepts password mode when env provides KOLB_BOT_GATEWAY_PASSWORD", () => {
     const rawPasswordRef = { source: "exec", provider: "op", id: "pw" } as never;
     const auth = resolveGatewayAuth({
       authConfig: {
@@ -442,7 +442,7 @@ describe("gateway auth", () => {
         password: rawPasswordRef,
       },
       env: {
-        OPENCLAW_GATEWAY_PASSWORD: "env-password",
+        KOLB_BOT_GATEWAY_PASSWORD: "env-password",
       } as NodeJS.ProcessEnv,
     });
 

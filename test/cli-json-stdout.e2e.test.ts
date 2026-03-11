@@ -8,22 +8,22 @@ describe("cli json stdout contract", () => {
   it("keeps `update status --json` stdout parseable even with legacy doctor preflight inputs", async () => {
     await withTempHome(
       async (tempHome) => {
-        const legacyDir = path.join(tempHome, ".clawdbot");
+        const legacyDir = path.join(tempHome, ".kolb-bot");
         await fs.mkdir(legacyDir, { recursive: true });
-        await fs.writeFile(path.join(legacyDir, "clawdbot.json"), "{}", "utf8");
+        await fs.writeFile(path.join(legacyDir, "kolb-bot.json"), "{}", "utf8");
 
         const env = {
           ...process.env,
           HOME: tempHome,
           USERPROFILE: tempHome,
-          OPENCLAW_TEST_FAST: "1",
+          KOLB_BOT_TEST_FAST: "1",
         };
-        delete env.OPENCLAW_HOME;
-        delete env.OPENCLAW_STATE_DIR;
-        delete env.OPENCLAW_CONFIG_PATH;
+        delete env.KOLB_BOT_HOME;
+        delete env.KOLB_BOT_STATE_DIR;
+        delete env.KOLB_BOT_CONFIG_PATH;
         delete env.VITEST;
 
-        const entry = path.resolve(process.cwd(), "openclaw.mjs");
+        const entry = path.resolve(process.cwd(), "kolb-bot.mjs");
         const result = spawnSync(
           process.execPath,
           [entry, "update", "status", "--json", "--timeout", "1"],
@@ -38,7 +38,7 @@ describe("cli json stdout contract", () => {
         expect(stdout).not.toContain("Doctor changes");
         expect(stdout).not.toContain("Config invalid");
       },
-      { prefix: "openclaw-json-e2e-" },
+      { prefix: "kolb-bot-json-e2e-" },
     );
   });
 });

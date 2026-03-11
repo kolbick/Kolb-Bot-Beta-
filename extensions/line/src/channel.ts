@@ -2,7 +2,7 @@ import {
   buildAccountScopedDmSecurityPolicy,
   createScopedAccountConfigAccessors,
   collectAllowlistProviderRestrictSendersWarnings,
-} from "openclaw/plugin-sdk/compat";
+} from "kolb-bot/plugin-sdk/compat";
 import {
   buildChannelConfigSchema,
   buildComputedAccountStatusSnapshot,
@@ -13,11 +13,11 @@ import {
   processLineMessage,
   type ChannelPlugin,
   type ChannelStatusIssue,
-  type OpenClawConfig,
+  type KolbBotConfig,
   type LineConfig,
   type LineChannelData,
   type ResolvedLineAccount,
-} from "openclaw/plugin-sdk/line";
+} from "kolb-bot/plugin-sdk/line";
 import { getLineRuntime } from "./runtime.js";
 
 // LINE channel metadata
@@ -44,11 +44,11 @@ const lineConfigAccessors = createScopedAccountConfigAccessors({
 });
 
 function patchLineAccountConfig(
-  cfg: OpenClawConfig,
+  cfg: KolbBotConfig,
   lineConfig: LineConfig,
   accountId: string,
   patch: Record<string, unknown>,
-): OpenClawConfig {
+): KolbBotConfig {
   if (accountId === DEFAULT_ACCOUNT_ID) {
     return {
       ...cfg,
@@ -97,7 +97,7 @@ export const linePlugin: ChannelPlugin<ResolvedLineAccount> = {
       if (!account.channelAccessToken) {
         throw new Error("LINE channel access token not configured");
       }
-      await line.pushMessageLine(id, "OpenClaw: your access has been approved.", {
+      await line.pushMessageLine(id, "Kolb-Bot: your access has been approved.", {
         channelAccessToken: account.channelAccessToken,
       });
     },
@@ -168,7 +168,7 @@ export const linePlugin: ChannelPlugin<ResolvedLineAccount> = {
         policy: account.config.dmPolicy,
         allowFrom: account.config.allowFrom ?? [],
         policyPathSuffix: "dmPolicy",
-        approveHint: "openclaw pairing approve line <code>",
+        approveHint: "kolb-bot pairing approve line <code>",
         normalizeEntry: (raw) => raw.replace(/^line:(?:user:)?/i, ""),
       });
     },
@@ -655,7 +655,7 @@ export const linePlugin: ChannelPlugin<ResolvedLineAccount> = {
     },
     logoutAccount: async ({ accountId, cfg }) => {
       const envToken = process.env.LINE_CHANNEL_ACCESS_TOKEN?.trim() ?? "";
-      const nextCfg = { ...cfg } as OpenClawConfig;
+      const nextCfg = { ...cfg } as KolbBotConfig;
       const lineConfig = (cfg.channels?.line ?? {}) as LineConfig;
       const nextLine = { ...lineConfig };
       let cleared = false;

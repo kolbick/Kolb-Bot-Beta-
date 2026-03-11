@@ -3,33 +3,33 @@ set -euo pipefail
 
 cd /repo
 
-export OPENCLAW_STATE_DIR="/tmp/openclaw-test"
-export OPENCLAW_CONFIG_PATH="${OPENCLAW_STATE_DIR}/openclaw.json"
+export KOLB_BOT_STATE_DIR="/tmp/kolb-bot-test"
+export KOLB_BOT_CONFIG_PATH="${KOLB_BOT_STATE_DIR}/kolb-bot.json"
 
 echo "==> Build"
 pnpm build
 
 echo "==> Seed state"
-mkdir -p "${OPENCLAW_STATE_DIR}/credentials"
-mkdir -p "${OPENCLAW_STATE_DIR}/agents/main/sessions"
-echo '{}' >"${OPENCLAW_CONFIG_PATH}"
-echo 'creds' >"${OPENCLAW_STATE_DIR}/credentials/marker.txt"
-echo 'session' >"${OPENCLAW_STATE_DIR}/agents/main/sessions/sessions.json"
+mkdir -p "${KOLB_BOT_STATE_DIR}/credentials"
+mkdir -p "${KOLB_BOT_STATE_DIR}/agents/main/sessions"
+echo '{}' >"${KOLB_BOT_CONFIG_PATH}"
+echo 'creds' >"${KOLB_BOT_STATE_DIR}/credentials/marker.txt"
+echo 'session' >"${KOLB_BOT_STATE_DIR}/agents/main/sessions/sessions.json"
 
 echo "==> Reset (config+creds+sessions)"
-pnpm openclaw reset --scope config+creds+sessions --yes --non-interactive
+pnpm kolb-bot reset --scope config+creds+sessions --yes --non-interactive
 
-test ! -f "${OPENCLAW_CONFIG_PATH}"
-test ! -d "${OPENCLAW_STATE_DIR}/credentials"
-test ! -d "${OPENCLAW_STATE_DIR}/agents/main/sessions"
+test ! -f "${KOLB_BOT_CONFIG_PATH}"
+test ! -d "${KOLB_BOT_STATE_DIR}/credentials"
+test ! -d "${KOLB_BOT_STATE_DIR}/agents/main/sessions"
 
 echo "==> Recreate minimal config"
-mkdir -p "${OPENCLAW_STATE_DIR}/credentials"
-echo '{}' >"${OPENCLAW_CONFIG_PATH}"
+mkdir -p "${KOLB_BOT_STATE_DIR}/credentials"
+echo '{}' >"${KOLB_BOT_CONFIG_PATH}"
 
 echo "==> Uninstall (state only)"
-pnpm openclaw uninstall --state --yes --non-interactive
+pnpm kolb-bot uninstall --state --yes --non-interactive
 
-test ! -d "${OPENCLAW_STATE_DIR}"
+test ! -d "${KOLB_BOT_STATE_DIR}"
 
 echo "OK"

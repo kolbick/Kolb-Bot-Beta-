@@ -1,10 +1,10 @@
 {
-  "name": "@openclaw/google-gemini-cli-auth",
+  "name": "@kolb-bot/google-gemini-cli-auth",
   "version": "2026.3.9",
   "private": true,
-  "description": "OpenClaw Gemini CLI OAuth provider plugin",
+  "description": "Kolb-Bot Gemini CLI OAuth provider plugin",
   "type": "module",
-  "openclaw": {
+  "kolb-bot": {
     "extensions": [
       "./index.ts"
     ]

@@ -1,14 +1,14 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "OpenClaw",
+  "name": "Kolb-Bot",
   "description": "Self-hosted gateway that connects WhatsApp, Telegram, Discord, iMessage, and more to AI coding agents. Run a single Gateway process on your own machine and message your AI assistant from anywhere.",
   "theme": "mint",
   "icons": {
     "library": "lucide"
   },
   "logo": {
-    "light": "/assets/pixel-lobster.svg",
-    "dark": "/assets/pixel-lobster.svg"
+    "light": "/assets/kolb-bot-icon.png",
+    "dark": "/assets/kolb-bot-icon.png"
   },
   "fonts": {
     "body": {
@@ -18,11 +18,11 @@
       "family": "DM Sans"
     }
   },
-  "favicon": "/assets/pixel-lobster.svg",
+  "favicon": "/assets/kolb-bot-icon.png",
   "colors": {
-    "primary": "#FF5A36",
-    "dark": "#FF5A36",
-    "light": "#FF8A6B"
+    "primary": "#7B2FBE",
+    "dark": "#9B59B6",
+    "light": "#D4A017"
   },
   "styling": {
     "codeblocks": {
@@ -36,12 +36,12 @@
     "links": [
       {
         "label": "GitHub",
-        "href": "https://github.com/openclaw/openclaw",
+        "href": "https://github.com/kolbick/Kolb-Bot-Beta-",
         "icon": "github"
       },
       {
         "label": "Releases",
-        "href": "https://github.com/openclaw/openclaw/releases",
+        "href": "https://github.com/kolbick/Kolb-Bot-Beta-/releases",
         "icon": "package"
       }
     ]
@@ -264,32 +264,32 @@
       "destination": "/nodes/camera"
     },
     {
-      "source": "/clawd",
-      "destination": "/start/openclaw"
+      "source": "/kolb",
+      "destination": "/start/kolb-bot"
     },
     {
-      "source": "/start/clawd",
-      "destination": "/start/openclaw"
+      "source": "/start/kolb",
+      "destination": "/start/kolb-bot"
     },
     {
-      "source": "/start/clawd/",
-      "destination": "/start/openclaw"
+      "source": "/start/kolb/",
+      "destination": "/start/kolb-bot"
     },
     {
       "source": "/start/pairing",
       "destination": "/channels/pairing"
     },
     {
-      "source": "/clawhub",
-      "destination": "/tools/clawhub"
+      "source": "/kolb-hub",
+      "destination": "/tools/kolb-hub"
     },
     {
-      "source": "/clawdhub",
-      "destination": "/tools/clawhub"
+      "source": "/kolbhub",
+      "destination": "/tools/kolb-hub"
     },
     {
-      "source": "/tools/clawdhub",
-      "destination": "/tools/clawhub"
+      "source": "/tools/kolbhub",
+      "destination": "/tools/kolb-hub"
     },
     {
       "source": "/configuration",
@@ -840,7 +840,7 @@
               {
                 "group": "Guides",
                 "pages": [
-                  "start/openclaw",
+                  "start/kolb-bot",
                   "start/wizard-cli-reference",
                   "start/wizard-cli-automation"
                 ]
@@ -1033,7 +1033,7 @@
                   "tools/slash-commands",
                   "tools/skills",
                   "tools/skills-config",
-                  "tools/clawhub",
+                  "tools/kolb-hub",
                   "tools/plugin"
                 ]
               },
@@ -1440,7 +1440,7 @@
               },
               {
                 "group": "指南",
-                "pages": ["zh-CN/start/openclaw"]
+                "pages": ["zh-CN/start/kolb-bot"]
               }
             ]
           },
@@ -1628,7 +1628,7 @@
                   "zh-CN/tools/slash-commands",
                   "zh-CN/tools/skills",
                   "zh-CN/tools/skills-config",
-                  "zh-CN/tools/clawhub",
+                  "zh-CN/tools/kolb-hub",
                   "zh-CN/tools/plugin"
                 ]
               },

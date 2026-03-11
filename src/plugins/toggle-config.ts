@@ -1,15 +1,15 @@
 import { normalizeChatChannelId } from "../channels/registry.js";
-import type { OpenClawConfig } from "../config/config.js";
+import type { KolbBotConfig } from "../config/config.js";
 
 export function setPluginEnabledInConfig(
-  config: OpenClawConfig,
+  config: KolbBotConfig,
   pluginId: string,
   enabled: boolean,
-): OpenClawConfig {
+): KolbBotConfig {
   const builtInChannelId = normalizeChatChannelId(pluginId);
   const resolvedId = builtInChannelId ?? pluginId;
 
-  const next: OpenClawConfig = {
+  const next: KolbBotConfig = {
     ...config,
     plugins: {
       ...config.plugins,

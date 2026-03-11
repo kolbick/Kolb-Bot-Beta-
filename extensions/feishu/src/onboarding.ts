@@ -1,11 +1,11 @@
 import type {
   ChannelOnboardingAdapter,
   ChannelOnboardingDmPolicy,
-  ClawdbotConfig,
+  KolbBotConfig,
   DmPolicy,
   SecretInput,
   WizardPrompter,
-} from "openclaw/plugin-sdk/feishu";
+} from "kolb-bot/plugin-sdk/feishu";
 import {
   buildSingleChannelSecretPromptState,
   DEFAULT_ACCOUNT_ID,
@@ -17,7 +17,7 @@ import {
   setTopLevelChannelDmPolicyWithAllowFrom,
   setTopLevelChannelGroupPolicy,
   splitOnboardingEntries,
-} from "openclaw/plugin-sdk/feishu";
+} from "kolb-bot/plugin-sdk/feishu";
 import { resolveFeishuCredentials } from "./accounts.js";
 import { probeFeishu } from "./probe.js";
 import type { FeishuConfig } from "./types.js";
@@ -32,26 +32,26 @@ function normalizeString(value: unknown): string | undefined {
   return trimmed || undefined;
 }
 
-function setFeishuDmPolicy(cfg: ClawdbotConfig, dmPolicy: DmPolicy): ClawdbotConfig {
+function setFeishuDmPolicy(cfg: KolbBotConfig, dmPolicy: DmPolicy): KolbBotConfig {
   return setTopLevelChannelDmPolicyWithAllowFrom({
     cfg,
     channel: "feishu",
     dmPolicy,
-  }) as ClawdbotConfig;
+  }) as KolbBotConfig;
 }
 
-function setFeishuAllowFrom(cfg: ClawdbotConfig, allowFrom: string[]): ClawdbotConfig {
+function setFeishuAllowFrom(cfg: KolbBotConfig, allowFrom: string[]): KolbBotConfig {
   return setTopLevelChannelAllowFrom({
     cfg,
     channel: "feishu",
     allowFrom,
-  }) as ClawdbotConfig;
+  }) as KolbBotConfig;
 }
 
 async function promptFeishuAllowFrom(params: {
-  cfg: ClawdbotConfig;
+  cfg: KolbBotConfig;
   prompter: WizardPrompter;
-}): Promise<ClawdbotConfig> {
+}): Promise<KolbBotConfig> {
   const existing = params.cfg.channels?.feishu?.allowFrom ?? [];
   await params.prompter.note(
     [
@@ -112,18 +112,18 @@ async function promptFeishuAppId(params: {
 }
 
 function setFeishuGroupPolicy(
-  cfg: ClawdbotConfig,
+  cfg: KolbBotConfig,
   groupPolicy: "open" | "allowlist" | "disabled",
-): ClawdbotConfig {
+): KolbBotConfig {
   return setTopLevelChannelGroupPolicy({
     cfg,
     channel: "feishu",
     groupPolicy,
     enabled: true,
-  }) as ClawdbotConfig;
+  }) as KolbBotConfig;
 }
 
-function setFeishuGroupAllowFrom(cfg: ClawdbotConfig, groupAllowFrom: string[]): ClawdbotConfig {
+function setFeishuGroupAllowFrom(cfg: KolbBotConfig, groupAllowFrom: string[]): KolbBotConfig {
   return {
     ...cfg,
     channels: {
