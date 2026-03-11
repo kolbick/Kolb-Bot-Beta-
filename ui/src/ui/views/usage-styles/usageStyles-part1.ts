@@ -54,16 +54,16 @@ export const usageStylesPart1 = `
     align-items: center;
     gap: 6px;
     padding: 4px 10px;
-    background: rgba(255, 77, 77, 0.1);
+    background: rgba(124, 58, 237, 0.1);
     border-radius: 4px;
     font-size: 12px;
-    color: #ff4d4d;
+    color: #7c3aed;
   }
   .usage-refresh-indicator::before {
     content: "";
     width: 10px;
     height: 10px;
-    border: 2px solid #ff4d4d;
+    border: 2px solid #7c3aed;
     border-top-color: transparent;
     border-radius: 50%;
     animation: usage-spin 0.6s linear infinite;
@@ -161,14 +161,14 @@ export const usageStylesPart1 = `
     border-color: var(--border-strong);
   }
   .usage-primary-btn {
-    background: #ff4d4d;
+    background: #7c3aed;
     color: #fff;
-    border-color: #ff4d4d;
+    border-color: #7c3aed;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.12);
   }
   .btn.usage-primary-btn {
-    background: #ff4d4d !important;
-    border-color: #ff4d4d !important;
+    background: #7c3aed !important;
+    border-color: #7c3aed !important;
     color: #fff !important;
   }
   .usage-primary-btn:hover {
@@ -180,17 +180,17 @@ export const usageStylesPart1 = `
     border-color: #e64545 !important;
   }
   .usage-primary-btn:disabled {
-    background: rgba(255, 77, 77, 0.18);
-    border-color: rgba(255, 77, 77, 0.3);
-    color: #ff4d4d;
+    background: rgba(124, 58, 237, 0.18);
+    border-color: rgba(124, 58, 237, 0.3);
+    color: #7c3aed;
     box-shadow: none;
     cursor: default;
     opacity: 1;
   }
   .usage-primary-btn[disabled] {
-    background: rgba(255, 77, 77, 0.18) !important;
-    border-color: rgba(255, 77, 77, 0.3) !important;
-    color: #ff4d4d !important;
+    background: rgba(124, 58, 237, 0.18) !important;
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    color: #7c3aed !important;
     opacity: 1 !important;
   }
   .usage-secondary-btn {
@@ -533,8 +533,8 @@ export const usageStylesPart1 = `
     border-radius: 8px;
     padding: 10px;
     color: var(--text);
-    background: rgba(255, 77, 77, 0.08);
-    border: 1px solid rgba(255, 77, 77, 0.2);
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.2);
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -554,14 +554,14 @@ export const usageStylesPart1 = `
   .usage-hour-cell {
     height: 28px;
     border-radius: 6px;
-    background: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.2);
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
     cursor: pointer;
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .usage-hour-cell.selected {
-    border-color: rgba(255, 77, 77, 0.8);
-    box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+    border-color: rgba(124, 58, 237, 0.8);
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
   }
   .usage-hour-labels {
     display: grid;
@@ -584,8 +584,8 @@ export const usageStylesPart1 = `
     width: 14px;
     height: 10px;
     border-radius: 4px;
-    background: rgba(255, 77, 77, 0.15);
-    border: 1px solid rgba(255, 77, 77, 0.2);
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(124, 58, 237, 0.2);
   }
   .usage-calendar-labels {
     display: grid;
@@ -603,8 +603,8 @@ export const usageStylesPart1 = `
   .usage-calendar-cell {
     height: 18px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 77, 77, 0.2);
-    background: rgba(255, 77, 77, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    background: rgba(124, 58, 237, 0.08);
   }
   .usage-calendar-cell.empty {
     background: transparent;

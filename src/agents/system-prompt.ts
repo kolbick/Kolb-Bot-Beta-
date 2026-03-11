@@ -179,7 +179,7 @@ function buildDocsSection(params: { docsPath?: string; isMinimal: boolean; readT
     "Mirror: https://docs.github.com/kolbick/Kolb-Bot-Beta-",
     "Source: https://github.com/kolbick/Kolb-Bot-Beta-",
     "Community: https://discord.com/invite/kolb",
-    "Find new skills: https://kolb-hub.com",
+    "Find new skills: https://clawhub.com",
     "For Kolb-Bot behavior, commands, config, or architecture: consult local docs first.",
     "When diagnosing issues, run `kolb-bot status` yourself when possible; only ask the user if you lack access (e.g., sandboxed).",
     "",
