@@ -17,23 +17,25 @@ Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 
 ## What you need first
 
-Before you do anything else, make sure you have these two things:
+Before you do anything else, you need two things:
 
-1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot. Think of it like how your browser runs websites. [Download Node.js here](https://nodejs.org/) if you don't have it.
+1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot. Think of it like how your browser runs websites. Don't have it? The installer script in Step 1 will handle it for you, or you can [download it manually](https://nodejs.org/).
 2. **An AI API key** — this is what powers the AI brain behind your assistant. You can get one from [OpenAI](https://platform.openai.com/api-keys), [Anthropic](https://console.anthropic.com/), or [other providers](/concepts/models). Don't worry — the setup wizard will walk you through this if you don't have one yet.
 
 <Tip>
-**Not sure if you have Node?** Open your terminal (on Mac: search for "Terminal" in Spotlight; on Windows: search for "PowerShell") and type `node --version`. If you see a number like `v22.x.x`, you're good. If you get an error, [download Node.js first](https://nodejs.org/).
+**Not sure if you have Node?** Open your terminal (on Mac: search for "Terminal" in Spotlight; on Windows: search for "PowerShell") and type `node --version`. If you see a number like `v22.x.x`, you're good. If you get an error, no worries — the installer script handles it.
 </Tip>
 
 ## Quick setup (step by step)
 
 <Steps>
   <Step title="Step 1: Install Kolb-Bot">
-    This downloads Kolb-Bot to your computer. Copy and paste one of these commands into your terminal:
+    Pick whichever method feels most familiar — they all do the same thing:
 
     <Tabs>
-      <Tab title="macOS/Linux">
+      <Tab title="Installer script (easiest)">
+        Copy and paste this into your terminal. It installs Node (if needed) and Kolb-Bot in one step:
+
         ```bash
         curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
         ```
@@ -43,6 +45,20 @@ Before you do anything else, make sure you have these two things:
   className="rounded-lg"
 />
       </Tab>
+      <Tab title="Homebrew (macOS/Linux)">
+        If you use Homebrew (a popular package manager for Mac):
+
+        ```bash
+        brew install kolb-bot
+        ```
+      </Tab>
+      <Tab title="npm (if you have Node)">
+        If you already have Node.js installed:
+
+        ```bash
+        npm install -g kolb-bot@latest
+        ```
+      </Tab>
       <Tab title="Windows (PowerShell)">
         ```powershell
         iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
@@ -51,7 +67,7 @@ Before you do anything else, make sure you have these two things:
     </Tabs>
 
     <Note>
-    Other install methods: [Install](/install). You can also use `npm install -g kolb-bot@latest` if you prefer npm.
+    **What's a terminal?** It's the text-based app where you type commands. On Mac, search for "Terminal" in Spotlight. On Windows, search for "PowerShell". More install options: [Install](/install).
     </Note>
 
   </Step>

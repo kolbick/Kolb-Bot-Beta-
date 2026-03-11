@@ -69,6 +69,16 @@ For VPS/cloud hosts, avoid third-party "1-click" marketplace images when possibl
 
   </Accordion>
 
+  <Accordion title="Homebrew" icon="beer">
+    If you use Homebrew (popular on macOS and Linux):
+
+    ```bash
+    brew install kolb-bot
+    kolb-bot onboard --install-daemon
+    ```
+
+  </Accordion>
+
   <Accordion title="npm / pnpm" icon="package">
     If you already have Node 22+ and prefer to manage the install yourself:
 

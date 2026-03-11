@@ -61,10 +61,33 @@ Model note: while many providers/models are supported, for the best experience a
 
 You need two things:
 
-1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot (like how a browser runs websites). [Download it here](https://nodejs.org/) if you don't have it. Check with `node --version`.
+1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot (like how a browser runs websites). Don't have it? The installer script below will handle it for you, or you can [download it manually](https://nodejs.org/).
 2. **An AI API key** — from a provider like [OpenAI](https://platform.openai.com/api-keys), [Anthropic](https://console.anthropic.com/), or [others](https://docs.github.com/kolbick/Kolb-Bot-Beta-/concepts/models). This is what powers the AI brain. The setup wizard will walk you through getting one if you don't have it yet.
 
-## Install (recommended)
+## Install
+
+Pick whichever method feels most familiar. They all do the same thing — get Kolb-Bot on your machine.
+
+**Option A: One-line installer (recommended — handles everything for you)**
+
+```bash
+# macOS / Linux / WSL2
+curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
+
+# Windows (PowerShell)
+# iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
+```
+
+This script installs Node if you don't have it, installs Kolb-Bot, and launches the setup wizard.
+
+**Option B: Homebrew (macOS/Linux)**
+
+```bash
+brew install kolb-bot
+kolb-bot onboard --install-daemon
+```
+
+**Option C: npm/pnpm (if you already have Node installed)**
 
 ```bash
 npm install -g kolb-bot@latest
@@ -73,7 +96,7 @@ npm install -g kolb-bot@latest
 kolb-bot onboard --install-daemon
 ```
 
-The wizard walks you through everything step by step — what each choice means, what's happening, and why. It also installs the Gateway daemon (the background service that keeps your assistant running).
+The setup wizard walks you through everything step by step — what each choice means, what's happening, and why. It also installs the Gateway daemon (the background service that keeps your assistant running).
 
 ## Quick start (TL;DR)
 
