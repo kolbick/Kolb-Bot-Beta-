@@ -36,7 +36,352 @@ So he built Kolb-Bot.
 
 ---
 
-## What you need before starting
+## Complete beginner guide (start here if you've never used a terminal)
+
+This section walks you through everything from absolute zero. If you've never opened a terminal, never typed a command, never installed anything this way — this is for you. No step is too obvious to include.
+
+### Step 0: Understanding what we're about to do
+
+Here's the big picture of what's going to happen:
+
+1. You'll open a **terminal** (a text window where you type commands)
+2. You'll install **Node.js** (a program your computer needs to run Kolb-Bot)
+3. You'll install **Kolb-Bot** itself
+4. You'll run the **setup wizard** (it asks you questions and sets everything up)
+5. You'll connect a **messaging app** (WhatsApp, Telegram, Discord, etc.)
+6. You'll start talking to your AI assistant
+
+Each step is explained below with the exact commands to type.
+
+### Step 1: Open a terminal
+
+A **terminal** (also called "command line" or "command prompt") is a text-based app where you type instructions for your computer. Instead of clicking buttons, you type words and press Enter. Every computer has one built in.
+
+**On a Mac:**
+1. Press `Cmd + Space` on your keyboard (this opens Spotlight search)
+2. Type the word `Terminal`
+3. Click "Terminal" when it appears
+4. A window with a dark or light background will open — that's your terminal
+
+**On Windows:**
+1. Click the Start button (bottom-left corner of your screen) or press the Windows key
+2. Type `PowerShell`
+3. Click "Windows PowerShell" when it appears
+4. A blue window will open — that's your terminal
+
+> **Even better on Windows:** For the smoothest experience, install WSL2 (Windows Subsystem for Linux). It gives you a Linux terminal inside Windows. [Here's Microsoft's guide to install it](https://learn.microsoft.com/en-us/windows/wsl/install) — you just run `wsl --install` in PowerShell and restart your computer.
+
+**On Linux:**
+1. Look for "Terminal" in your applications menu, or press `Ctrl + Alt + T`
+
+**What you'll see:** A blinking cursor waiting for you to type something. It might show your username, computer name, or a `$` or `>` symbol. That's normal — it means the terminal is ready.
+
+### Step 2: Learn how to use the terminal (the basics)
+
+Before we install anything, here are the only things you need to know:
+
+**How to run a command:**
+1. Type (or paste) the command exactly as shown
+2. Press `Enter` on your keyboard
+3. Wait for it to finish (you'll see the blinking cursor come back)
+
+**How to copy and paste into the terminal:**
+- **Mac terminal:** `Cmd + V` to paste (same as everywhere else)
+- **Windows PowerShell:** Right-click to paste
+- **Linux terminal:** `Ctrl + Shift + V` to paste (note the extra Shift!)
+
+**How to stop something that's running:** Press `Ctrl + C`. This is your "cancel" button.
+
+**What "output" means:** After you run a command, the terminal will print text below it. That's the "output" — it's the computer telling you what happened. Sometimes it's a lot of text. That's fine. Look for words like "success," "done," or "installed" to know it worked.
+
+**What errors look like:** If something goes wrong, you'll usually see the word "error" or "ERR" in red. Don't panic — the error message usually tells you what went wrong.
+
+### Step 3: Install Node.js
+
+**Node.js** is a program that your computer needs in order to run Kolb-Bot. Think of it like how you need a web browser to visit websites — you need Node.js to run Kolb-Bot. You only install it once.
+
+**Check if you already have it** — type this and press Enter:
+
+```bash
+node --version
+```
+
+- If you see something like `v22.12.0` — you're good, skip to Step 4
+- If you see "command not found" or an error — you need to install it
+
+**To install Node.js:**
+
+1. Go to [nodejs.org](https://nodejs.org/) in your web browser
+2. Click the big green button that says "LTS" (this stands for Long Term Support — it's the stable version)
+3. A file will download. Open it and follow the installer (click "Next" / "Continue" / "Agree" through each screen — the defaults are fine)
+4. **Close your terminal and open a new one** (this is important — the terminal needs to restart to recognize Node.js)
+5. Type `node --version` again to confirm it worked
+
+> **What version do I need?** Version 22 or higher. The number after the `v` should start with 22 or higher (like `v22.12.0`). If it says `v18` or `v20`, go back to nodejs.org and install the latest version.
+
+### Step 4: Install Kolb-Bot
+
+Now for the fun part. You have three options — pick whichever one sounds easiest to you. They all do the exact same thing.
+
+**Option A: One-line installer (recommended for beginners)**
+
+Copy this entire line, paste it into your terminal, and press Enter:
+
+```bash
+curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
+```
+
+What this does, word by word:
+- `curl` — a built-in tool that downloads files from the internet
+- `-fsSL` — flags that tell curl to follow redirects and stay quiet about progress
+- `https://...` — the web address of the install script
+- `|` — this "pipe" symbol sends what was downloaded into the next command
+- `bash` — runs the downloaded script
+
+This handles everything automatically — it checks if Node.js is installed, installs Kolb-Bot, and starts the setup wizard.
+
+<details>
+<summary>Windows (PowerShell) — click to expand</summary>
+
+If you're using PowerShell (not WSL2), paste this instead:
+
+```powershell
+iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
+```
+
+What this does:
+- `iwr` — PowerShell's tool for downloading files from the internet (short for Invoke-WebRequest)
+- `-useb` — tells it to treat the download as a simple string
+- `https://...` — the web address of the Windows install script
+- `|` — sends the downloaded script to the next command
+- `iex` — runs the script (short for Invoke-Expression)
+</details>
+
+**Option B: npm install (if you already installed Node.js in Step 3)**
+
+```bash
+npm install -g kolb-bot@latest
+```
+
+What this does, word by word:
+- `npm` — Node Package Manager, a tool that comes with Node.js for installing programs
+- `install` — tells npm to install something
+- `-g` — means "global" — installs it so you can use it from anywhere, not just one folder
+- `kolb-bot@latest` — the name of the program to install (`@latest` means get the newest version)
+
+Then start the setup wizard:
+
+```bash
+kolb-bot onboard --install-daemon
+```
+
+What this does:
+- `kolb-bot` — runs the Kolb-Bot program
+- `onboard` — starts the setup wizard that walks you through first-time configuration
+- `--install-daemon` — also installs the background service (the "daemon") that keeps Kolb-Bot running even when you close the terminal
+
+**Option C: Homebrew (Mac/Linux only — if you already use Homebrew)**
+
+```bash
+brew install kolb-bot
+kolb-bot onboard --install-daemon
+```
+
+> **What's Homebrew?** It's a package manager for Mac/Linux. If you don't know what that is, use Option A or B instead. You don't need Homebrew.
+
+### Step 5: Run the setup wizard
+
+If you used Option A (the one-line installer), the setup wizard starts automatically. If you used Option B or C, run:
+
+```bash
+kolb-bot onboard --install-daemon
+```
+
+The wizard will ask you questions. Here's what to expect:
+
+**Question 1: "Which AI model do you want to use?"**
+
+This is choosing the "brain" for your assistant. You'll see a list of options. Here's what they mean:
+
+| Option | What it is | Cost | Best for |
+|---|---|---|---|
+| **Gemini** (Google) | Google's AI | Free tier available, no credit card needed | Trying Kolb-Bot for the first time |
+| **OpenRouter** | A service that connects to 100+ different AIs | Pay-per-use, many free models | Flexibility, trying different models |
+| **Kimi K2.5** (Moonshot) | A powerful and very cheap AI | ~$0.001 per message | Great quality on a budget |
+| **Ollama** | Runs AI directly on your computer | Completely free | Privacy (nothing leaves your machine) — needs 16GB+ RAM |
+| **Claude** (Anthropic) | One of the best AIs available | ~$0.01-0.08 per message | Top quality reasoning and writing |
+| **GPT-5** (OpenAI) | OpenAI's latest model | ~$0.01-0.05 per message | Great all-around quality |
+
+**Recommendation:** If you just want to try it out, pick **Gemini** (free, no credit card). You can always switch later.
+
+**What's an API key?** When you pick a model, the wizard will ask you to paste an "API key." This is like a password that lets Kolb-Bot talk to the AI service. Here's how to get one:
+
+1. The wizard will show you a link to the provider's website
+2. Go to that website and create a free account
+3. Find the "API Keys" section (the wizard tells you where)
+4. Click "Create new key" or "Generate key"
+5. Copy the key (it looks like a long string of random letters and numbers)
+6. Paste it into the terminal when the wizard asks
+
+**Question 2: "Which messaging channels do you want to connect?"**
+
+This is where you pick which apps you want to talk to Kolb-Bot through. The wizard walks you through connecting each one. Popular choices:
+
+- **WhatsApp** — scan a QR code with your phone
+- **Telegram** — create a bot through Telegram's BotFather (the wizard explains how)
+- **Discord** — create a bot in Discord's developer portal (the wizard explains how)
+
+You can connect multiple channels. You can also add more later.
+
+**Question 3: Background service**
+
+The wizard will set up a "background service" (also called a "daemon"). This is a program that runs quietly in the background so Kolb-Bot can respond to your messages even when the terminal is closed. Just say yes when it asks.
+
+### Step 6: Talk to your bot
+
+Once setup is done, you're ready to go! You have two ways to talk to Kolb-Bot:
+
+**Through your messaging app (the main way):**
+
+Just send a message in whichever app you connected — WhatsApp, Telegram, Discord, etc. — like you're texting a friend. Kolb-Bot will reply.
+
+**Through the terminal (for quick tests):**
+
+```bash
+kolb-bot agent --message "Hey, what can you do?"
+```
+
+What this does:
+- `kolb-bot` — runs Kolb-Bot
+- `agent` — talks to the AI agent directly
+- `--message "..."` — the message you want to send (put your text inside the quotes)
+
+### Step 7: Common commands you'll use
+
+Here's a reference card of every command you might need. You don't need to memorize these — just come back here when you need one.
+
+**Checking on Kolb-Bot:**
+
+```bash
+# See if Kolb-Bot is running and everything is connected
+kolb-bot status
+
+# See detailed info about every connection (channels, models, etc.)
+kolb-bot status --all
+
+# Check for problems and get suggestions to fix them
+kolb-bot doctor
+```
+
+> **What do the `#` lines mean?** Lines starting with `#` are "comments" — the terminal ignores them. They're just notes for you. Only type the lines that don't start with `#`.
+
+**Starting and stopping:**
+
+```bash
+# Start Kolb-Bot's background service
+kolb-bot gateway start
+
+# Stop it
+kolb-bot gateway stop
+
+# Restart it (useful after changing settings)
+kolb-bot gateway restart
+
+# Check if it's running
+kolb-bot gateway status
+```
+
+> **What's a "gateway"?** The gateway is the core of Kolb-Bot — it's the program that receives your messages, sends them to the AI, and sends the response back. When people say "start Kolb-Bot" they mean "start the gateway."
+
+**Changing settings:**
+
+```bash
+# Change which AI model Kolb-Bot uses
+kolb-bot config set agent.model "openrouter/google/gemini-2.5-flash"
+
+# See your current settings
+kolb-bot config get
+
+# Re-run the setup wizard from the beginning
+kolb-bot onboard --install-daemon
+```
+
+What the `config set` command does:
+- `kolb-bot config` — opens Kolb-Bot's settings
+- `set` — means "change a setting"
+- `agent.model` — the specific setting to change (in this case, which AI model to use)
+- `"openrouter/google/gemini-2.5-flash"` — the new value (in quotes)
+
+**Updating Kolb-Bot:**
+
+```bash
+# Download and install the latest version
+npm update -g kolb-bot
+
+# After updating, check that everything still works
+kolb-bot doctor
+```
+
+**Sending a message from the terminal:**
+
+```bash
+# Send a message directly (without going through WhatsApp/Telegram/etc.)
+kolb-bot agent --message "What's the weather like?"
+
+# Start an interactive conversation in the terminal
+kolb-bot agent
+```
+
+**Installing skills (add-on abilities):**
+
+```bash
+# Install the ClawHub CLI (one time only)
+npm install -g clawhub
+
+# Search for skills
+clawhub search "weather"
+
+# Install a skill
+clawhub install <skill-name>
+```
+
+> **What are skills?** Skills are like apps for your assistant — they teach it new tricks. [ClawHub](https://clawhub.com) is where community members share skills they've built.
+
+### Troubleshooting for beginners
+
+**"command not found: kolb-bot"**
+- Kolb-Bot didn't install correctly, or your terminal doesn't know where to find it
+- Try closing your terminal completely and opening a new one
+- Then try running `kolb-bot --version` — if it still doesn't work, re-run the install command from Step 4
+
+**"command not found: node" or "command not found: npm"**
+- Node.js isn't installed, or your terminal doesn't know where to find it
+- Go back to Step 3 and install Node.js
+- Remember to close and reopen your terminal after installing
+
+**"permission denied" or "EACCES"**
+- Your computer is blocking the install because it needs higher permissions
+- On Mac/Linux, add `sudo` before the command: `sudo npm install -g kolb-bot@latest`
+- It will ask for your computer's password (the one you use to log in). When you type it, you won't see any characters — that's normal, just type it and press Enter
+
+**"ECONNREFUSED" or "network error"**
+- Your computer can't reach the internet, or a firewall is blocking the connection
+- Check your internet connection
+- If you're on a work/school network, you might need to connect to a different network
+
+**The bot isn't responding to my messages:**
+- Run `kolb-bot status` to check if it's running
+- Run `kolb-bot doctor` to diagnose problems
+- Make sure the gateway is running: `kolb-bot gateway start`
+- Check that your messaging channel is connected: `kolb-bot channels status`
+
+**I want to start over completely:**
+- Re-run the setup wizard: `kolb-bot onboard --install-daemon`
+- This won't delete anything — it just walks you through setup again
+
+---
+
+## What you need before starting (quick reference)
 
 Just two things:
 
@@ -46,7 +391,7 @@ Node.js is the program that runs Kolb-Bot on your computer. Think of it like how
 
 **Don't have it?** Go to [nodejs.org](https://nodejs.org/) and click the big green download button. Install it like any other app. That's it.
 
-> Not sure if you have it? Open your terminal (see below) and type `node --version`. If you see a number like `v22.x.x` or higher, you're good.
+> Not sure if you have it? Open your terminal (see above) and type `node --version`. If you see a number like `v22.x.x` or higher, you're good.
 
 ### 2. An AI model (your bot's brain)
 
@@ -72,29 +417,20 @@ The setup wizard will walk you through connecting whichever model you choose. Yo
 
 > **What's an API key?** It's like a password that lets Kolb-Bot talk to the AI service. Each provider gives you one when you sign up. The setup wizard will tell you exactly where to paste it.
 
-### What's a terminal?
-
-A terminal is a text-based app where you type commands. Every computer has one built in:
-
-- **Mac**: Open "Terminal" (search for it in Spotlight, or find it in Applications > Utilities)
-- **Windows**: Open "PowerShell" (search for it in the Start menu) — or better yet, [install WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) for a smoother experience
-- **Linux**: You probably already know this one. Look for "Terminal" in your apps
-
 ---
 
-## Install Kolb-Bot
-
-Open your terminal and pick one of these options. They all do the same thing.
-
-### Option A: One-line installer (easiest)
-
-Copy and paste this into your terminal and press Enter:
+## Quick install (for people who don't need hand-holding)
 
 ```bash
+# Option A: One-line installer (easiest)
 curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
-```
 
-This handles everything — installs Node.js if you need it, installs Kolb-Bot, and starts the setup wizard.
+# Option B: Homebrew
+brew install kolb-bot && kolb-bot onboard --install-daemon
+
+# Option C: npm
+npm install -g kolb-bot@latest && kolb-bot onboard --install-daemon
+```
 
 <details>
 <summary>Windows (PowerShell)</summary>
@@ -103,38 +439,6 @@ This handles everything — installs Node.js if you need it, installs Kolb-Bot, 
 iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
 ```
 </details>
-
-### Option B: Homebrew (if you use it)
-
-```bash
-brew install kolb-bot
-kolb-bot onboard --install-daemon
-```
-
-### Option C: npm (if you already have Node.js)
-
-```bash
-npm install -g kolb-bot@latest
-kolb-bot onboard --install-daemon
-```
-
----
-
-## First-time setup
-
-After installing, the setup wizard starts automatically. It will:
-
-1. **Ask which AI model you want to use** — pick from the list or paste your API key
-2. **Set up your messaging channels** — connect WhatsApp, Telegram, Discord, or whichever apps you use
-3. **Start the background service** — this keeps Kolb-Bot running so it can respond to your messages
-
-Every step explains what's happening and why. If something goes wrong, it tells you how to fix it.
-
-If the wizard didn't start automatically, run:
-
-```bash
-kolb-bot onboard --install-daemon
-```
 
 ## Try it out
 
