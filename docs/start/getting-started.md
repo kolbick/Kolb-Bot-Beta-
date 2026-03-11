@@ -17,10 +17,13 @@ Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 
 ## What you need first
 
-- **Node.js 22 or newer** — this is the engine that runs Kolb-Bot. Think of it like how your browser runs websites. [Download Node.js here](https://nodejs.org/) if you don't have it.
+Before you do anything else, make sure you have these two things:
+
+1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot. Think of it like how your browser runs websites. [Download Node.js here](https://nodejs.org/) if you don't have it.
+2. **An AI API key** — this is what powers the AI brain behind your assistant. You can get one from [OpenAI](https://platform.openai.com/api-keys), [Anthropic](https://console.anthropic.com/), or [other providers](/concepts/models). Don't worry — the setup wizard will walk you through this if you don't have one yet.
 
 <Tip>
-Not sure if you have Node? Open your terminal (on Mac: search for "Terminal" in Spotlight; on Windows: search for "PowerShell") and type `node --version`. If you see a number like `v22.x.x`, you're good.
+**Not sure if you have Node?** Open your terminal (on Mac: search for "Terminal" in Spotlight; on Windows: search for "PowerShell") and type `node --version`. If you see a number like `v22.x.x`, you're good. If you get an error, [download Node.js first](https://nodejs.org/).
 </Tip>
 
 ## Quick setup (step by step)

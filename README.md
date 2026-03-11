@@ -57,9 +57,14 @@ Model note: while many providers/models are supported, for the best experience a
 - Models config + CLI: [Models](https://docs.github.com/kolbick/Kolb-Bot-Beta-/concepts/models)
 - Auth profile rotation (OAuth vs API keys) + fallbacks: [Model failover](https://docs.github.com/kolbick/Kolb-Bot-Beta-/concepts/model-failover)
 
-## Install (recommended)
+## Before you start
 
-Runtime: **Node ≥22**.
+You need two things:
+
+1. **Node.js 22 or newer** — this is the engine that runs Kolb-Bot (like how a browser runs websites). [Download it here](https://nodejs.org/) if you don't have it. Check with `node --version`.
+2. **An AI API key** — from a provider like [OpenAI](https://platform.openai.com/api-keys), [Anthropic](https://console.anthropic.com/), or [others](https://docs.github.com/kolbick/Kolb-Bot-Beta-/concepts/models). This is what powers the AI brain. The setup wizard will walk you through getting one if you don't have it yet.
+
+## Install (recommended)
 
 ```bash
 npm install -g kolb-bot@latest
@@ -68,11 +73,9 @@ npm install -g kolb-bot@latest
 kolb-bot onboard --install-daemon
 ```
 
-The wizard installs the Gateway daemon (launchd/systemd user service) so it stays running.
+The wizard walks you through everything step by step — what each choice means, what's happening, and why. It also installs the Gateway daemon (the background service that keeps your assistant running).
 
 ## Quick start (TL;DR)
-
-Runtime: **Node ≥22**.
 
 Full beginner guide (auth, pairing, channels): [Getting started](https://docs.github.com/kolbick/Kolb-Bot-Beta-/start/getting-started)
 
