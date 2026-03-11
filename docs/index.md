@@ -30,11 +30,11 @@ title: "Kolb-Bot"
     <img src="/assets/kolb-bot-mascot.png" alt="Kolb-Bot Mascot" width="120" />
 </p>
 
-> _Your Personal AI Pirate Assistant_
+> _Half human. Half AI. All pirate._
 
 <p align="center">
-  <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
-  Send a message, get an agent response from your pocket. Plugins add Mattermost and more.
+  <strong>AI made simple. Kolb-Bot explains every step in plain language so anyone can use advanced AI — not just developers.</strong><br />
+  Message your assistant on WhatsApp, Telegram, Discord, iMessage, and more. No PhD required.
 </p>
 
 <Columns>
@@ -51,18 +51,19 @@ title: "Kolb-Bot"
 
 ## What is Kolb-Bot?
 
-Kolb-Bot is a **self-hosted gateway** that connects your favorite chat apps — WhatsApp, Telegram, Discord, iMessage, and more — to AI coding agents like Pi. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
+Kolb-Bot is a **personal AI assistant** that connects to the messaging apps you already use — WhatsApp, Telegram, Discord, iMessage, and more. It runs on your own machine, so your data stays yours.
 
-**Who is it for?** Developers and power users who want a personal AI assistant they can message from anywhere — without giving up control of their data or relying on a hosted service.
+**Who is it for?** Anyone who wants a smart AI assistant they can message from anywhere. You don't need to be a developer. Kolb-Bot was built because most people only know how to use basic chat models — and the powerful stuff (agents, tools, automations) was too complicated. Kolb-Bot explains everything in simple language.
 
 **What makes it different?**
 
-- **Self-hosted**: runs on your hardware, your rules
-- **Multi-channel**: one Gateway serves WhatsApp, Telegram, Discord, and more simultaneously
-- **Agent-native**: built for coding agents with tool use, sessions, memory, and multi-agent routing
+- **Beginner-friendly**: every step is explained in plain language, not developer jargon
+- **Self-hosted**: runs on your hardware, your data stays private
+- **Multi-channel**: message your assistant on WhatsApp, Telegram, Discord, and more — all at once
+- **Powerful under the hood**: agents, tools, memory, voice, and automations — all accessible
 - **Open source**: MIT licensed, community-driven
 
-**What do you need?** Node 22+, an API key from your chosen provider, and 5 minutes. For best quality and security, use the strongest latest-generation model available.
+**What do you need?** Node 22+, an API key from your chosen provider, and 5 minutes. The setup wizard walks you through everything.
 
 ## How it works
 

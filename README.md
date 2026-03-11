@@ -16,7 +16,8 @@
 </p>
 
 <p align="center">
-  <strong>Your Personal AI Pirate Assistant</strong>
+  <strong>Half human. Half AI. All pirate.</strong><br>
+  <em>AI made simple — because everyone deserves a smart assistant, not just developers.</em>
 </p>
 
 <p align="center">
@@ -26,10 +27,11 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
-**Kolb-Bot** is a _personal AI assistant_ you run on your own devices.
-It answers you on the channels you already use (WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, BlueBubbles, IRC, Microsoft Teams, Matrix, Feishu, LINE, Mattermost, Nextcloud Talk, Nostr, Synology Chat, Tlon, Twitch, Zalo, Zalo Personal, WebChat). It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
+**Kolb-Bot** is a personal AI assistant that actually explains what it's doing — in plain language a beginner can follow.
 
-If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
+Most people only know how to use ChatGPT-style chat boxes. The real power of AI (agents, tools, automations, multi-channel messaging) is locked behind jargon and complexity that scares normal humans away. Kolb-Bot was built to change that.
+
+It runs on your own devices, answers you on the channels you already use (WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, and [20+ more](https://docs.github.com/kolbick/Kolb-Bot-Beta-/channels)), and walks you through every step in simple, beginner-friendly language. No PhD in prompt engineering required.
 
 [Website](https://github.com/kolbick/Kolb-Bot-Beta-) · [Docs](https://docs.github.com/kolbick/Kolb-Bot-Beta-) · [Vision](VISION.md) · [DeepWiki](https://deepwiki.com/kolbick/Kolb-Bot-Beta-) · [Getting Started](https://docs.github.com/kolbick/Kolb-Bot-Beta-/start/getting-started) · [Updating](https://docs.github.com/kolbick/Kolb-Bot-Beta-/install/updating) · [Showcase](https://docs.github.com/kolbick/Kolb-Bot-Beta-/start/showcase) · [FAQ](https://docs.github.com/kolbick/Kolb-Bot-Beta-/help/faq) · [Wizard](https://docs.github.com/kolbick/Kolb-Bot-Beta-/start/wizard) · [Nix](https://github.com/kolb-bot/nix-kolb-bot) · [Docker](https://docs.github.com/kolbick/Kolb-Bot-Beta-/install/docker) · [Discord](https://github.com/kolbick/Kolb-Bot-Beta-)
 
@@ -488,14 +490,15 @@ Use these when you’re past the onboarding flow and want the deeper reference.
 
 - [docs.github.com/kolbick/Kolb-Bot-Beta-/gmail-pubsub](https://docs.github.com/kolbick/Kolb-Bot-Beta-/automation/gmail-pubsub)
 
-## Molty
+## Why Kolb-Bot exists
 
-Kolb-Bot was built for **Molty**, a space lobster AI assistant. 🏴‍☠️
-by Peter Steinberger and the community.
+Kolb-Bot was created by **Kolby** ([@kolbick](https://github.com/kolbick)) out of pure frustration.
+
+Advanced AI is incredibly powerful — but most people only know how to use basic chat models. The real tools (agents, multi-channel messaging, automations, voice, canvas) are buried under layers of developer jargon that make normal humans feel stupid. Kolby wanted to build something that explains everything in simple, beginner-friendly language — so anyone can use AI like a pro without needing to be one.
+
+**Half human. Half AI. All pirate.** 🏴‍☠️
 
 - [github.com/kolbick/Kolb-Bot-Beta-](https://github.com/kolbick/Kolb-Bot-Beta-)
-- [soul.md](https://soul.md)
-- [steipete.me](https://steipete.me)
 - [@kolb-bot](https://x.com/kolb-bot)
 
 ## Community

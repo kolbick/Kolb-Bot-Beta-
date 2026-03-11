@@ -1,18 +1,23 @@
 ## Kolb-Bot Vision
 
-Kolb-Bot is the AI that actually does things.
-It runs on your devices, in your channels, with your rules.
+**Half human. Half AI. All pirate.**
+
+Kolb-Bot is an AI assistant that explains itself in plain language — because most people shouldn't need a CS degree to use the most powerful technology of our generation.
 
 This document explains the current state and direction of the project.
 We are still early, so iteration is fast.
 Project overview and developer docs: [`README.md`](README.md)
 Contribution guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-Kolb-Bot started as a personal playground to learn AI and build something genuinely useful:
-an assistant that can run real tasks on a real computer.
-It evolved through several names and shells: Warelay -> Kolb-Bot -> Kolb-Bot -> Kolb-Bot.
+### Why Kolb-Bot exists
 
-The goal: a personal assistant that is easy to use, supports a wide range of platforms, and respects privacy and security.
+Kolby got frustrated. Advanced AI can do incredible things — agents, tool use, multi-channel messaging, voice, automations — but almost nobody uses any of it. Why? Because the tools are designed for developers. The docs are full of jargon. The setup assumes you already know what you're doing.
+
+Most people only know how to type into a chat box. That's not their fault — it's a design failure.
+
+Kolb-Bot was built to fix that. Every feature, every CLI command, every setup step is written to explain what's happening in simple, beginner-friendly language. The goal isn't to dumb things down — it's to make powerful AI accessible to everyone.
+
+The goal: a personal assistant that is genuinely easy to use, explains itself clearly, supports a wide range of platforms, and respects your privacy and security.
 
 The current focus is:
 

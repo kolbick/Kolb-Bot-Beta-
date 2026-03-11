@@ -8,27 +8,27 @@ title: "Getting Started"
 
 # Getting Started
 
-Goal: go from zero to a first working chat with minimal setup.
+You're about to set up your own personal AI assistant. This takes about 5 minutes, and we'll explain every step along the way.
 
 <Info>
-Fastest chat: open the Control UI (no channel setup needed). Run `kolb-bot dashboard`
-and chat in the browser, or open `http://127.0.0.1:18789/` on the
-<Tooltip headline="Gateway host" tip="The machine running the Kolb-Bot gateway service.">gateway host</Tooltip>.
+**Want to skip straight to chatting?** Run `kolb-bot dashboard` and chat in your browser — no extra setup needed. You can connect WhatsApp, Telegram, and other apps later.
 Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 </Info>
 
-## Prereqs
+## What you need first
 
-- Node 22 or newer
+- **Node.js 22 or newer** — this is the engine that runs Kolb-Bot. Think of it like how your browser runs websites. [Download Node.js here](https://nodejs.org/) if you don't have it.
 
 <Tip>
-Check your Node version with `node --version` if you are unsure.
+Not sure if you have Node? Open your terminal (on Mac: search for "Terminal" in Spotlight; on Windows: search for "PowerShell") and type `node --version`. If you see a number like `v22.x.x`, you're good.
 </Tip>
 
-## Quick setup (CLI)
+## Quick setup (step by step)
 
 <Steps>
-  <Step title="Install Kolb-Bot (recommended)">
+  <Step title="Step 1: Install Kolb-Bot">
+    This downloads Kolb-Bot to your computer. Copy and paste one of these commands into your terminal:
+
     <Tabs>
       <Tab title="macOS/Linux">
         ```bash
@@ -48,28 +48,31 @@ Check your Node version with `node --version` if you are unsure.
     </Tabs>
 
     <Note>
-    Other install methods and requirements: [Install](/install).
+    Other install methods: [Install](/install). You can also use `npm install -g kolb-bot@latest` if you prefer npm.
     </Note>
 
   </Step>
-  <Step title="Run the onboarding wizard">
+  <Step title="Step 2: Run the setup wizard">
+    This walks you through connecting your AI provider (like OpenAI or Anthropic) and setting up your assistant. It explains each step as you go.
+
     ```bash
     kolb-bot onboard --install-daemon
     ```
 
-    The wizard configures auth, gateway settings, and optional channels.
-    See [Onboarding Wizard](/start/wizard) for details.
+    The wizard will ask you questions and explain what each choice means. See [Onboarding Wizard](/start/wizard) for the full guide.
 
   </Step>
-  <Step title="Check the Gateway">
-    If you installed the service, it should already be running:
+  <Step title="Step 3: Check that it's running">
+    This tells you if your assistant is online and ready:
 
     ```bash
     kolb-bot gateway status
     ```
 
   </Step>
-  <Step title="Open the Control UI">
+  <Step title="Step 4: Start chatting">
+    This opens Kolb-Bot in your browser so you can start talking to your assistant:
+
     ```bash
     kolb-bot dashboard
     ```
@@ -77,7 +80,7 @@ Check your Node version with `node --version` if you are unsure.
 </Steps>
 
 <Check>
-If the Control UI loads, your Gateway is ready for use.
+If the dashboard loads in your browser, congratulations — your personal AI assistant is live!
 </Check>
 
 ## Optional checks and extras
@@ -122,14 +125,14 @@ Full environment variable reference: [Environment vars](/help/environment).
   </Card>
 </Columns>
 
-## What you will have
+## What you now have
 
-- A running Gateway
-- Auth configured
-- Control UI access or a connected channel
+- A running AI assistant (the "Gateway" — this is the brain that processes your messages)
+- Your AI provider connected (this is the AI model that generates responses)
+- A dashboard where you can chat — and optionally, your messaging apps connected too
 
-## Next steps
+## What's next?
 
-- DM safety and approvals: [Pairing](/channels/pairing)
-- Connect more channels: [Channels](/channels)
-- Advanced workflows and from source: [Setup](/start/setup)
+- **Connect your messaging apps** so you can text your AI from WhatsApp, Telegram, etc.: [Channels](/channels)
+- **Set up who can message your bot** (security basics): [Pairing](/channels/pairing)
+- **Dive deeper** into advanced features: [Setup](/start/setup)
