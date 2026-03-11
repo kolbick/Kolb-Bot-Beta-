@@ -8,7 +8,15 @@
 </p>
 
 <p align="center">
-  <strong>EXFOLIATE! EXFOLIATE!</strong>
+    <img src="https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/docs/assets/kolb-bot-banner.png" alt="Kolb-Bot Banner" width="800">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/docs/assets/kolb-bot-mascot.png" alt="Kolb-Bot Mascot" width="150">
+</p>
+
+<p align="center">
+  <strong>Your Personal AI Pirate Assistant</strong>
 </p>
 
 <p align="center">

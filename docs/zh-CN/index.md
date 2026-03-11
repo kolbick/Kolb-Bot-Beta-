@@ -12,24 +12,28 @@ x-i18n:
   workflow: 15
 ---
 
-# OpenClaw 🦞
+# Kolb-Bot 🏴‍☠️
 
 <p align="center">
     <img
-        src="/assets/openclaw-logo-text-dark.png"
-        alt="OpenClaw"
+        src="/assets/kolb-bot-logo-text-dark.png"
+        alt="Kolb-Bot"
         width="500"
         class="dark:hidden"
     />
     <img
-        src="/assets/openclaw-logo-text.png"
-        alt="OpenClaw"
+        src="/assets/kolb-bot-logo-text.png"
+        alt="Kolb-Bot"
         width="500"
         class="hidden dark:block"
     />
 </p>
 
-> _"去壳！去壳！"_ — 大概是一只太空龙虾说的
+<p align="center">
+    <img src="/assets/kolb-bot-banner.png" alt="Kolb-Bot Banner" width="800" />
+</p>
+
+> _你的个人 AI 海盗助手_
 
 <p align="center">
   <strong>适用于任何操作系统的 AI 智能体 Gateway 网关，支持 WhatsApp、Telegram、Discord、iMessage 等。</strong><br />

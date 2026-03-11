@@ -22,7 +22,15 @@ title: "Kolb-Bot"
     />
 </p>
 
-> _"EXFOLIATE! EXFOLIATE!"_ — A space lobster, probably
+<p align="center">
+    <img src="/assets/kolb-bot-banner.png" alt="Kolb-Bot Banner" width="800" />
+</p>
+
+<p align="center">
+    <img src="/assets/kolb-bot-mascot.png" alt="Kolb-Bot Mascot" width="120" />
+</p>
+
+> _Your Personal AI Pirate Assistant_
 
 <p align="center">
   <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
