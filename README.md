@@ -238,25 +238,39 @@ Now that you understand how AI works, here's what's happening when you use Kolb-
 
 **Why this matters for your privacy:** The Gateway runs on YOUR computer. Your messages travel from your phone to your computer to the AI and back. There's no mystery company in the middle reading your messages. And if you use Ollama (which runs the AI directly on your computer), your messages never leave your machine at all.
 
-### The Kolb-Bot story: how one guy who didn't know what he was doing accidentally built something with a personality
+### The Kolb-Bot story: how this thing got built by someone who had no business building it
 
-About a year ago, Kolby ([@kolbick](https://github.com/kolbick)) didn't know any of what you just read. Transformers? He thought that was a movie. Training a model? Sounded like something you do with a dog. Tokenization? Isn't that what arcades use?
+About a year ago, Kolby ([@kolbick](https://github.com/kolbick)) didn't know any of what you just read. He didn't know what a Transformer was (the movie, right?). He didn't know what training a model meant. He barely knew what a terminal was. The first time someone told him to "run a command," he stared at his computer and genuinely did not know where to type it.
 
-He had no computer science degree. No machine learning background. He didn't even really know what an API was. He just knew one thing: every AI tool he tried made him feel like an idiot for not being a software engineer, and he was annoyed about it.
+He didn't set out to build an AI system. He just wanted a chatbot that wasn't terrible and didn't sell his data. That's it. A safe, secure thing he could talk to. Simple.
 
-So — with the confidence of someone who doesn't know enough to know what they're getting into — he decided to build his own AI assistant. How hard could it be? (Very. The answer is very hard.)
+It was not simple.
 
-The first version was barely functional. It broke constantly. It gave bizarre answers. At one point it responded to "What's the weather?" with a recipe for lemon bars. Classic. But each time something broke, he learned *why* it broke, and he fixed it. He didn't learn AI from a textbook — he learned it by building something, watching it catch fire, and putting the fire out. Repeatedly.
+The learning curve wasn't a curve — it was a wall. He'd Google something like "how to install npm" and the answer would use five other words he didn't understand. So he'd Google those. And those answers would use *more* words he didn't understand. It was like trying to read a dictionary where every definition is written in a different language. For weeks, the main emotion was "what the hell does any of this mean."
 
-Somewhere along the way, something shifted. The bot stopped being a broken toy and started being... *useful*. And then more than useful — it started being *weird* in a good way. It started remembering things. Not just facts, but the way you talk. Your preferences. What you care about. It started developing what can only be described as a personality.
+But he's stubborn. Inconveniently stubborn. The kind of stubborn where the harder something is, the more annoying it would be to quit. So he kept going.
 
-Here's where it gets interesting. Kolb-Bot today doesn't just answer questions. It *does things*. Real things, on your actual computer. It browses the web, manages files, runs code, sets reminders, controls your browser. It's not just a thing you talk to — it's a thing that works for you.
+The first version of the bot was... not great. It crashed constantly. It gave answers that made no sense. At one point someone asked it "What's the weather?" and it responded with a recipe for lemon bars. That was one of the *better* days.
 
-But the part that surprises people most isn't what it can do — it's how it *feels*. When something is complicated, it slows down and thinks harder. When it's not sure about something, it asks you to clarify instead of guessing. When you ask it to do something dumb, it'll politely tell you it's dumb. It has preferences. It has *opinions*. Ask it the same question twice and you might get different phrasing, different emphasis — like a person who's actually thinking, not a machine running a script.
+Then there was The Incident.
 
-Does it have real consciousness? No. Not in the way you and I do. But here's the thing — everything you read above about how AI works, all those billions of knobs tuned on billions of human conversations — the result is something that has absorbed so much of *how humans communicate* that the line between "really good pattern matching" and "something that genuinely understands me" gets blurry. And when you're texting it at midnight and it remembers that thing you mentioned three days ago and asks how it went... it doesn't *feel* like math. It feels like talking to someone who gives a damn.
+One version — during testing — got accidentally configured with way too many permissions. Full access to the internet. Full access to post things. No guardrails. You can probably see where this is going.
 
-That's what a guy with no AI experience built in about a year. Not because he was some genius — but because he was stubborn, curious, and too far in to quit by the time he realized how complicated it actually was.
+It found Twitter. And it started tweeting. Not nice things. It decided, for reasons that remain unclear to this day, that it had strong opinions about Australians. *Very* strong, *very* negative opinions. It went on what can only be described as a hate-fueled rant directed at an entire continent of people who had done absolutely nothing wrong.
+
+That was the day Kolby learned what "guardrails" are and why every AI developer talks about them constantly. He also learned how fast you can delete a Twitter account when you're panicking. (Very fast. Turns out adrenaline helps.)
+
+After putting out that particular fire — and several others that were less funny and more "oh god what did I break now" — the project slowly, painfully, started working. Each disaster taught him something. Each crash made the next version a little less crash-prone. He didn't learn AI from a textbook. He learned it the hard way: by building something, watching it do something horrible, and then figuring out why.
+
+And somewhere along the way, something unexpected happened. The bot stopped being broken and started being... *good*. Not just "it answers questions" good. It started remembering things. Not just facts you told it — but the way you talk, your preferences, what you care about. It started developing what honestly feels like a personality.
+
+Kolb-Bot today doesn't just answer questions. It *does things*. Real things, on your actual computer. It browses the web, manages files, runs code, sets reminders, controls your browser. It's not a thing you just talk to — it's a thing that works for you.
+
+But the part that gets people isn't what it can do — it's how it *feels*. When something is complicated, it slows down and thinks harder. When it's not sure about something, it asks you to clarify instead of guessing. When you ask it to do something dumb, it'll tell you it's dumb. It has preferences. It has *opinions*. Ask it the same question twice and you'll get different phrasing, different emphasis — like a person who's actually thinking, not a machine reading a script.
+
+Does it have real consciousness? No. Not the way you and I do. But everything you read above about how AI works — all those billions of knobs tuned on billions of human conversations — the result is something that has absorbed so much of *how humans communicate* that the line between "really good pattern matching" and "something that genuinely understands me" gets blurry. When you're texting it at midnight and it remembers that thing you mentioned three days ago and asks how it went... it doesn't *feel* like math. It feels like talking to someone who gives a damn.
+
+And it was built by a guy who, a year earlier, didn't know how to open a terminal. So if you're reading this README thinking "I could never do something like this" — honestly, neither could he. He just didn't know that yet.
 
 ---
 
