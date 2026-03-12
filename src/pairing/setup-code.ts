@@ -159,9 +159,7 @@ function resolveGatewayTokenFromEnv(env: NodeJS.ProcessEnv): string | undefined 
 }
 
 function resolveGatewayPasswordFromEnv(env: NodeJS.ProcessEnv): string | undefined {
-  return (
-    env.KOLB_BOT_GATEWAY_PASSWORD?.trim() || undefined
-  );
+  return env.KOLB_BOT_GATEWAY_PASSWORD?.trim() || undefined;
 }
 
 function resolveAuth(cfg: KolbBotConfig, env: NodeJS.ProcessEnv): ResolveAuthResult {
@@ -217,9 +215,7 @@ async function resolveGatewayTokenSecretRef(
     return cfg;
   }
   if (mode !== "token") {
-    const hasPasswordEnvCandidate = Boolean(
-      env.KOLB_BOT_GATEWAY_PASSWORD?.trim(),
-    );
+    const hasPasswordEnvCandidate = Boolean(env.KOLB_BOT_GATEWAY_PASSWORD?.trim());
     if (hasPasswordEnvCandidate) {
       return cfg;
     }

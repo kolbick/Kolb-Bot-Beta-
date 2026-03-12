@@ -135,7 +135,7 @@ describe("server-context hot-reload profiles", () => {
       profiles: new Map(),
     };
 
-    cfgProfiles.kolb-bot = { cdpPort: 19999, color: "#FF4500" };
+    cfgProfiles["kolb-bot"] = { cdpPort: 19999, color: "#FF4500" };
     cachedConfig = null;
 
     const after = resolveBrowserProfileWithHotReload({
@@ -190,7 +190,7 @@ describe("server-context hot-reload profiles", () => {
       ]),
     };
 
-    cfgProfiles.kolb-bot = { cdpPort: 19999, color: "#FF4500" };
+    cfgProfiles["kolb-bot"] = { cdpPort: 19999, color: "#FF4500" };
     cachedConfig = null;
 
     refreshResolvedBrowserConfigFromDisk({

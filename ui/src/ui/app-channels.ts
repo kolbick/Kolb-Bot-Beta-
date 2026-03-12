@@ -1,4 +1,4 @@
-import type { Kolb-BotApp } from "./app.ts";
+import type { KolbBotApp } from "./app.ts";
 import {
   loadChannels,
   logoutWhatsApp,
@@ -9,28 +9,28 @@ import { loadConfig, saveConfig } from "./controllers/config.ts";
 import type { NostrProfile } from "./types.ts";
 import { createNostrProfileFormState } from "./views/channels.nostr-profile-form.ts";
 
-export async function handleWhatsAppStart(host: Kolb-BotApp, force: boolean) {
+export async function handleWhatsAppStart(host: KolbBotApp, force: boolean) {
   await startWhatsAppLogin(host, force);
   await loadChannels(host, true);
 }
 
-export async function handleWhatsAppWait(host: Kolb-BotApp) {
+export async function handleWhatsAppWait(host: KolbBotApp) {
   await waitWhatsAppLogin(host);
   await loadChannels(host, true);
 }
 
-export async function handleWhatsAppLogout(host: Kolb-BotApp) {
+export async function handleWhatsAppLogout(host: KolbBotApp) {
   await logoutWhatsApp(host);
   await loadChannels(host, true);
 }
 
-export async function handleChannelConfigSave(host: Kolb-BotApp) {
+export async function handleChannelConfigSave(host: KolbBotApp) {
   await saveConfig(host);
   await loadConfig(host);
   await loadChannels(host, true);
 }
 
-export async function handleChannelConfigReload(host: Kolb-BotApp) {
+export async function handleChannelConfigReload(host: KolbBotApp) {
   await loadConfig(host);
   await loadChannels(host, true);
 }
@@ -57,7 +57,7 @@ function parseValidationErrors(details: unknown): Record<string, string> {
   return errors;
 }
 
-function resolveNostrAccountId(host: Kolb-BotApp): string {
+function resolveNostrAccountId(host: KolbBotApp): string {
   const accounts = host.channelsSnapshot?.channelAccounts?.nostr ?? [];
   return accounts[0]?.accountId ?? host.nostrProfileAccountId ?? "default";
 }
@@ -66,7 +66,7 @@ function buildNostrProfileUrl(accountId: string, suffix = ""): string {
   return `/api/channels/nostr/${encodeURIComponent(accountId)}/profile${suffix}`;
 }
 
-function resolveGatewayHttpAuthHeader(host: Kolb-BotApp): string | null {
+function resolveGatewayHttpAuthHeader(host: KolbBotApp): string | null {
   const deviceToken = host.hello?.auth?.deviceToken?.trim();
   if (deviceToken) {
     return `Bearer ${deviceToken}`;
@@ -82,13 +82,13 @@ function resolveGatewayHttpAuthHeader(host: Kolb-BotApp): string | null {
   return null;
 }
 
-function buildGatewayHttpHeaders(host: Kolb-BotApp): Record<string, string> {
+function buildGatewayHttpHeaders(host: KolbBotApp): Record<string, string> {
   const authorization = resolveGatewayHttpAuthHeader(host);
   return authorization ? { Authorization: authorization } : {};
 }
 
 export function handleNostrProfileEdit(
-  host: Kolb-BotApp,
+  host: KolbBotApp,
   accountId: string,
   profile: NostrProfile | null,
 ) {
@@ -96,13 +96,13 @@ export function handleNostrProfileEdit(
   host.nostrProfileFormState = createNostrProfileFormState(profile ?? undefined);
 }
 
-export function handleNostrProfileCancel(host: Kolb-BotApp) {
+export function handleNostrProfileCancel(host: KolbBotApp) {
   host.nostrProfileFormState = null;
   host.nostrProfileAccountId = null;
 }
 
 export function handleNostrProfileFieldChange(
-  host: Kolb-BotApp,
+  host: KolbBotApp,
   field: keyof NostrProfile,
   value: string,
 ) {
@@ -123,7 +123,7 @@ export function handleNostrProfileFieldChange(
   };
 }
 
-export function handleNostrProfileToggleAdvanced(host: Kolb-BotApp) {
+export function handleNostrProfileToggleAdvanced(host: KolbBotApp) {
   const state = host.nostrProfileFormState;
   if (!state) {
     return;
@@ -134,7 +134,7 @@ export function handleNostrProfileToggleAdvanced(host: Kolb-BotApp) {
   };
 }
 
-export async function handleNostrProfileSave(host: Kolb-BotApp) {
+export async function handleNostrProfileSave(host: KolbBotApp) {
   const state = host.nostrProfileFormState;
   if (!state || state.saving) {
     return;
@@ -206,7 +206,7 @@ export async function handleNostrProfileSave(host: Kolb-BotApp) {
   }
 }
 
-export async function handleNostrProfileImport(host: Kolb-BotApp) {
+export async function handleNostrProfileImport(host: KolbBotApp) {
   const state = host.nostrProfileFormState;
   if (!state || state.importing) {
     return;

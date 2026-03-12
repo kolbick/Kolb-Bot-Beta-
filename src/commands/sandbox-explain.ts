@@ -331,7 +331,9 @@ export async function sandboxExplainCommand(
     lines.push(`  - ${key}`);
   }
   lines.push("");
-  lines.push(`${key("Docs:")} ${formatDocsLink("/sandbox", "docs.github.com/kolbick/Kolb-Bot-Beta-/sandbox")}`);
+  lines.push(
+    `${key("Docs:")} ${formatDocsLink("/sandbox", "docs.github.com/kolbick/Kolb-Bot-Beta-/sandbox")}`,
+  );
 
   runtime.log(`${lines.join("\n")}\n`);
 }

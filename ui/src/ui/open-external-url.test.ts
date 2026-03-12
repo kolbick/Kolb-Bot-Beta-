@@ -22,9 +22,9 @@ describe("resolveSafeExternalUrl", () => {
   });
 
   it("allows blob URLs", () => {
-    expect(resolveSafeExternalUrl("blob:https://github.com/kolbick/Kolb-Bot-Beta-/abc-123", baseHref)).toBe(
-      "blob:https://github.com/kolbick/Kolb-Bot-Beta-/abc-123",
-    );
+    expect(
+      resolveSafeExternalUrl("blob:https://github.com/kolbick/Kolb-Bot-Beta-/abc-123", baseHref),
+    ).toBe("blob:https://github.com/kolbick/Kolb-Bot-Beta-/abc-123");
   });
 
   it("allows data image URLs when enabled", () => {

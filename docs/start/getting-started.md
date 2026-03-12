@@ -40,13 +40,14 @@ Before you do anything else, you need two things:
         curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
         ```
         <img
-  src="/assets/install-script.svg"
-  alt="Install Script Process"
-  className="rounded-lg"
+
+src="/assets/install-script.svg"
+alt="Install Script Process"
+className="rounded-lg"
 />
-      </Tab>
-      <Tab title="Homebrew (macOS/Linux)">
-        If you use Homebrew (a popular package manager for Mac):
+</Tab>
+<Tab title="Homebrew (macOS/Linux)">
+If you use Homebrew (a popular package manager for Mac):
 
         ```bash
         brew install kolb-bot
@@ -95,6 +96,7 @@ Before you do anything else, you need two things:
     ```bash
     kolb-bot dashboard
     ```
+
   </Step>
 </Steps>
 

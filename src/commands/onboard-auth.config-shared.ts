@@ -40,10 +40,7 @@ export function applyOnboardAuthAgentModelsAndProviders(
   };
 }
 
-export function applyAgentDefaultModelPrimary(
-  cfg: KolbBotConfig,
-  primary: string,
-): KolbBotConfig {
+export function applyAgentDefaultModelPrimary(cfg: KolbBotConfig, primary: string): KolbBotConfig {
   const existingFallbacks = extractAgentDefaultModelFallbacks(cfg.agents?.defaults?.model);
   return {
     ...cfg,

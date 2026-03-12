@@ -19,7 +19,6 @@ async function withStateDir<T>(stateDir: string, fn: () => Promise<T>) {
   return await withEnvAsync(
     {
       KOLB_BOT_STATE_DIR: stateDir,
-      KOLB_BOT_STATE_DIR: undefined,
       KOLB_BOT_BUNDLED_PLUGINS_DIR: "/nonexistent/bundled/plugins",
     },
     fn,

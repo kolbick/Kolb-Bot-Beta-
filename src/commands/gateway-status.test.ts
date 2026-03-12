@@ -303,7 +303,6 @@ describe("gateway-status command", () => {
       {
         CUSTOM_GATEWAY_TOKEN: "resolved-gateway-token",
         KOLB_BOT_GATEWAY_TOKEN: undefined,
-        KOLB_BOT_GATEWAY_TOKEN: undefined,
       },
       async () => {
         readBestEffortConfig.mockResolvedValueOnce({

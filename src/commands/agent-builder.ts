@@ -7,10 +7,7 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
-import {
-  resolveAgentDir,
-  resolveAgentWorkspaceDir,
-} from "../agents/agent-scope.js";
+import { resolveAgentDir, resolveAgentWorkspaceDir } from "../agents/agent-scope.js";
 import { ensureAuthProfileStore } from "../agents/auth-profiles.js";
 import { resolveAuthStorePath } from "../agents/auth-profiles/paths.js";
 import { writeConfigFile } from "../config/config.js";
@@ -22,19 +19,9 @@ import { resolveUserPath, shortenHomePath } from "../utils.js";
 import { createClackPrompter } from "../wizard/clack-prompter.js";
 import type { WizardPrompter } from "../wizard/prompts.js";
 import { WizardCancelledError } from "../wizard/prompts.js";
-import {
-  applyAgentBindings,
-  buildChannelBindings,
-  describeBinding,
-} from "./agents.bindings.js";
-import {
-  requireValidConfig,
-} from "./agents.command-shared.js";
-import {
-  applyAgentConfig,
-  findAgentEntryIndex,
-  listAgentEntries,
-} from "./agents.config.js";
+import { applyAgentBindings, buildChannelBindings, describeBinding } from "./agents.bindings.js";
+import { requireValidConfig } from "./agents.command-shared.js";
+import { applyAgentConfig, listAgentEntries } from "./agents.config.js";
 import { promptAuthChoiceGrouped } from "./auth-choice-prompt.js";
 import { applyAuthChoice, warnIfModelConfigLooksOff } from "./auth-choice.js";
 import { setupChannels } from "./onboard-channels.js";
@@ -87,7 +74,12 @@ export const AGENT_PRESETS: AgentPreset[] = [
       "Can read files, write code, run commands, and explain",
       "programming concepts. Perfect for pair programming.",
     ],
-    identity: { name: "CodeBot", emoji: "💻", creature: "programmer", vibe: "precise and technical" },
+    identity: {
+      name: "CodeBot",
+      emoji: "💻",
+      creature: "programmer",
+      vibe: "precise and technical",
+    },
     skills: undefined,
     toolProfile: "coding",
     systemPromptSuggestion:
@@ -103,7 +95,12 @@ export const AGENT_PRESETS: AgentPreset[] = [
       "Can search the web, fetch pages, and compile results",
       "into clear summaries. Great for investigation tasks.",
     ],
-    identity: { name: "Scholar", emoji: "🔍", creature: "researcher", vibe: "thorough and analytical" },
+    identity: {
+      name: "Scholar",
+      emoji: "🔍",
+      creature: "researcher",
+      vibe: "thorough and analytical",
+    },
     skills: undefined,
     toolProfile: "full",
     systemPromptSuggestion:
@@ -184,7 +181,8 @@ async function stepPickPreset(prompter: WizardPrompter): Promise<AgentPreset> {
     })),
   });
 
-  const preset = AGENT_PRESETS.find((p) => p.id === presetId) ?? AGENT_PRESETS[AGENT_PRESETS.length - 1];
+  const preset =
+    AGENT_PRESETS.find((p) => p.id === presetId) ?? AGENT_PRESETS[AGENT_PRESETS.length - 1];
 
   if (preset.id !== "custom") {
     await prompter.note(preset.description.join("\n"), `${preset.label} preset`);
@@ -208,7 +206,8 @@ async function stepNameAgent(
     "Step 2: Name your agent",
   );
 
-  const defaultName = preset.id !== "custom" ? preset.identity.name.toLowerCase().replace(/\s+/g, "-") : "";
+  const defaultName =
+    preset.id !== "custom" ? preset.identity.name.toLowerCase().replace(/\s+/g, "-") : "";
 
   const name = await prompter.text({
     message: "Agent name",
@@ -358,7 +357,7 @@ async function stepSystemPrompt(
     preset.systemPromptSuggestion ||
     (identity.name
       ? `You are ${identity.name}${identity.creature ? `, a ${identity.creature}` : ""}. ` +
-        `${identity.vibe ? `Your personality is ${identity.vibe}. ` : ""}` +
+        (identity.vibe ? `Your personality is ${identity.vibe}. ` : "") +
         "Help the user with their requests."
       : "You are a helpful assistant.");
 
@@ -568,11 +567,14 @@ function buildIdentityMarkdown(identity: {
   return lines.join("\n");
 }
 
-function buildSoulMarkdown(systemPrompt: string, identity: {
-  name: string;
-  creature: string;
-  vibe: string;
-}): string {
+function buildSoulMarkdown(
+  systemPrompt: string,
+  identity: {
+    name: string;
+    creature: string;
+    vibe: string;
+  },
+): string {
   const lines = [
     `# ${identity.name || "Agent"} — Soul`,
     "",
@@ -651,7 +653,10 @@ export async function agentBuilderCommand(
       if (!samePath) {
         try {
           await fs.stat(sourceAuth);
-          const destExists = await fs.stat(destAuth).then(() => true).catch(() => false);
+          const destExists = await fs
+            .stat(destAuth)
+            .then(() => true)
+            .catch(() => false);
           if (!destExists) {
             const shouldCopy = await prompter.confirm({
               message: `Copy auth profiles from default agent "${defaultAgentId}"?`,
@@ -705,9 +710,7 @@ export async function agentBuilderCommand(
 
     // Apply tool profile
     const agentsList = nextConfig.agents?.list ?? [];
-    const agentIndex = agentsList.findIndex(
-      (e) => normalizeAgentId(e.id) === agentId,
-    );
+    const agentIndex = agentsList.findIndex((e) => normalizeAgentId(e.id) === agentId);
     if (agentIndex >= 0) {
       agentsList[agentIndex] = {
         ...agentsList[agentIndex],

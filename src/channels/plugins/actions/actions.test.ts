@@ -140,9 +140,7 @@ function createSignalAccountOverrideCfg(): KolbBotConfig {
   } as KolbBotConfig;
 }
 
-function createDiscordModerationOverrideCfg(params?: {
-  channelsEnabled?: boolean;
-}): KolbBotConfig {
+function createDiscordModerationOverrideCfg(params?: { channelsEnabled?: boolean }): KolbBotConfig {
   const accountActions = params?.channelsEnabled
     ? { moderation: true, channels: true }
     : { moderation: true };

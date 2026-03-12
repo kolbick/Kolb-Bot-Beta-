@@ -239,9 +239,7 @@ export function resolvePlanTargetAgainstRegistry(candidate: {
   return null;
 }
 
-export function discoverConfigSecretTargets(
-  config: KolbBotConfig,
-): DiscoveredConfigSecretTarget[] {
+export function discoverConfigSecretTargets(config: KolbBotConfig): DiscoveredConfigSecretTarget[] {
   return discoverConfigSecretTargetsByIds(config);
 }
 

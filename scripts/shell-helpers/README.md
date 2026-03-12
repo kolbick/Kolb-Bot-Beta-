@@ -74,8 +74,8 @@ kolb-dock-approve <request-id>
 
 ### Basic Operations
 
-| Command            | Description                     |
-| ------------------ | ------------------------------- |
+| Command             | Description                     |
+| ------------------- | ------------------------------- |
 | `kolb-dock-start`   | Start the gateway               |
 | `kolb-dock-stop`    | Stop the gateway                |
 | `kolb-dock-restart` | Restart the gateway             |
@@ -84,37 +84,37 @@ kolb-dock-approve <request-id>
 
 ### Container Access
 
-| Command                   | Description                                    |
-| ------------------------- | ---------------------------------------------- |
+| Command                    | Description                                    |
+| -------------------------- | ---------------------------------------------- |
 | `kolb-dock-shell`          | Interactive shell inside the gateway container |
 | `kolb-dock-cli <command>`  | Run Kolb-Bot CLI commands                      |
 | `kolb-dock-exec <command>` | Execute arbitrary commands in the container    |
 
 ### Web UI & Devices
 
-| Command                 | Description                                |
-| ----------------------- | ------------------------------------------ |
+| Command                  | Description                                |
+| ------------------------ | ------------------------------------------ |
 | `kolb-dock-dashboard`    | Open web UI in browser with authentication |
 | `kolb-dock-devices`      | List device pairing requests               |
 | `kolb-dock-approve <id>` | Approve a device pairing request           |
 
 ### Setup & Configuration
 
-| Command              | Description                                       |
-| -------------------- | ------------------------------------------------- |
+| Command               | Description                                       |
+| --------------------- | ------------------------------------------------- |
 | `kolb-dock-fix-token` | Configure gateway authentication token (run once) |
 
 ### Maintenance
 
-| Command            | Description                                      |
-| ------------------ | ------------------------------------------------ |
+| Command             | Description                                      |
+| ------------------- | ------------------------------------------------ |
 | `kolb-dock-rebuild` | Rebuild the Docker image                         |
 | `kolb-dock-clean`   | Remove all containers and volumes (destructive!) |
 
 ### Utilities
 
-| Command              | Description                               |
-| -------------------- | ----------------------------------------- |
+| Command               | Description                               |
+| --------------------- | ----------------------------------------- |
 | `kolb-dock-health`    | Run gateway health check                  |
 | `kolb-dock-token`     | Display the gateway authentication token  |
 | `kolb-dock-cd`        | Jump to the Kolb-Bot project directory    |

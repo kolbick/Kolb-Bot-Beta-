@@ -247,7 +247,7 @@ describe("browser server-context listKnownProfileNames", () => {
       },
     });
     const kolbBot = resolveProfile(resolved, "kolb-bot");
-    if (!kolb-bot) {
+    if (!kolbBot) {
       throw new Error("expected kolb-bot profile");
     }
 
@@ -259,7 +259,7 @@ describe("browser server-context listKnownProfileNames", () => {
         [
           "stale-removed",
           {
-            profile: { ...kolb-bot, name: "stale-removed" },
+            profile: { ...kolbBot, name: "stale-removed" },
             running: null,
           },
         ],

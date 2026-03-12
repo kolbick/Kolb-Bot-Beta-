@@ -268,7 +268,6 @@ describe("maybeRepairGatewayServiceConfig", () => {
     await withEnvAsync(
       {
         KOLB_BOT_GATEWAY_TOKEN: undefined,
-        KOLB_BOT_GATEWAY_TOKEN: undefined,
       },
       async () => {
         setupGatewayTokenRepairScenario();
@@ -312,7 +311,6 @@ describe("maybeRepairGatewayServiceConfig", () => {
   it("does not persist EnvironmentFile-backed service tokens into config", async () => {
     await withEnvAsync(
       {
-        KOLB_BOT_GATEWAY_TOKEN: undefined,
         KOLB_BOT_GATEWAY_TOKEN: undefined,
       },
       async () => {

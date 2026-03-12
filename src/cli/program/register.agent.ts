@@ -230,10 +230,7 @@ ${theme.muted("This guided wizard walks you through every step:")}
     )
     .action(async (opts) => {
       await runCommandWithRuntime(defaultRuntime, async () => {
-        await agentBuilderCommand(
-          { json: Boolean(opts.json) },
-          defaultRuntime,
-        );
+        await agentBuilderCommand({ json: Boolean(opts.json) }, defaultRuntime);
       });
     });
 

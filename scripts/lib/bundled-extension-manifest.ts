@@ -49,7 +49,8 @@ export function collectBundledExtensionManifestErrors(extensions: BundledExtensi
       );
     }
 
-    const allowlist = extension.packageJson["kolb-bot"]?.releaseChecks?.rootDependencyMirrorAllowlist;
+    const allowlist =
+      extension.packageJson["kolb-bot"]?.releaseChecks?.rootDependencyMirrorAllowlist;
     if (allowlist === undefined) {
       continue;
     }
