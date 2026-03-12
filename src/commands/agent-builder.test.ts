@@ -27,9 +27,9 @@ vi.mock("./auth-choice-prompt.js", () => ({
 }));
 
 vi.mock("./auth-choice.js", () => ({
-  applyAuthChoice: vi.fn().mockImplementation(({ config }) =>
-    Promise.resolve({ config, agentModelOverride: undefined }),
-  ),
+  applyAuthChoice: vi
+    .fn()
+    .mockImplementation(({ config }) => Promise.resolve({ config, agentModelOverride: undefined })),
   warnIfModelConfigLooksOff: vi.fn().mockResolvedValue(undefined),
 }));
 
@@ -63,10 +63,10 @@ function createMockPrompter(overrides: Record<string, unknown> = {}) {
     text: vi.fn().mockImplementation(() => {
       const defaults = [
         "test-agent", // agent name
-        "TestBot",    // identity name
-        "🤖",        // emoji
-        "robot",      // creature
-        "friendly",   // vibe
+        "TestBot", // identity name
+        "🤖", // emoji
+        "robot", // creature
+        "friendly", // vibe
         "You are a helpful assistant.", // system prompt
         "/tmp/test-workspace", // workspace
       ];
@@ -127,7 +127,7 @@ describe("agent builder", () => {
         false, // channels: no
         false, // auth copy: skip (might not be called)
         false, // auth: no
-        true,  // create: yes
+        true, // create: yes
       ];
       const val = responses[confirmIndex] ?? true;
       confirmIndex++;
@@ -156,9 +156,7 @@ describe("agent builder", () => {
     await agentBuilderCommand({}, runtime);
 
     expect(writeConfigFileMock).not.toHaveBeenCalled();
-    expect(mockPrompter.outro).toHaveBeenCalledWith(
-      expect.stringContaining("cancelled"),
-    );
+    expect(mockPrompter.outro).toHaveBeenCalledWith(expect.stringContaining("cancelled"));
   });
 
   describe("AGENT_PRESETS", () => {

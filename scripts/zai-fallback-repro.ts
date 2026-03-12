@@ -107,8 +107,6 @@ async function main() {
     ...process.env,
     KOLB_BOT_CONFIG_PATH: configPath,
     KOLB_BOT_STATE_DIR: stateDir,
-    KOLB_BOT_CONFIG_PATH: configPath,
-    KOLB_BOT_STATE_DIR: stateDir,
     ZAI_API_KEY: zaiKey,
     Z_AI_API_KEY: "",
   };

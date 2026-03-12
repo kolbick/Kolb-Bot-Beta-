@@ -83,10 +83,14 @@ describe("zalouser send helpers", () => {
       isGroup: true,
     });
 
-    expect(mockSendLink).toHaveBeenCalledWith("thread-3", "https://github.com/kolbick/Kolb-Bot-Beta-", {
-      profile: "p3",
-      isGroup: true,
-    });
+    expect(mockSendLink).toHaveBeenCalledWith(
+      "thread-3",
+      "https://github.com/kolbick/Kolb-Bot-Beta-",
+      {
+        profile: "p3",
+        isGroup: true,
+      },
+    );
     expect(result).toEqual({ ok: false, error: "boom" });
   });
 

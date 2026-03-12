@@ -175,7 +175,7 @@ describe("BrowserProfilesService", () => {
       browser: {
         defaultProfile: "kolb-bot",
         profiles: {
-          kolb-bot: { cdpPort: 18800, color: "#FF4500" },
+          "kolb-bot": { cdpPort: 18800, color: "#FF4500" },
           remote: { cdpUrl: "http://10.0.0.42:9222", color: "#0066CC" },
         },
       },
@@ -201,7 +201,7 @@ describe("BrowserProfilesService", () => {
       browser: {
         defaultProfile: "kolb-bot",
         profiles: {
-          kolb-bot: { cdpPort: 18800, color: "#FF4500" },
+          "kolb-bot": { cdpPort: 18800, color: "#FF4500" },
           work: { cdpPort: 18801, color: "#0066CC" },
         },
       },

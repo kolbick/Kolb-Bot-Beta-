@@ -305,5 +305,7 @@ export function printDaemonStatus(status: DaemonStatus, opts: { json: boolean })
   }
 
   defaultRuntime.log(`${label("Troubles:")} run ${formatCliCommand("kolb-bot status")}`);
-  defaultRuntime.log(`${label("Troubleshooting:")} https://docs.github.com/kolbick/Kolb-Bot-Beta-/troubleshooting`);
+  defaultRuntime.log(
+    `${label("Troubleshooting:")} https://docs.github.com/kolbick/Kolb-Bot-Beta-/troubleshooting`,
+  );
 }

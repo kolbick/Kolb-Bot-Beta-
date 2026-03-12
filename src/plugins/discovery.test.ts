@@ -19,7 +19,6 @@ async function withStateDir<T>(stateDir: string, fn: () => Promise<T>) {
   return await withEnvAsync(
     {
       KOLB_BOT_STATE_DIR: stateDir,
-      KOLB_BOT_STATE_DIR: undefined,
       KOLB_BOT_BUNDLED_PLUGINS_DIR: "/nonexistent/bundled/plugins",
     },
     fn,
@@ -44,7 +43,7 @@ function writePluginPackageManifest(params: {
     path.join(params.packageDir, "package.json"),
     JSON.stringify({
       name: params.packageName,
-      kolb-bot: { extensions: params.extensions },
+      "kolb-bot": { extensions: params.extensions },
     }),
     "utf-8",
   );
@@ -290,7 +289,7 @@ describe("discoverKolbBotPlugins", () => {
       outsideManifest,
       JSON.stringify({
         name: "@kolb-bot/pack",
-        kolb-bot: { extensions: ["./entry.ts"] },
+        "kolb-bot": { extensions: ["./entry.ts"] },
       }),
       "utf-8",
     );

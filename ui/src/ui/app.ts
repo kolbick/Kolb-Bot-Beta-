@@ -108,7 +108,7 @@ function resolveOnboardingMode(): boolean {
 }
 
 @customElement("kolb-bot-app")
-export class Kolb-BotApp extends LitElement {
+export class KolbBotApp extends LitElement {
   private i18nController = new I18nController(this);
   clientInstanceId = generateUUID();
   connectGeneration = 0;

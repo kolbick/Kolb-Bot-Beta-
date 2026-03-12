@@ -15,27 +15,20 @@ vi.mock("../../gateway/call.js", () => ({
 
 describe("gateway tool defaults", () => {
   const envSnapshot = {
-    kolb-bot: process.env.KOLB_BOT_GATEWAY_TOKEN,
-    kolb-bot: process.env.KOLB_BOT_GATEWAY_TOKEN,
+    gatewayToken: process.env.KOLB_BOT_GATEWAY_TOKEN,
   };
 
   beforeEach(() => {
     callGatewayMock.mockClear();
     configState.value = {};
     delete process.env.KOLB_BOT_GATEWAY_TOKEN;
-    delete process.env.KOLB_BOT_GATEWAY_TOKEN;
   });
 
   afterAll(() => {
-    if (envSnapshot.kolb-bot === undefined) {
+    if (envSnapshot.gatewayToken === undefined) {
       delete process.env.KOLB_BOT_GATEWAY_TOKEN;
     } else {
-      process.env.KOLB_BOT_GATEWAY_TOKEN = envSnapshot.kolb-bot;
-    }
-    if (envSnapshot.kolb-bot === undefined) {
-      delete process.env.KOLB_BOT_GATEWAY_TOKEN;
-    } else {
-      process.env.KOLB_BOT_GATEWAY_TOKEN = envSnapshot.kolb-bot;
+      process.env.KOLB_BOT_GATEWAY_TOKEN = envSnapshot.gatewayToken;
     }
   });
 

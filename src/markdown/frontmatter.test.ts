@@ -33,7 +33,7 @@ metadata:
     expect(result.metadata).toBeDefined();
 
     const parsed = JSON5.parse(result.metadata ?? "");
-    expect(parsed.kolb-bot?.emoji).toBe("disk");
+    expect(parsed["kolb-bot"]?.emoji).toBe("disk");
   });
 
   it("preserves inline JSON values", () => {
@@ -55,7 +55,7 @@ tags:
   - alpha
   - beta
 metadata:
-  kolb-bot:
+  "kolb-bot":
     events:
       - command:new
 ---
@@ -65,7 +65,7 @@ metadata:
     expect(result.retries).toBe("3");
     expect(JSON.parse(result.tags ?? "[]")).toEqual(["alpha", "beta"]);
     const parsed = JSON5.parse(result.metadata ?? "");
-    expect(parsed.kolb-bot?.events).toEqual(["command:new"]);
+    expect(parsed["kolb-bot"]?.events).toEqual(["command:new"]);
   });
 
   it("preserves inline description values containing colons", () => {
@@ -91,7 +91,7 @@ description: |-
     const content = `---
 name: sample-skill
 metadata:
-  kolb-bot: true
+  "kolb-bot": true
 ---`;
     const result = parseFrontmatterBlock(content);
     expect(result.metadata).toBe('{"kolb-bot":true}');

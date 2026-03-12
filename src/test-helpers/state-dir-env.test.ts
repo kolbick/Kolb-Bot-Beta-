@@ -9,19 +9,19 @@ import {
 } from "./state-dir-env.js";
 
 type EnvSnapshot = {
-  kolb-bot?: string;
+  "kolb-bot"?: string;
   legacy?: string;
 };
 
 function snapshotCurrentStateDirVars(): EnvSnapshot {
   return {
-    kolb-bot: process.env.KOLB_BOT_STATE_DIR,
+    "kolb-bot": process.env.KOLB_BOT_STATE_DIR,
     legacy: process.env.KOLB_BOT_STATE_DIR,
   };
 }
 
 function expectStateDirVars(snapshot: EnvSnapshot) {
-  expect(process.env.KOLB_BOT_STATE_DIR).toBe(snapshot.kolb-bot);
+  expect(process.env.KOLB_BOT_STATE_DIR).toBe(snapshot["kolb-bot"]);
   expect(process.env.KOLB_BOT_STATE_DIR).toBe(snapshot.legacy);
 }
 

@@ -184,9 +184,7 @@ export function createLlmTaskTool(api: KolbBotPluginApi) {
 
       let tmpDir: string | null = null;
       try {
-        tmpDir = await fs.mkdtemp(
-          path.join(resolvePreferredKolbBotTmpDir(), "kolb-bot-llm-task-"),
-        );
+        tmpDir = await fs.mkdtemp(path.join(resolvePreferredKolbBotTmpDir(), "kolb-bot-llm-task-"));
         const sessionId = `llm-task-${Date.now()}`;
         const sessionFile = path.join(tmpDir, "session.json");
 

@@ -107,7 +107,7 @@ Both resolve from process env at activation time. SecretRef details are document
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `KOLB_BOT_HOME`        | Override the home directory used for all internal path resolution (`~/.kolb-bot/`, agent dirs, sessions, credentials). Useful when running Kolb-Bot as a dedicated service user. |
 | `KOLB_BOT_STATE_DIR`   | Override the state directory (default `~/.kolb-bot`).                                                                                                                            |
-| `KOLB_BOT_CONFIG_PATH` | Override the config file path (default `~/.kolbick/Kolb-Bot-Beta-.json`).                                                                                                             |
+| `KOLB_BOT_CONFIG_PATH` | Override the config file path (default `~/.kolbick/Kolb-Bot-Beta-.json`).                                                                                                        |
 
 ## Logging
 

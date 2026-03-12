@@ -28,10 +28,10 @@ function ensureChangelogEntry(changelogPath: string, version: string): boolean {
 
 function stripWorkspaceKolbBotDevDependency(pkg: PackageJson): boolean {
   const devDeps = pkg.devDependencies;
-  if (!devDeps || devDeps.kolb-bot !== "workspace:*") {
+  if (!devDeps || devDeps["kolb-bot"] !== "workspace:*") {
     return false;
   }
-  delete devDeps.kolb-bot;
+  delete devDeps["kolb-bot"];
   if (Object.keys(devDeps).length === 0) {
     delete pkg.devDependencies;
   }

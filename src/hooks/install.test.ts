@@ -97,7 +97,7 @@ function writeHookPackManifest(params: {
     JSON.stringify({
       name: "@kolb-bot/test-hooks",
       version: "0.0.1",
-      kolb-bot: { hooks: params.hooks },
+      "kolb-bot": { hooks: params.hooks },
       ...(params.dependencies ? { dependencies: params.dependencies } : {}),
     }),
     "utf-8",

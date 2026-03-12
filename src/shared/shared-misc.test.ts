@@ -75,9 +75,7 @@ describe("shared/frontmatter", () => {
 
   test("resolveKolbBotManifestBlock returns undefined for invalid input", () => {
     expect(resolveKolbBotManifestBlock({ frontmatter: {} })).toBeUndefined();
-    expect(
-      resolveKolbBotManifestBlock({ frontmatter: { metadata: "not-json5" } }),
-    ).toBeUndefined();
+    expect(resolveKolbBotManifestBlock({ frontmatter: { metadata: "not-json5" } })).toBeUndefined();
     expect(
       resolveKolbBotManifestBlock({ frontmatter: { metadata: "{ nope: { a: 1 } }" } }),
     ).toBeUndefined();

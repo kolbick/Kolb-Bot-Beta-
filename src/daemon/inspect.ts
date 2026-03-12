@@ -14,7 +14,7 @@ export type ExtraGatewayService = {
   label: string;
   detail: string;
   scope: "user" | "system";
-  marker?: "kolb-bot" | "kolb-bot" | "kolb-bot";
+  marker?: "kolb-bot";
   legacy?: boolean;
 };
 

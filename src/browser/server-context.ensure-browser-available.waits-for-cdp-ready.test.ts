@@ -31,7 +31,7 @@ function makeBrowserState(): BrowserServerState {
       ssrfPolicy: { allowPrivateNetwork: true },
       defaultProfile: "kolb-bot",
       profiles: {
-        kolb-bot: { cdpPort: 18800, color: "#FF4500" },
+        "kolb-bot": { cdpPort: 18800, color: "#FF4500" },
       },
     },
     profiles: new Map(),

@@ -47,7 +47,7 @@ async function writeSkillWithInstallers(
     `---
 name: ${name}
 description: test skill
-metadata: ${JSON.stringify({ kolb-bot: { install: installSpecs } })}
+metadata: ${JSON.stringify({ "kolb-bot": { install: installSpecs } })}
 ---
 
 # ${name}

@@ -3,7 +3,7 @@ export type ExtensionPackageJson = {
   version?: string;
   dependencies?: Record<string, string>;
   optionalDependencies?: Record<string, string>;
-  kolb-bot?: {
+  "kolb-bot"?: {
     install?: {
       npmSpec?: string;
     };
@@ -25,11 +25,11 @@ export function normalizeBundledExtensionMetadata(
   return extensions.map((extension) => ({
     ...extension,
     npmSpec:
-      typeof extension.packageJson.kolb-bot?.install?.npmSpec === "string"
-        ? extension.packageJson.kolb-bot.install.npmSpec.trim()
+      typeof extension.packageJson["kolb-bot"]?.install?.npmSpec === "string"
+        ? extension.packageJson["kolb-bot"].install.npmSpec.trim()
         : undefined,
     rootDependencyMirrorAllowlist:
-      extension.packageJson.kolb-bot?.releaseChecks?.rootDependencyMirrorAllowlist?.filter(
+      extension.packageJson["kolb-bot"]?.releaseChecks?.rootDependencyMirrorAllowlist?.filter(
         (entry): entry is string => typeof entry === "string" && entry.trim().length > 0,
       ) ?? [],
   }));
@@ -39,7 +39,7 @@ export function collectBundledExtensionManifestErrors(extensions: BundledExtensi
   const errors: string[] = [];
 
   for (const extension of extensions) {
-    const install = extension.packageJson.kolb-bot?.install;
+    const install = extension.packageJson["kolb-bot"]?.install;
     if (
       install &&
       (!install.npmSpec || typeof install.npmSpec !== "string" || !install.npmSpec.trim())
@@ -49,7 +49,8 @@ export function collectBundledExtensionManifestErrors(extensions: BundledExtensi
       );
     }
 
-    const allowlist = extension.packageJson.kolb-bot?.releaseChecks?.rootDependencyMirrorAllowlist;
+    const allowlist =
+      extension.packageJson["kolb-bot"]?.releaseChecks?.rootDependencyMirrorAllowlist;
     if (allowlist === undefined) {
       continue;
     }
@@ -59,11 +60,13 @@ export function collectBundledExtensionManifestErrors(extensions: BundledExtensi
       );
       continue;
     }
-    const invalidEntries = allowlist.filter((entry) => typeof entry !== "string" || !entry.trim());
-    if (invalidEntries.length > 0) {
-      errors.push(
-        `bundled extension '${extension.id}' manifest invalid | kolb-bot.releaseChecks.rootDependencyMirrorAllowlist must contain only non-empty strings`,
-      );
+    for (const entry of allowlist) {
+      if (typeof entry !== "string" || !entry.trim()) {
+        errors.push(
+          `bundled extension '${extension.id}' manifest invalid | each entry in kolb-bot.releaseChecks.rootDependencyMirrorAllowlist must be a non-empty string`,
+        );
+        break;
+      }
     }
   }
 

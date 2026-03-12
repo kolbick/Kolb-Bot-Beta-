@@ -35,7 +35,7 @@ export async function writeDownloadSkill(params: {
   const skillDir = path.join(params.workspaceDir, "skills", params.name);
   await fs.mkdir(skillDir, { recursive: true });
   const meta = {
-    kolb-bot: {
+    "kolb-bot": {
       install: [
         {
           id: params.installId,

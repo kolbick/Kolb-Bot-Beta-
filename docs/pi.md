@@ -146,7 +146,7 @@ const result = await runEmbeddedPiAgent({
   sessionKey: "main:whatsapp:+1234567890",
   sessionFile: "/path/to/session.jsonl",
   workspaceDir: "/path/to/workspace",
-  config: kolb-botConfig,
+  config: kolb - botConfig,
   prompt: "Hello, how are you?",
   provider: "anthropic",
   model: "claude-sonnet-4-20250514",

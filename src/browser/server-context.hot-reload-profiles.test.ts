@@ -50,7 +50,7 @@ describe("server-context hot-reload profiles", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     cfgProfiles = {
-      kolb-bot: { cdpPort: 18800, color: "#FF4500" },
+      "kolb-bot": { cdpPort: 18800, color: "#FF4500" },
     };
     cachedConfig = null; // Clear simulated cache
   });
@@ -79,7 +79,7 @@ describe("server-context hot-reload profiles", () => {
       }),
     ).toBeNull();
 
-    // 2. Simulate adding a new profile to config (like user editing kolb-bot.json)
+    // 2. Simulate adding a new profile to config (like user editing kolbBot.json)
     cfgProfiles.desktop = { cdpUrl: "http://127.0.0.1:9222", color: "#0066CC" };
 
     // 3. Verify without clearConfigCache, loadConfig() still returns stale cached value
@@ -135,7 +135,7 @@ describe("server-context hot-reload profiles", () => {
       profiles: new Map(),
     };
 
-    cfgProfiles.kolb-bot = { cdpPort: 19999, color: "#FF4500" };
+    cfgProfiles["kolb-bot"] = { cdpPort: 19999, color: "#FF4500" };
     cachedConfig = null;
 
     const after = resolveBrowserProfileWithHotReload({
@@ -144,7 +144,7 @@ describe("server-context hot-reload profiles", () => {
       name: "kolb-bot",
     });
     expect(after?.cdpPort).toBe(19999);
-    expect(state.resolved.profiles.kolb-bot?.cdpPort).toBe(19999);
+    expect(state.resolved.profiles.kolbBot?.cdpPort).toBe(19999);
   });
 
   it("listProfiles refreshes config before enumerating profiles", async () => {
@@ -190,7 +190,7 @@ describe("server-context hot-reload profiles", () => {
       ]),
     };
 
-    cfgProfiles.kolb-bot = { cdpPort: 19999, color: "#FF4500" };
+    cfgProfiles["kolb-bot"] = { cdpPort: 19999, color: "#FF4500" };
     cachedConfig = null;
 
     refreshResolvedBrowserConfigFromDisk({

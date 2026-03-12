@@ -373,7 +373,6 @@ describe("buildNodeServiceEnvironment", () => {
       env: {
         HOME: "/home/user",
         KOLB_BOT_GATEWAY_TOKEN: "kolb-bot-token",
-        KOLB_BOT_GATEWAY_TOKEN: "legacy-token",
       },
     });
     expect(env.KOLB_BOT_GATEWAY_TOKEN).toBe("kolb-bot-token");
@@ -384,7 +383,6 @@ describe("buildNodeServiceEnvironment", () => {
       env: {
         HOME: "/home/user",
         KOLB_BOT_GATEWAY_TOKEN: "   ",
-        KOLB_BOT_GATEWAY_TOKEN: " ",
       },
     });
     expect(env.KOLB_BOT_GATEWAY_TOKEN).toBeUndefined();

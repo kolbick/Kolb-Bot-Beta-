@@ -132,7 +132,7 @@ function loadBundledMemoryPluginRegistry(options?: {
           name: options.packageMeta.name,
           version: options.packageMeta.version,
           description: options.packageMeta.description,
-          kolb-bot: { extensions: [`./${pluginFilename}`] },
+          "kolb-bot": { extensions: [`./${pluginFilename}`] },
         },
         null,
         2,
@@ -1110,7 +1110,7 @@ describe("loadKolbBotPlugins", () => {
     process.env.KOLB_BOT_BUNDLED_PLUGINS_DIR = bundledDir;
 
     const stateDir = makeTempDir();
-    withEnv({ KOLB_BOT_STATE_DIR: stateDir, KOLB_BOT_STATE_DIR: undefined }, () => {
+    withEnv({ KOLB_BOT_STATE_DIR: stateDir }, () => {
       const globalDir = path.join(stateDir, "extensions", "feishu");
       fs.mkdirSync(globalDir, { recursive: true });
       writePlugin({
@@ -1165,7 +1165,7 @@ describe("loadKolbBotPlugins", () => {
   it("warns when loaded non-bundled plugin has no install/load-path provenance", () => {
     useNoBundledPlugins();
     const stateDir = makeTempDir();
-    withEnv({ KOLB_BOT_STATE_DIR: stateDir, KOLB_BOT_STATE_DIR: undefined }, () => {
+    withEnv({ KOLB_BOT_STATE_DIR: stateDir }, () => {
       const globalDir = path.join(stateDir, "extensions", "rogue");
       fs.mkdirSync(globalDir, { recursive: true });
       writePlugin({

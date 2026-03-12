@@ -21,7 +21,7 @@ describe("browser server-context remote profile tab operations", () => {
   it("uses profile-level attachOnly when global attachOnly is false", async () => {
     const state = makeState("kolb-bot");
     state.resolved.attachOnly = false;
-    state.resolved.profiles.kolb-bot = {
+    state.resolved.profiles["kolb-bot"] = {
       cdpPort: 18800,
       attachOnly: true,
       color: "#FF4500",
@@ -41,7 +41,7 @@ describe("browser server-context remote profile tab operations", () => {
   it("keeps attachOnly websocket failures off the loopback ownership error path", async () => {
     const state = makeState("kolb-bot");
     state.resolved.attachOnly = false;
-    state.resolved.profiles.kolb-bot = {
+    state.resolved.profiles["kolb-bot"] = {
       cdpPort: 18800,
       attachOnly: true,
       color: "#FF4500",

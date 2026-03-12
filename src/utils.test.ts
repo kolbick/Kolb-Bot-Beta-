@@ -167,9 +167,9 @@ describe("shortenHomePath", () => {
     vi.stubEnv("KOLB_BOT_HOME", "/srv/kolb-bot-home");
     vi.stubEnv("HOME", "/home/other");
 
-    expect(shortenHomePath(`${path.resolve("/srv/kolb-bot-home")}/.kolbick/Kolb-Bot-Beta-.json`)).toBe(
-      "$KOLB_BOT_HOME/.kolbick/Kolb-Bot-Beta-.json",
-    );
+    expect(
+      shortenHomePath(`${path.resolve("/srv/kolb-bot-home")}/.kolbick/Kolb-Bot-Beta-.json`),
+    ).toBe("$KOLB_BOT_HOME/.kolbick/Kolb-Bot-Beta-.json");
 
     vi.unstubAllEnvs();
   });
@@ -181,7 +181,9 @@ describe("shortenHomeInString", () => {
     vi.stubEnv("HOME", "/home/other");
 
     expect(
-      shortenHomeInString(`config: ${path.resolve("/srv/kolb-bot-home")}/.kolbick/Kolb-Bot-Beta-.json`),
+      shortenHomeInString(
+        `config: ${path.resolve("/srv/kolb-bot-home")}/.kolbick/Kolb-Bot-Beta-.json`,
+      ),
     ).toBe("config: $KOLB_BOT_HOME/.kolbick/Kolb-Bot-Beta-.json");
 
     vi.unstubAllEnvs();

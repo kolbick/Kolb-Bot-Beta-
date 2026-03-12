@@ -1,6 +1,6 @@
 import { loadConfig } from "../../src/config/config.js";
 import { matchPluginCommand, executePluginCommand } from "../../src/plugins/commands.js";
-import { loadKolb-BotPlugins } from "../../src/plugins/loader.js";
+import { loadKolbBotPlugins } from "../../src/plugins/loader.js";
 import { sendMessageTelegram } from "../../src/telegram/send.js";
 
 const args = process.argv.slice(2);
@@ -29,7 +29,7 @@ if (!chatId) {
 }
 
 const cfg = loadConfig();
-loadKolb-BotPlugins({ config: cfg });
+loadKolbBotPlugins({ config: cfg });
 
 const match = matchPluginCommand("/pair");
 if (!match) {

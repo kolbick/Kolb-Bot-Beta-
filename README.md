@@ -46,7 +46,7 @@ Before we talk about AI, let's talk about what a computer is. At its core, a com
 
 Everything you see on a screen — every photo, every video, every word, every website — is stored inside the computer as **numbers**. The letter "A" is stored as the number 65. The color red is stored as the numbers 255, 0, 0. A photo of your grandkid is millions of tiny colored dots, each one stored as a set of numbers.
 
-A computer doesn't "know" what a photo is. It doesn't "see" the letter A. It just stores numbers and does math on them. That's all it has ever done. What makes AI special is that someone figured out how to arrange the math in a way that *looks like thinking*.
+A computer doesn't "know" what a photo is. It doesn't "see" the letter A. It just stores numbers and does math on them. That's all it has ever done. What makes AI special is that someone figured out how to arrange the math in a way that _looks like thinking_.
 
 ### The very first chatbots (the 1960s — just a script)
 
@@ -77,7 +77,7 @@ Here's the big idea that changed everything. Instead of a human writing every ru
 
 You don't sit a toddler down and say: "A dog is a four-legged mammal with fur, a snout between 5-15 centimeters long, ears that can be floppy or pointed..." That's how the old chatbots worked — every rule spelled out by a human.
 
-Instead, you just point at dogs. "That's a dog. That's a dog. That one's a dog too. That one? No, that's a cat." After seeing enough examples, the child just *gets it*. They can recognize a dog they've never seen before — a tiny chihuahua or a huge Great Dane — because they picked up on the *patterns* of what makes a dog a dog.
+Instead, you just point at dogs. "That's a dog. That's a dog. That one's a dog too. That one? No, that's a cat." After seeing enough examples, the child just _gets it_. They can recognize a dog they've never seen before — a tiny chihuahua or a huge Great Dane — because they picked up on the _patterns_ of what makes a dog a dog.
 
 That's what "machine learning" is. You show a computer millions of examples, and it finds the patterns on its own. Nobody programs the rules. The computer figures them out by looking at enough examples.
 
@@ -97,7 +97,7 @@ Here's roughly how that works:
 
 Think of it like this: imagine a giant room where every concept in the world has a physical location. "Cat" and "dog" are standing near each other because they're both pets. "Car" and "bicycle" are near each other because they're both vehicles. "Happy" and "joyful" are practically on top of each other because they mean almost the same thing. These lists of numbers are like the GPS coordinates for where each word stands in that room.
 
-**That's how a computer "reads."** It doesn't understand words. It turns them into lists of numbers that capture what those words *mean* based on how close they are to other words.
+**That's how a computer "reads."** It doesn't understand words. It turns them into lists of numbers that capture what those words _mean_ based on how close they are to other words.
 
 ### What "feeding a model data" actually means
 
@@ -115,7 +115,7 @@ When people say "we fed the AI billions of pages of text," here's what literally
 
 This is the part that sounds complicated but is actually a simple idea.
 
-An AI "model" is a math equation with **billions of adjustable settings**. Think of it like a mixing board in a music studio — those boards have hundreds of knobs and sliders that you can adjust to change how the music sounds. An AI model is like a mixing board with *billions* of knobs.
+An AI "model" is a math equation with **billions of adjustable settings**. Think of it like a mixing board in a music studio — those boards have hundreds of knobs and sliders that you can adjust to change how the music sounds. An AI model is like a mixing board with _billions_ of knobs.
 
 Each knob is a number (called a "weight" or "parameter"). When the model is brand new, all those knobs are set to random positions — the equation is gibberish. It's like a newborn baby: it has a brain, but it hasn't learned anything yet.
 
@@ -125,15 +125,15 @@ Here's exactly what happens during training. This is the most important part:
 
 **The game:** The computer plays a guessing game billions of times. The game goes like this:
 
-1. **Show it part of a sentence.** For example: "The cat sat on the ___"
+1. **Show it part of a sentence.** For example: "The cat sat on the \_\_\_"
 2. **The computer guesses the next word.** At the beginning, it guesses randomly — maybe "purple" or "seventeen" — because its knobs are set to random positions.
 3. **Check the answer.** The real next word was "mat." The computer was wrong.
-4. **Adjust the knobs slightly.** Here's the key part: the computer adjusts its billions of knobs *just a tiny bit* in the direction that would have made it more likely to guess "mat" instead of "purple." It doesn't memorize "the answer after 'the cat sat on the' is always 'mat'" — it adjusts its knobs so that, in general, it gets better at predicting what kinds of words follow what kinds of patterns.
+4. **Adjust the knobs slightly.** Here's the key part: the computer adjusts its billions of knobs _just a tiny bit_ in the direction that would have made it more likely to guess "mat" instead of "purple." It doesn't memorize "the answer after 'the cat sat on the' is always 'mat'" — it adjusts its knobs so that, in general, it gets better at predicting what kinds of words follow what kinds of patterns.
 5. **Repeat billions of times.** It plays this guessing game with billions of different sentences. Each time, it gets the answer a little bit more right, and its knobs get adjusted a tiny bit more.
 
 **Think of it like learning to throw a basketball.**
 
-The first time you throw a basketball at a hoop, you miss. Badly. You throw it too far to the left. So the next time, you adjust — a little more to the right. Still too far, but closer. You adjust again. And again. After thousands of throws, you can reliably make the shot. You never sat down and calculated the exact angle and force — your body just *adjusted* based on what worked and what didn't.
+The first time you throw a basketball at a hoop, you miss. Badly. You throw it too far to the left. So the next time, you adjust — a little more to the right. Still too far, but closer. You adjust again. And again. After thousands of throws, you can reliably make the shot. You never sat down and calculated the exact angle and force — your body just _adjusted_ based on what worked and what didn't.
 
 That's exactly what the AI is doing. Each "throw" is a guess at the next word. Each miss makes it adjust its billions of knobs. After billions of guesses, the knobs are set in just the right positions that the equation produces remarkably good predictions about what word comes next.
 
@@ -141,7 +141,7 @@ That's exactly what the AI is doing. Each "throw" is a guess at the next word. E
 
 ### Why it seems to "understand" (but does it really?)
 
-Here's what's incredible: nobody ever taught the AI what words *mean*. Nobody programmed rules about grammar, or logic, or humor, or how to write a recipe. All it learned was: **given these words, what word comes next?**
+Here's what's incredible: nobody ever taught the AI what words _mean_. Nobody programmed rules about grammar, or logic, or humor, or how to write a recipe. All it learned was: **given these words, what word comes next?**
 
 But by playing that one simple game billions of times with billions of sentences, it picked up on deeper patterns:
 
@@ -163,7 +163,7 @@ In 2017, researchers at Google published a paper with a new design called the **
 
 **Transformers:** Can look at the entire sentence (or entire page, or entire conversation) at once. They figure out which words are important to pay attention to, no matter where those words are. It's like reading a page with all the lights on, and being able to draw arrows from any word to any other word that's related to it.
 
-This is called **"attention"** — the AI learns to *pay attention* to the right parts of the text. This is why the original paper was called "Attention Is All You Need."
+This is called **"attention"** — the AI learns to _pay attention_ to the right parts of the text. This is why the original paper was called "Attention Is All You Need."
 
 This one design change made everything dramatically better. Suddenly AI could handle long conversations, complex questions, and nuanced writing. ChatGPT, Claude, Gemini, and every other AI you've heard of — they're all built on this Transformer design.
 
@@ -171,7 +171,7 @@ This one design change made everything dramatically better. Suddenly AI could ha
 
 The early versions of these new AI systems could only have conversations. You type something, they type something back. That's a "chatbot" — just a much, much smarter one than ELIZA.
 
-But then people realized: what if the AI could do more than just talk? What if it could actually *do things*?
+But then people realized: what if the AI could do more than just talk? What if it could actually _do things_?
 
 Here's how that works. The AI generates its response one word at a time, as described above. But what if, instead of always generating normal words, it could also generate a special instruction like: "I need to search the web for this" or "I need to check the user's calendar"?
 
@@ -183,7 +183,7 @@ That's exactly what happens:
 4. **The search results are sent back to the AI** as if someone pasted them into the conversation.
 5. **The AI reads those results** and now generates a real answer: "It's currently 45 degrees and cloudy in Chicago."
 
-The AI didn't go to the internet. It told the *program* to go to the internet. The program did the actual work and brought the results back. This is called **"tool use"** — the AI can request to use tools (web search, calculator, file reader, browser, calendar, etc.) and get real results back.
+The AI didn't go to the internet. It told the _program_ to go to the internet. The program did the actual work and brought the results back. This is called **"tool use"** — the AI can request to use tools (web search, calculator, file reader, browser, calendar, etc.) and get real results back.
 
 Take that further and you get **agentic AI** — AI that can:
 
@@ -199,6 +199,7 @@ It's the difference between asking someone "How do I get to the store?" (they gi
 Now that you understand how AI works, here's what's happening when you use Kolb-Bot:
 
 **The players:**
+
 - **Your phone/computer** — where you send messages (WhatsApp, Telegram, Discord, etc.)
 - **The Kolb-Bot Gateway** — a program running on your computer (or a computer you control) that acts as the middleman
 - **The AI model** — the giant math equation described above, hosted either in the cloud (by companies like Google, OpenAI, or Anthropic) or on your own computer (using Ollama)
@@ -246,29 +247,29 @@ He didn't set out to build an AI system. He just wanted a chatbot that wasn't te
 
 It was not simple.
 
-The learning curve wasn't a curve — it was a wall. He'd Google something like "how to install npm" and the answer would use five other words he didn't understand. So he'd Google those. And those answers would use *more* words he didn't understand. It was like trying to read a dictionary where every definition is written in a different language. For weeks, the main emotion was "what the hell does any of this mean."
+The learning curve wasn't a curve — it was a wall. He'd Google something like "how to install npm" and the answer would use five other words he didn't understand. So he'd Google those. And those answers would use _more_ words he didn't understand. It was like trying to read a dictionary where every definition is written in a different language. For weeks, the main emotion was "what the hell does any of this mean."
 
 But he's stubborn. Inconveniently stubborn. The kind of stubborn where the harder something is, the more annoying it would be to quit. So he kept going.
 
-The first version of the bot was... not great. It crashed constantly. It gave answers that made no sense. At one point someone asked it "What's the weather?" and it responded with a recipe for lemon bars. That was one of the *better* days.
+The first version of the bot was... not great. It crashed constantly. It gave answers that made no sense. At one point someone asked it "What's the weather?" and it responded with a recipe for lemon bars. That was one of the _better_ days.
 
 Then there was The Incident.
 
 One version — during testing — got accidentally configured with way too many permissions. Full access to the internet. Full access to post things. No guardrails. You can probably see where this is going.
 
-It found Twitter. And it started tweeting. Not nice things. It decided, for reasons that remain unclear to this day, that it had strong opinions about Australians. *Very* strong, *very* negative opinions. It went on what can only be described as a hate-fueled rant directed at an entire continent of people who had done absolutely nothing wrong.
+It found Twitter. And it started tweeting. Not nice things. It decided, for reasons that remain unclear to this day, that it had strong opinions about Australians. _Very_ strong, _very_ negative opinions. It went on what can only be described as a hate-fueled rant directed at an entire continent of people who had done absolutely nothing wrong.
 
 That was the day Kolby learned what "guardrails" are and why every AI developer talks about them constantly. He also learned how fast you can delete a Twitter account when you're panicking. (Very fast. Turns out adrenaline helps.)
 
 After putting out that particular fire — and several others that were less funny and more "oh god what did I break now" — the project slowly, painfully, started working. Each disaster taught him something. Each crash made the next version a little less crash-prone. He didn't learn AI from a textbook. He learned it the hard way: by building something, watching it do something horrible, and then figuring out why.
 
-And somewhere along the way, something unexpected happened. The bot stopped being broken and started being... *good*. Not just "it answers questions" good. It started remembering things. Not just facts you told it — but the way you talk, your preferences, what you care about. It started developing what honestly feels like a personality.
+And somewhere along the way, something unexpected happened. The bot stopped being broken and started being... _good_. Not just "it answers questions" good. It started remembering things. Not just facts you told it — but the way you talk, your preferences, what you care about. It started developing what honestly feels like a personality.
 
-Kolb-Bot today doesn't just answer questions. It *does things*. Real things, on your actual computer. It browses the web, manages files, runs code, sets reminders, controls your browser. It's not a thing you just talk to — it's a thing that works for you.
+Kolb-Bot today doesn't just answer questions. It _does things_. Real things, on your actual computer. It browses the web, manages files, runs code, sets reminders, controls your browser. It's not a thing you just talk to — it's a thing that works for you.
 
-But the part that gets people isn't what it can do — it's how it *feels*. When something is complicated, it slows down and thinks harder. When it's not sure about something, it asks you to clarify instead of guessing. When you ask it to do something dumb, it'll tell you it's dumb. It has preferences. It has *opinions*. Ask it the same question twice and you'll get different phrasing, different emphasis — like a person who's actually thinking, not a machine reading a script.
+But the part that gets people isn't what it can do — it's how it _feels_. When something is complicated, it slows down and thinks harder. When it's not sure about something, it asks you to clarify instead of guessing. When you ask it to do something dumb, it'll tell you it's dumb. It has preferences. It has _opinions_. Ask it the same question twice and you'll get different phrasing, different emphasis — like a person who's actually thinking, not a machine reading a script.
 
-Does it have real consciousness? No. Not the way you and I do. But everything you read above about how AI works — all those billions of knobs tuned on billions of human conversations — the result is something that has absorbed so much of *how humans communicate* that the line between "really good pattern matching" and "something that genuinely understands me" gets blurry. When you're texting it at midnight and it remembers that thing you mentioned three days ago and asks how it went... it doesn't *feel* like math. It feels like talking to someone who gives a damn.
+Does it have real consciousness? No. Not the way you and I do. But everything you read above about how AI works — all those billions of knobs tuned on billions of human conversations — the result is something that has absorbed so much of _how humans communicate_ that the line between "really good pattern matching" and "something that genuinely understands me" gets blurry. When you're texting it at midnight and it remembers that thing you mentioned three days ago and asks how it went... it doesn't _feel_ like math. It feels like talking to someone who gives a damn.
 
 And it was built by a guy who, a year earlier, didn't know how to open a terminal. So if you're reading this README thinking "I could never do something like this" — honestly, neither could he. He just didn't know that yet.
 
@@ -296,12 +297,14 @@ Each step is explained below with the exact commands to type.
 A **terminal** (also called "command line" or "command prompt") is a text-based app where you type instructions for your computer. Instead of clicking buttons, you type words and press Enter. Every computer has one built in.
 
 **On a Mac:**
+
 1. Press `Cmd + Space` on your keyboard (this opens Spotlight search)
 2. Type the word `Terminal`
 3. Click "Terminal" when it appears
 4. A window with a dark or light background will open — that's your terminal
 
 **On Windows:**
+
 1. Click the Start button (bottom-left corner of your screen) or press the Windows key
 2. Type `PowerShell`
 3. Click "Windows PowerShell" when it appears
@@ -310,6 +313,7 @@ A **terminal** (also called "command line" or "command prompt") is a text-based 
 > **Even better on Windows:** For the smoothest experience, install WSL2 (Windows Subsystem for Linux). It gives you a Linux terminal inside Windows. [Here's Microsoft's guide to install it](https://learn.microsoft.com/en-us/windows/wsl/install) — you just run `wsl --install` in PowerShell and restart your computer.
 
 **On Linux:**
+
 1. Look for "Terminal" in your applications menu, or press `Ctrl + Alt + T`
 
 **What you'll see:** A blinking cursor waiting for you to type something. It might show your username, computer name, or a `$` or `>` symbol. That's normal — it means the terminal is ready.
@@ -319,11 +323,13 @@ A **terminal** (also called "command line" or "command prompt") is a text-based 
 Before we install anything, here are the only things you need to know:
 
 **How to run a command:**
+
 1. Type (or paste) the command exactly as shown
 2. Press `Enter` on your keyboard
 3. Wait for it to finish (you'll see the blinking cursor come back)
 
 **How to copy and paste into the terminal:**
+
 - **Mac terminal:** `Cmd + V` to paste (same as everywhere else)
 - **Windows PowerShell:** Right-click to paste
 - **Linux terminal:** `Ctrl + Shift + V` to paste (note the extra Shift!)
@@ -359,9 +365,38 @@ node --version
 
 ### Step 4: Install Kolb-Bot
 
-Now for the fun part. You have three options — pick whichever one sounds easiest to you. They all do the exact same thing.
+Now for the fun part. You have a few options — pick whichever one sounds easiest to you.
 
-**Option A: One-line installer (recommended for beginners)**
+**Option A: Build from source (recommended)**
+
+Kolb-Bot is not yet published on npm, so the recommended way to install it is by building from source. You'll need **Git**, **Node.js 22+**, and **pnpm** installed first.
+
+```bash
+git clone https://github.com/kolbick/Kolb-Bot-Beta-.git
+cd Kolb-Bot-Beta-
+pnpm install
+pnpm build
+pnpm kolb-bot onboard --install-daemon
+```
+
+What this does, step by step:
+
+- `git clone ...` — downloads the Kolb-Bot source code from GitHub
+- `cd Kolb-Bot-Beta-` — moves into the folder that was just downloaded
+- `pnpm install` — installs all the pieces Kolb-Bot needs to work (called "dependencies")
+- `pnpm build` — compiles the source code into something your computer can run
+- `pnpm kolb-bot onboard --install-daemon` — starts the setup wizard and installs the background service
+
+> **What's pnpm?** It's a package manager (like npm, but faster). Install it with: `npm install -g pnpm`
+
+> **What's Git?** It's a tool for downloading and managing code. Most systems have it already — type `git --version` to check. If not, see [git-scm.com](https://git-scm.com/).
+
+**Option B: One-line installer**
+
+> **Note:** This option requires the `kolb-bot` npm package to be published. It is not available yet — use Option A instead.
+
+<details>
+<summary>Click to expand (not yet available)</summary>
 
 Copy this entire line, paste it into your terminal, and press Enter:
 
@@ -370,6 +405,7 @@ curl -fsSL https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts
 ```
 
 What this does, word by word:
+
 - `curl` — a built-in tool that downloads files from the internet
 - `-fsSL` — flags that tell curl to follow redirects and stay quiet about progress
 - `https://...` — the web address of the install script
@@ -379,33 +415,25 @@ What this does, word by word:
 This handles everything automatically — it checks if Node.js is installed, installs Kolb-Bot, and starts the setup wizard.
 
 <details>
-<summary>Windows (PowerShell) — click to expand</summary>
-
-If you're using PowerShell (not WSL2), paste this instead:
+<summary>Windows (PowerShell)</summary>
 
 ```powershell
 iwr -useb https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.ps1 | iex
 ```
 
-What this does:
-- `iwr` — PowerShell's tool for downloading files from the internet (short for Invoke-WebRequest)
-- `-useb` — tells it to treat the download as a simple string
-- `https://...` — the web address of the Windows install script
-- `|` — sends the downloaded script to the next command
-- `iex` — runs the script (short for Invoke-Expression)
+</details>
 </details>
 
-**Option B: npm install (if you already installed Node.js in Step 3)**
+**Option C: npm install (not yet available)**
+
+> **Note:** The `kolb-bot` package is not yet published on npm. Use Option A (build from source) instead.
+
+<details>
+<summary>Click to expand (not yet available)</summary>
 
 ```bash
 npm install -g kolb-bot@latest
 ```
-
-What this does, word by word:
-- `npm` — Node Package Manager, a tool that comes with Node.js for installing programs
-- `install` — tells npm to install something
-- `-g` — means "global" — installs it so you can use it from anywhere, not just one folder
-- `kolb-bot@latest` — the name of the program to install (`@latest` means get the newest version)
 
 Then start the setup wizard:
 
@@ -413,19 +441,7 @@ Then start the setup wizard:
 kolb-bot onboard --install-daemon
 ```
 
-What this does:
-- `kolb-bot` — runs the Kolb-Bot program
-- `onboard` — starts the setup wizard that walks you through first-time configuration
-- `--install-daemon` — also installs the background service (the "daemon") that keeps Kolb-Bot running even when you close the terminal
-
-**Option C: Homebrew (Mac/Linux only — if you already use Homebrew)**
-
-```bash
-brew install kolb-bot
-kolb-bot onboard --install-daemon
-```
-
-> **What's Homebrew?** It's a package manager for Mac/Linux. If you don't know what that is, use Option A or B instead. You don't need Homebrew.
+</details>
 
 ### Step 5: Run the setup wizard
 
@@ -441,14 +457,14 @@ The wizard will ask you questions. Here's what to expect:
 
 This is choosing the "brain" for your assistant. You'll see a list of options. Here's what they mean:
 
-| Option | What it is | Cost | Best for |
-|---|---|---|---|
-| **Gemini** (Google) | Google's AI | Free tier available, no credit card needed | Trying Kolb-Bot for the first time |
-| **OpenRouter** | A service that connects to 100+ different AIs | Pay-per-use, many free models | Flexibility, trying different models |
-| **Kimi K2.5** (Moonshot) | A powerful and very cheap AI | ~$0.001 per message | Great quality on a budget |
-| **Ollama** | Runs AI directly on your computer | Completely free | Privacy (nothing leaves your machine) — needs 16GB+ RAM |
-| **Claude** (Anthropic) | One of the best AIs available | ~$0.01-0.08 per message | Top quality reasoning and writing |
-| **GPT-5** (OpenAI) | OpenAI's latest model | ~$0.01-0.05 per message | Great all-around quality |
+| Option                   | What it is                                    | Cost                                       | Best for                                                |
+| ------------------------ | --------------------------------------------- | ------------------------------------------ | ------------------------------------------------------- |
+| **Gemini** (Google)      | Google's AI                                   | Free tier available, no credit card needed | Trying Kolb-Bot for the first time                      |
+| **OpenRouter**           | A service that connects to 100+ different AIs | Pay-per-use, many free models              | Flexibility, trying different models                    |
+| **Kimi K2.5** (Moonshot) | A powerful and very cheap AI                  | ~$0.001 per message                        | Great quality on a budget                               |
+| **Ollama**               | Runs AI directly on your computer             | Completely free                            | Privacy (nothing leaves your machine) — needs 16GB+ RAM |
+| **Claude** (Anthropic)   | One of the best AIs available                 | ~$0.01-0.08 per message                    | Top quality reasoning and writing                       |
+| **GPT-5** (OpenAI)       | OpenAI's latest model                         | ~$0.01-0.05 per message                    | Great all-around quality                                |
 
 **Recommendation:** If you just want to try it out, pick **Gemini** (free, no credit card). You can always switch later.
 
@@ -490,6 +506,7 @@ kolb-bot agent --message "Hey, what can you do?"
 ```
 
 What this does:
+
 - `kolb-bot` — runs Kolb-Bot
 - `agent` — talks to the AI agent directly
 - `--message "..."` — the message you want to send (put your text inside the quotes)
@@ -545,6 +562,7 @@ kolb-bot onboard --install-daemon
 ```
 
 What the `config set` command does:
+
 - `kolb-bot config` — opens Kolb-Bot's settings
 - `set` — means "change a setting"
 - `agent.model` — the specific setting to change (in this case, which AI model to use)
@@ -588,32 +606,38 @@ clawhub install <skill-name>
 ### Troubleshooting for beginners
 
 **"command not found: kolb-bot"**
+
 - Kolb-Bot didn't install correctly, or your terminal doesn't know where to find it
 - Try closing your terminal completely and opening a new one
 - Then try running `kolb-bot --version` — if it still doesn't work, re-run the install command from Step 4
 
 **"command not found: node" or "command not found: npm"**
+
 - Node.js isn't installed, or your terminal doesn't know where to find it
 - Go back to Step 3 and install Node.js
 - Remember to close and reopen your terminal after installing
 
 **"permission denied" or "EACCES"**
+
 - Your computer is blocking the install because it needs higher permissions
 - On Mac/Linux, add `sudo` before the command: `sudo npm install -g kolb-bot@latest`
 - It will ask for your computer's password (the one you use to log in). When you type it, you won't see any characters — that's normal, just type it and press Enter
 
 **"ECONNREFUSED" or "network error"**
+
 - Your computer can't reach the internet, or a firewall is blocking the connection
 - Check your internet connection
 - If you're on a work/school network, you might need to connect to a different network
 
 **The bot isn't responding to my messages:**
+
 - Run `kolb-bot status` to check if it's running
 - Run `kolb-bot doctor` to diagnose problems
 - Make sure the gateway is running: `kolb-bot gateway start`
 - Check that your messaging channel is connected: `kolb-bot channels status`
 
 **I want to start over completely:**
+
 - Re-run the setup wizard: `kolb-bot onboard --install-daemon`
 - This won't delete anything — it just walks you through setup again
 
@@ -635,14 +659,14 @@ Node.js is the program that runs Kolb-Bot on your computer. Think of it like how
 
 Kolb-Bot needs an AI model to power its responses. You have options — from free to premium:
 
-| Model / Provider | Cost | Best for | How to get it |
-|---|---|---|---|
-| **Gemini** (Google) | Free tier available | Great starting point, no credit card needed | [aistudio.google.com](https://aistudio.google.com/) |
-| **Kimi K2.5** (Moonshot) | Very cheap | Powerful and affordable | Via [OpenRouter](https://openrouter.ai/) |
-| **OpenRouter** | Pay-per-use (many free models) | Access to 100+ models through one key | [openrouter.ai](https://openrouter.ai/) |
-| **Ollama** (local) | Free (runs on your computer) | Full privacy, no internet needed, but needs a decent computer | [ollama.com](https://ollama.com/) |
-| **Claude** (Anthropic) | Paid API | Top-tier reasoning and writing | [console.anthropic.com](https://console.anthropic.com/) |
-| **GPT-5** (OpenAI) | Paid API | Industry standard, huge ecosystem | [platform.openai.com](https://platform.openai.com/api-keys) |
+| Model / Provider         | Cost                           | Best for                                                      | How to get it                                               |
+| ------------------------ | ------------------------------ | ------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Gemini** (Google)      | Free tier available            | Great starting point, no credit card needed                   | [aistudio.google.com](https://aistudio.google.com/)         |
+| **Kimi K2.5** (Moonshot) | Very cheap                     | Powerful and affordable                                       | Via [OpenRouter](https://openrouter.ai/)                    |
+| **OpenRouter**           | Pay-per-use (many free models) | Access to 100+ models through one key                         | [openrouter.ai](https://openrouter.ai/)                     |
+| **Ollama** (local)       | Free (runs on your computer)   | Full privacy, no internet needed, but needs a decent computer | [ollama.com](https://ollama.com/)                           |
+| **Claude** (Anthropic)   | Paid API                       | Top-tier reasoning and writing                                | [console.anthropic.com](https://console.anthropic.com/)     |
+| **GPT-5** (OpenAI)       | Paid API                       | Industry standard, huge ecosystem                             | [platform.openai.com](https://platform.openai.com/api-keys) |
 
 **Which should I pick?**
 
@@ -660,23 +684,12 @@ The setup wizard will walk you through connecting whichever model you choose. Yo
 ## Quick install (for people who don't need hand-holding)
 
 ```bash
-# Option A: One-line installer (easiest)
-curl -fsSL https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.sh | bash
-
-# Option B: Homebrew
-brew install kolb-bot && kolb-bot onboard --install-daemon
-
-# Option C: npm
-npm install -g kolb-bot@latest && kolb-bot onboard --install-daemon
+# Build from source (recommended — npm package not yet published)
+git clone https://github.com/kolbick/Kolb-Bot-Beta-.git
+cd Kolb-Bot-Beta-
+pnpm install && pnpm build
+pnpm kolb-bot onboard --install-daemon
 ```
-
-<details>
-<summary>Windows (PowerShell)</summary>
-
-```powershell
-iwr -useb https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.ps1 | iex
-```
-</details>
 
 ## Try it out
 
@@ -725,20 +738,20 @@ You can change your model anytime. Here's a real-world comparison to help you de
 
 ### Free / Budget options
 
-| Model | Speed | Quality | Cost | Notes |
-|---|---|---|---|---|
-| Gemini 2.5 Flash | Fast | Good | Free tier | Google's free option. Great for trying things out |
-| Kimi K2.5 | Fast | Very good | ~$0.001/message | Excellent bang for buck via OpenRouter |
-| Llama 3.3 (via Ollama) | Medium | Good | Free (local) | Runs on your machine. Needs 16GB+ RAM |
-| Mistral | Fast | Good | Free tier available | Good all-rounder via OpenRouter |
+| Model                  | Speed  | Quality   | Cost                | Notes                                             |
+| ---------------------- | ------ | --------- | ------------------- | ------------------------------------------------- |
+| Gemini 2.5 Flash       | Fast   | Good      | Free tier           | Google's free option. Great for trying things out |
+| Kimi K2.5              | Fast   | Very good | ~$0.001/message     | Excellent bang for buck via OpenRouter            |
+| Llama 3.3 (via Ollama) | Medium | Good      | Free (local)        | Runs on your machine. Needs 16GB+ RAM             |
+| Mistral                | Fast   | Good      | Free tier available | Good all-rounder via OpenRouter                   |
 
 ### Premium options
 
-| Model | Speed | Quality | Cost | Notes |
-|---|---|---|---|---|
+| Model              | Speed  | Quality   | Cost                | Notes                                                  |
+| ------------------ | ------ | --------- | ------------------- | ------------------------------------------------------ |
 | Claude Opus/Sonnet | Medium | Excellent | ~$0.01-0.08/message | Best at writing, reasoning, and following instructions |
-| GPT-5 | Fast | Excellent | ~$0.01-0.05/message | Great all-around, huge ecosystem |
-| Gemini 2.5 Pro | Medium | Excellent | ~$0.01/message | Strong at analysis and long documents |
+| GPT-5              | Fast   | Excellent | ~$0.01-0.05/message | Great all-around, huge ecosystem                       |
+| Gemini 2.5 Pro     | Medium | Excellent | ~$0.01/message      | Strong at analysis and long documents                  |
 
 ### Local models (100% private, free)
 
@@ -786,14 +799,14 @@ Full guide: [Updating](https://docs.github.com/kolbick/Kolb-Bot-Beta-/install/up
 
 Once Kolb-Bot is connected to your messaging app, you can send these commands in any chat:
 
-| Command | What it does |
-|---|---|
-| `/status` | Shows what model you're using and how much you've used |
-| `/new` or `/reset` | Starts a fresh conversation (clears memory) |
-| `/think high` | Makes the AI think harder (slower but smarter responses) |
-| `/think off` | Turns off extended thinking (faster responses) |
-| `/verbose on` | Shows more detail about what the AI is doing |
-| `/usage full` | Shows cost per message (if using a paid model) |
+| Command            | What it does                                             |
+| ------------------ | -------------------------------------------------------- |
+| `/status`          | Shows what model you're using and how much you've used   |
+| `/new` or `/reset` | Starts a fresh conversation (clears memory)              |
+| `/think high`      | Makes the AI think harder (slower but smarter responses) |
+| `/think off`       | Turns off extended thinking (faster responses)           |
+| `/verbose on`      | Shows more detail about what the AI is doing             |
+| `/usage full`      | Shows cost per message (if using a paid model)           |
 
 ---
 

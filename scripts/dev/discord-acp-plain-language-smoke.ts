@@ -57,7 +57,7 @@ type Args = {
   mentionUserId?: string;
   instruction?: string;
   threadBindingsPath: string;
-  kolb-botBin: string;
+  kolbBotBin: string;
   json: boolean;
 };
 
@@ -252,7 +252,7 @@ function parseArgs(): Args {
     resolveArg("--thread-bindings-path") ||
     process.env.KOLB_BOT_DISCORD_SMOKE_THREAD_BINDINGS_PATH ||
     defaultBindingsPath;
-  const kolb-botBin =
+  const kolbBotBin =
     resolveArg("--kolb-bot-bin") || process.env.KOLB_BOT_DISCORD_SMOKE_KOLB_BOT_BIN || "kolb-bot";
   const json = hasFlag("--json");
 
@@ -279,13 +279,13 @@ function parseArgs(): Args {
     mentionUserId,
     instruction,
     threadBindingsPath,
-    kolb-botBin,
+    kolbBotBin,
     json,
   };
 }
 
-async function kolb-botCliJson<T>(params: { kolb-botBin: string; args: string[] }): Promise<T> {
-  const result = await execFileAsync(params.kolb-botBin, params.args, {
+async function kolbBotCliJson<T>(params: { kolbBotBin: string; args: string[] }): Promise<T> {
+  const result = await execFileAsync(params.kolbBotBin, params.args, {
     maxBuffer: 8 * 1024 * 1024,
     env: process.env,
   });
@@ -297,16 +297,16 @@ async function kolb-botCliJson<T>(params: { kolb-botBin: string; args: string[] 
 }
 
 async function readMessagesWithKolbBot(params: {
-  kolb-botBin: string;
+  kolbBotBin: string;
   target: string;
   limit: number;
 }): Promise<DiscordMessage[]> {
-  const response = await kolb-botCliJson<{
+  const response = await kolbBotCliJson<{
     payload?: {
       messages?: DiscordMessage[];
     };
   }>({
-    kolb-botBin: params.kolb-botBin,
+    kolbBotBin: params.kolbBotBin,
     args: [
       "message",
       "read",
@@ -489,7 +489,7 @@ async function loadParentRecentMessages(params: {
 }): Promise<DiscordMessage[]> {
   if (params.args.driverMode === "kolb-bot") {
     return await readMessagesWithKolbBot({
-      kolb-botBin: params.args.kolb-botBin,
+      kolbBotBin: params.args.kolbBotBin,
       target: params.args.channelId,
       limit: 20,
     });
@@ -667,14 +667,14 @@ async function run(): Promise<SuccessResult | FailureResult> {
       senderAuthorId = sent.author?.id;
     } else {
       setupStage = "send-message";
-      const sent = await kolb-botCliJson<{
+      const sent = await kolbBotCliJson<{
         payload?: {
           result?: {
             messageId?: string;
           };
         };
       }>({
-        kolb-botBin: args.kolb-botBin,
+        kolbBotBin: args.kolbBotBin,
         args: [
           "message",
           "send",
@@ -757,7 +757,7 @@ async function run(): Promise<SuccessResult | FailureResult> {
         const threadMessages =
           args.driverMode === "kolb-bot"
             ? await readMessagesWithKolbBot({
-                kolb-botBin: args.kolb-botBin,
+                kolbBotBin: args.kolbBotBin,
                 target: threadId,
                 limit: 50,
               })

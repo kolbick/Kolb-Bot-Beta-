@@ -11,7 +11,7 @@ BASENAME=${2:-Kolb-Bot}
 OUT_ROOT=${3:-"$ROOT_DIR/apps/macos/build/icon"}
 XCODE_APP=${XCODE_APP:-/Applications/Xcode.app}
 # Where the final .icns should live; override DEST_ICNS to change.
-DEST_ICNS=${DEST_ICNS:-"$ROOT_DIR/apps/macos/Sources/Kolb-Bot/Resources/Kolb-Bot.icns"}
+DEST_ICNS=${DEST_ICNS:-"$ROOT_DIR/apps/macos/Sources/OpenClaw/Resources/Kolb-Bot.icns"}
 
 ICTOOL="$XCODE_APP/Contents/Applications/Icon Composer.app/Contents/Executables/ictool"
 if [[ ! -x "$ICTOOL" ]]; then

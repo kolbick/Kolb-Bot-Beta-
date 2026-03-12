@@ -1,10 +1,10 @@
 import { afterEach, beforeEach } from "vitest";
 import "../app.ts";
-import type { Kolb-BotApp } from "../app.ts";
+import type { KolbBotApp } from "../app.ts";
 
 export function mountApp(pathname: string) {
   window.history.replaceState({}, "", pathname);
-  const app = document.createElement("kolb-bot-app") as Kolb-BotApp;
+  const app = document.createElement("kolb-bot-app") as KolbBotApp;
   app.connect = () => {
     // no-op: avoid real gateway WS connections in browser tests
   };

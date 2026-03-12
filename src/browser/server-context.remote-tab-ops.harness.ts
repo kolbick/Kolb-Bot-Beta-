@@ -36,7 +36,7 @@ export function makeState(
           cdpPort: 443,
           color: "#00AA00",
         },
-        kolb-bot: { cdpPort: 18800, color: "#FF4500" },
+        "kolb-bot": { cdpPort: 18800, color: "#FF4500" },
       },
     },
     profiles: new Map(),

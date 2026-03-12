@@ -34,14 +34,14 @@ describe("browser server-context loopback direct WebSocket profiles", () => {
 
     global.fetch = withFetchPreconnect(fetchMock);
     const state = makeState("kolb-bot");
-    state.resolved.profiles.kolb-bot = {
+    state.resolved.profiles["kolb-bot"] = {
       cdpUrl: "ws://127.0.0.1:18800/devtools/browser/SESSION?token=abc",
       color: "#FF4500",
     };
     const ctx = createBrowserRouteContext({ getState: () => state });
-    const kolb-bot = ctx.forProfile("kolb-bot");
+    const kolbBot = ctx.forProfile("kolb-bot");
 
-    const opened = await kolb-bot.openTab("http://127.0.0.1:8080");
+    const opened = await kolbBot.openTab("http://127.0.0.1:8080");
     expect(opened.targetId).toBe("CREATED");
     expect(createTargetViaCdp).toHaveBeenCalledWith({
       cdpUrl: "ws://127.0.0.1:18800/devtools/browser/SESSION?token=abc",
@@ -78,15 +78,15 @@ describe("browser server-context loopback direct WebSocket profiles", () => {
 
     global.fetch = withFetchPreconnect(fetchMock);
     const state = makeState("kolb-bot");
-    state.resolved.profiles.kolb-bot = {
+    state.resolved.profiles["kolb-bot"] = {
       cdpUrl: "ws://127.0.0.1:18800/devtools/browser/SESSION?token=abc",
       color: "#FF4500",
     };
     const ctx = createBrowserRouteContext({ getState: () => state });
-    const kolb-bot = ctx.forProfile("kolb-bot");
+    const kolbBot = ctx.forProfile("kolb-bot");
 
-    await kolb-bot.focusTab("T1");
-    await kolb-bot.closeTab("T1");
+    await kolbBot.focusTab("T1");
+    await kolbBot.closeTab("T1");
 
     expect(fetchMock).toHaveBeenCalledWith(
       "http://127.0.0.1:18800/json/activate/T1?token=abc",
@@ -126,17 +126,17 @@ describe("browser server-context loopback direct WebSocket profiles", () => {
 
     global.fetch = withFetchPreconnect(fetchMock);
     const state = makeState("kolb-bot");
-    state.resolved.profiles.kolb-bot = {
+    state.resolved.profiles["kolb-bot"] = {
       cdpUrl: "wss://127.0.0.1:18800/cdp?token=abc",
       color: "#FF4500",
     };
     const ctx = createBrowserRouteContext({ getState: () => state });
-    const kolb-bot = ctx.forProfile("kolb-bot");
+    const kolbBot = ctx.forProfile("kolb-bot");
 
-    const tabs = await kolb-bot.listTabs();
+    const tabs = await kolbBot.listTabs();
     expect(tabs.map((tab) => tab.targetId)).toEqual(["T2"]);
 
-    await kolb-bot.focusTab("T2");
-    await kolb-bot.closeTab("T2");
+    await kolbBot.focusTab("T2");
+    await kolbBot.closeTab("T2");
   });
 });

@@ -166,7 +166,7 @@ mkdir -p "$APP_ROOT/Contents/Resources"
 mkdir -p "$APP_ROOT/Contents/Frameworks"
 
 echo "📄 Copying Info.plist template"
-INFO_PLIST_SRC="$ROOT_DIR/apps/macos/Sources/Kolb-Bot/Resources/Info.plist"
+INFO_PLIST_SRC="$ROOT_DIR/apps/macos/Sources/OpenClaw/Resources/Info.plist"
 if [ ! -f "$INFO_PLIST_SRC" ]; then
   echo "ERROR: Info.plist template missing at $INFO_PLIST_SRC" >&2
   exit 1
@@ -227,11 +227,11 @@ else
 fi
 
 echo "🖼  Copying app icon"
-cp "$ROOT_DIR/apps/macos/Sources/Kolb-Bot/Resources/Kolb-Bot.icns" "$APP_ROOT/Contents/Resources/Kolb-Bot.icns"
+cp "$ROOT_DIR/apps/macos/Sources/OpenClaw/Resources/Kolb-Bot.icns" "$APP_ROOT/Contents/Resources/Kolb-Bot.icns"
 
 echo "📦 Copying device model resources"
 rm -rf "$APP_ROOT/Contents/Resources/DeviceModels"
-cp -R "$ROOT_DIR/apps/macos/Sources/Kolb-Bot/Resources/DeviceModels" "$APP_ROOT/Contents/Resources/DeviceModels"
+cp -R "$ROOT_DIR/apps/macos/Sources/OpenClaw/Resources/DeviceModels" "$APP_ROOT/Contents/Resources/DeviceModels"
 
 echo "📦 Copying model catalog"
 MODEL_CATALOG_SRC="$ROOT_DIR/node_modules/@mariozechner/pi-ai/dist/models.generated.js"
@@ -242,13 +242,13 @@ else
   echo "WARN: model catalog missing at $MODEL_CATALOG_SRC (continuing)" >&2
 fi
 
-echo "📦 Copying KolbBotKit resources"
-KOLBBOTKIT_BUNDLE="$(build_path_for_arch "$PRIMARY_ARCH")/$BUILD_CONFIG/KolbBotKit_KolbBotKit.bundle"
-if [ -d "$KOLBBOTKIT_BUNDLE" ]; then
-  rm -rf "$APP_ROOT/Contents/Resources/KolbBotKit_KolbBotKit.bundle"
-  cp -R "$KOLBBOTKIT_BUNDLE" "$APP_ROOT/Contents/Resources/KolbBotKit_KolbBotKit.bundle"
+echo "📦 Copying OpenClawKit resources"
+OPENCLAWKIT_BUNDLE="$(build_path_for_arch "$PRIMARY_ARCH")/$BUILD_CONFIG/OpenClawKit_OpenClawKit.bundle"
+if [ -d "$OPENCLAWKIT_BUNDLE" ]; then
+  rm -rf "$APP_ROOT/Contents/Resources/OpenClawKit_OpenClawKit.bundle"
+  cp -R "$OPENCLAWKIT_BUNDLE" "$APP_ROOT/Contents/Resources/OpenClawKit_OpenClawKit.bundle"
 else
-  echo "WARN: KolbBotKit resource bundle not found at $KOLBBOTKIT_BUNDLE (continuing)" >&2
+  echo "WARN: OpenClawKit resource bundle not found at $OPENCLAWKIT_BUNDLE (continuing)" >&2
 fi
 
 echo "📦 Copying Textual resources"

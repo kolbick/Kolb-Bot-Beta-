@@ -243,11 +243,11 @@ describe("browser server-context listKnownProfileNames", () => {
     const resolved = resolveBrowserConfig({
       defaultProfile: "kolb-bot",
       profiles: {
-        kolb-bot: { cdpPort: 18800, color: "#FF4500" },
+        "kolb-bot": { cdpPort: 18800, color: "#FF4500" },
       },
     });
-    const kolb-bot = resolveProfile(resolved, "kolb-bot");
-    if (!kolb-bot) {
+    const kolbBot = resolveProfile(resolved, "kolb-bot");
+    if (!kolbBot) {
       throw new Error("expected kolb-bot profile");
     }
 
@@ -259,7 +259,7 @@ describe("browser server-context listKnownProfileNames", () => {
         [
           "stale-removed",
           {
-            profile: { ...kolb-bot, name: "stale-removed" },
+            profile: { ...kolbBot, name: "stale-removed" },
             running: null,
           },
         ],

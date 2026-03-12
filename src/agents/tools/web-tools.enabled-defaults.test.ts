@@ -689,7 +689,11 @@ describe("web_search kimi provider", () => {
               },
             ],
             search_results: [
-              { title: "Kolb-Bot", url: "https://github.com/kolbick/Kolb-Bot-Beta-/docs", content: "docs" },
+              {
+                title: "Kolb-Bot",
+                url: "https://github.com/kolbick/Kolb-Bot-Beta-/docs",
+                content: "docs",
+              },
             ],
           }),
           { status: 200, headers: { "content-type": "application/json" } },
