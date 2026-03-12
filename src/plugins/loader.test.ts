@@ -132,7 +132,7 @@ function loadBundledMemoryPluginRegistry(options?: {
           name: options.packageMeta.name,
           version: options.packageMeta.version,
           description: options.packageMeta.description,
-          kolb-bot: { extensions: [`./${pluginFilename}`] },
+          "kolb-bot": { extensions: [`./${pluginFilename}`] },
         },
         null,
         2,

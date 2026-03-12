@@ -54,7 +54,7 @@ describe("ensureExtensionRelayForProfiles", () => {
       resolved: {
         profiles: {
           chrome: {},
-          kolb-bot: {},
+          "kolb-bot": {},
         },
       } as never,
       onWarn: vi.fn(),
@@ -93,7 +93,7 @@ describe("stopKnownBrowserProfiles", () => {
   it("stops all known profiles and ignores per-profile failures", async () => {
     listKnownProfileNamesMock.mockReturnValue(["kolb-bot", "chrome"]);
     const stopMap: Record<string, ReturnType<typeof vi.fn>> = {
-      kolb-bot: vi.fn(async () => {}),
+      "kolb-bot": vi.fn(async () => {}),
       chrome: vi.fn(async () => {
         throw new Error("profile stop failed");
       }),
@@ -111,7 +111,7 @@ describe("stopKnownBrowserProfiles", () => {
       onWarn,
     });
 
-    expect(stopMap.kolb-bot).toHaveBeenCalledTimes(1);
+    expect(stopMap["kolb-bot"]).toHaveBeenCalledTimes(1);
     expect(stopMap.chrome).toHaveBeenCalledTimes(1);
     expect(onWarn).not.toHaveBeenCalled();
   });

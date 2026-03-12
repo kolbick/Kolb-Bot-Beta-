@@ -5,7 +5,7 @@
   "description": "Kolb-Bot core memory search plugin",
   "type": "module",
   "peerDependencies": {
-    "kolb-bot": ">=2026.3.7"
+    "kolb-bot": "workspace:*"
   },
   "peerDependenciesMeta": {
     "kolb-bot": {

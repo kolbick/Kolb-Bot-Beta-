@@ -45,7 +45,7 @@ vi.mock("../config/config.js", async (importOriginal) => {
         evaluateEnabled: false,
         defaultProfile: "kolb-bot",
         profiles: {
-          kolb-bot: { cdpPort: testPort + 1, color: "#FF4500" },
+          "kolb-bot": { cdpPort: testPort + 1, color: "#FF4500" },
         },
       },
     }),

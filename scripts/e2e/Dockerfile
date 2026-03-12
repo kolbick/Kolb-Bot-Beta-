@@ -25,8 +25,8 @@ COPY skills ./skills
 COPY ui ./ui
 COPY extensions/memory-core ./extensions/memory-core
 COPY vendor/a2ui/renderers/lit ./vendor/a2ui/renderers/lit
-COPY apps/shared/KolbBotKit/Sources/KolbBotKit/Resources ./apps/shared/KolbBotKit/Sources/KolbBotKit/Resources
-COPY apps/shared/KolbBotKit/Tools/CanvasA2UI ./apps/shared/KolbBotKit/Tools/CanvasA2UI
+COPY apps/shared/OpenClawKit/Sources/OpenClawKit/Resources ./apps/shared/OpenClawKit/Sources/OpenClawKit/Resources
+COPY apps/shared/OpenClawKit/Tools/CanvasA2UI ./apps/shared/OpenClawKit/Tools/CanvasA2UI
 
 RUN pnpm build
 RUN pnpm ui:build

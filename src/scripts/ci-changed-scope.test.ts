@@ -65,7 +65,7 @@ describe("detectChangedScope", () => {
       runWindows: false,
       runSkillsPython: false,
     });
-    expect(detectChangedScope(["apps/shared/KolbBotKit/Sources/Foo.swift"])).toEqual({
+    expect(detectChangedScope(["apps/shared/OpenClawKit/Sources/Foo.swift"])).toEqual({
       runNode: false,
       runMacos: true,
       runAndroid: true,

@@ -9,7 +9,7 @@ type EnvSnapshot = {
   userProfile: string | undefined;
   homeDrive: string | undefined;
   homePath: string | undefined;
-  kolb-botHome: string | undefined;
+  kolbBotHome: string | undefined;
   stateDir: string | undefined;
 };
 
@@ -26,7 +26,7 @@ function snapshotEnv(): EnvSnapshot {
     userProfile: process.env.USERPROFILE,
     homeDrive: process.env.HOMEDRIVE,
     homePath: process.env.HOMEPATH,
-    kolb-botHome: process.env.KOLB_BOT_HOME,
+    kolbBotHome: process.env.KOLB_BOT_HOME,
     stateDir: process.env.KOLB_BOT_STATE_DIR,
   };
 }
@@ -43,7 +43,7 @@ function restoreEnv(snapshot: EnvSnapshot) {
   restoreKey("USERPROFILE", snapshot.userProfile);
   restoreKey("HOMEDRIVE", snapshot.homeDrive);
   restoreKey("HOMEPATH", snapshot.homePath);
-  restoreKey("KOLB_BOT_HOME", snapshot.kolb-botHome);
+  restoreKey("KOLB_BOT_HOME", snapshot.kolbBotHome);
   restoreKey("KOLB_BOT_STATE_DIR", snapshot.stateDir);
 }
 

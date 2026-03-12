@@ -503,7 +503,7 @@ describe("createMattermostInteractionHandler", () => {
     remoteAddress?: string;
     headers?: Record<string, string>;
   }) {
-    const context = { action_id: "approve", __kolb-bot_channel_id: "chan-1" };
+    const context = { action_id: "approve", "__kolb-bot_channel_id": "chan-1" };
     const token = generateInteractionToken(context, "acct");
     const requestLog: Array<{ path: string; method?: string }> = [];
     const handler = createMattermostInteractionHandler({
@@ -547,7 +547,7 @@ describe("createMattermostInteractionHandler", () => {
   }
 
   async function runInvalidActionRequest(actionId: string) {
-    const context = { action_id: "approve", __kolb-bot_channel_id: "chan-1" };
+    const context = { action_id: "approve", "__kolb-bot_channel_id": "chan-1" };
     const token = generateInteractionToken(context, "acct");
     const handler = createMattermostInteractionHandler({
       client: {
@@ -603,7 +603,7 @@ describe("createMattermostInteractionHandler", () => {
   });
 
   it("rejects callback requests from non-allowlisted source IPs", async () => {
-    const context = { action_id: "approve", __kolb-bot_channel_id: "chan-1" };
+    const context = { action_id: "approve", "__kolb-bot_channel_id": "chan-1" };
     const token = generateInteractionToken(context, "acct");
     const handler = createMattermostInteractionHandler({
       client: {
@@ -659,7 +659,7 @@ describe("createMattermostInteractionHandler", () => {
   });
 
   it("rejects requests when the signed channel does not match the callback payload", async () => {
-    const context = { action_id: "approve", __kolb-bot_channel_id: "chan-1" };
+    const context = { action_id: "approve", "__kolb-bot_channel_id": "chan-1" };
     const token = generateInteractionToken(context, "acct");
     const handler = createMattermostInteractionHandler({
       client: {
@@ -686,7 +686,7 @@ describe("createMattermostInteractionHandler", () => {
   });
 
   it("rejects requests when the fetched post does not belong to the callback channel", async () => {
-    const context = { action_id: "approve", __kolb-bot_channel_id: "chan-1" };
+    const context = { action_id: "approve", "__kolb-bot_channel_id": "chan-1" };
     const token = generateInteractionToken(context, "acct");
     const handler = createMattermostInteractionHandler({
       client: {
@@ -739,7 +739,7 @@ describe("createMattermostInteractionHandler", () => {
   });
 
   it("lets a custom interaction handler short-circuit generic completion updates", async () => {
-    const context = { action_id: "mdlprov", __kolb-bot_channel_id: "chan-1" };
+    const context = { action_id: "mdlprov", "__kolb-bot_channel_id": "chan-1" };
     const token = generateInteractionToken(context, "acct");
     const requestLog: Array<{ path: string; method?: string }> = [];
     const handleInteraction = vi.fn().mockResolvedValue({

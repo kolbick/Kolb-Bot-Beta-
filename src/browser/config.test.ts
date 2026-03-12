@@ -17,10 +17,10 @@ describe("browser config", () => {
     expect(profile?.cdpPort).toBe(18800);
     expect(profile?.cdpUrl).toBe("http://127.0.0.1:18800");
 
-    const kolb-bot = resolveProfile(resolved, "kolb-bot");
-    expect(kolb-bot?.driver).toBe("kolb-bot");
-    expect(kolb-bot?.cdpPort).toBe(18800);
-    expect(kolb-bot?.cdpUrl).toBe("http://127.0.0.1:18800");
+    const kolbBot = resolveProfile(resolved, "kolb-bot");
+    expect(kolbBot?.driver).toBe("kolb-bot");
+    expect(kolbBot?.cdpPort).toBe(18800);
+    expect(kolbBot?.cdpUrl).toBe("http://127.0.0.1:18800");
     const chrome = resolveProfile(resolved, "chrome");
     expect(chrome?.driver).toBe("extension");
     expect(chrome?.cdpPort).toBe(18792);
@@ -38,9 +38,9 @@ describe("browser config", () => {
       expect(chrome?.cdpPort).toBe(19004);
       expect(chrome?.cdpUrl).toBe("http://127.0.0.1:19004");
 
-      const kolb-bot = resolveProfile(resolved, "kolb-bot");
-      expect(kolb-bot?.cdpPort).toBe(19012);
-      expect(kolb-bot?.cdpUrl).toBe("http://127.0.0.1:19012");
+      const kolbBot = resolveProfile(resolved, "kolb-bot");
+      expect(kolbBot?.cdpPort).toBe(19012);
+      expect(kolbBot?.cdpUrl).toBe("http://127.0.0.1:19012");
     });
   });
 
@@ -53,9 +53,9 @@ describe("browser config", () => {
       expect(chrome?.cdpPort).toBe(19014);
       expect(chrome?.cdpUrl).toBe("http://127.0.0.1:19014");
 
-      const kolb-bot = resolveProfile(resolved, "kolb-bot");
-      expect(kolb-bot?.cdpPort).toBe(19022);
-      expect(kolb-bot?.cdpUrl).toBe("http://127.0.0.1:19022");
+      const kolbBot = resolveProfile(resolved, "kolb-bot");
+      expect(kolbBot?.cdpPort).toBe(19022);
+      expect(kolbBot?.cdpUrl).toBe("http://127.0.0.1:19022");
     });
   });
 
@@ -63,10 +63,10 @@ describe("browser config", () => {
     const resolved = resolveBrowserConfig({
       cdpPortRangeStart: 19000,
     });
-    const kolb-bot = resolveProfile(resolved, "kolb-bot");
+    const kolbBot = resolveProfile(resolved, "kolb-bot");
     expect(resolved.cdpPortRangeStart).toBe(19000);
-    expect(kolb-bot?.cdpPort).toBe(19000);
-    expect(kolb-bot?.cdpUrl).toBe("http://127.0.0.1:19000");
+    expect(kolbBot?.cdpPort).toBe(19000);
+    expect(kolbBot?.cdpUrl).toBe("http://127.0.0.1:19000");
   });
 
   it("rejects cdpPortRangeStart values that overflow the CDP range window", () => {
@@ -207,7 +207,7 @@ describe("browser config", () => {
   it("does not add the built-in chrome extension profile if the derived relay port is already used", () => {
     const resolved = resolveBrowserConfig({
       profiles: {
-        kolb-bot: { cdpPort: 18792, color: "#FF4500" },
+        "kolb-bot": { cdpPort: 18792, color: "#FF4500" },
       },
     });
     expect(resolveProfile(resolved, "chrome")).toBe(null);
