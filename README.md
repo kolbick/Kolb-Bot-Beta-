@@ -366,7 +366,7 @@ Now for the fun part. You have three options — pick whichever one sounds easie
 Copy this entire line, paste it into your terminal, and press Enter:
 
 ```bash
-curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.sh | bash
 ```
 
 What this does, word by word:
@@ -384,7 +384,7 @@ This handles everything automatically — it checks if Node.js is installed, ins
 If you're using PowerShell (not WSL2), paste this instead:
 
 ```powershell
-iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.ps1 | iex
 ```
 
 What this does:
@@ -661,7 +661,7 @@ The setup wizard will walk you through connecting whichever model you choose. Yo
 
 ```bash
 # Option A: One-line installer (easiest)
-curl -fsSL https://github.com/kolbick/Kolb-Bot-Beta-/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.sh | bash
 
 # Option B: Homebrew
 brew install kolb-bot && kolb-bot onboard --install-daemon
@@ -674,7 +674,7 @@ npm install -g kolb-bot@latest && kolb-bot onboard --install-daemon
 <summary>Windows (PowerShell)</summary>
 
 ```powershell
-iwr -useb https://github.com/kolbick/Kolb-Bot-Beta-/install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.ps1 | iex
 ```
 </details>
 
