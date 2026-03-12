@@ -359,9 +359,37 @@ node --version
 
 ### Step 4: Install Kolb-Bot
 
-Now for the fun part. You have three options — pick whichever one sounds easiest to you. They all do the exact same thing.
+Now for the fun part. You have a few options — pick whichever one sounds easiest to you.
 
-**Option A: One-line installer (recommended for beginners)**
+**Option A: Build from source (recommended)**
+
+Kolb-Bot is not yet published on npm, so the recommended way to install it is by building from source. You'll need **Git**, **Node.js 22+**, and **pnpm** installed first.
+
+```bash
+git clone https://github.com/kolbick/Kolb-Bot-Beta-.git
+cd Kolb-Bot-Beta-
+pnpm install
+pnpm build
+pnpm kolb-bot onboard --install-daemon
+```
+
+What this does, step by step:
+- `git clone ...` — downloads the Kolb-Bot source code from GitHub
+- `cd Kolb-Bot-Beta-` — moves into the folder that was just downloaded
+- `pnpm install` — installs all the pieces Kolb-Bot needs to work (called "dependencies")
+- `pnpm build` — compiles the source code into something your computer can run
+- `pnpm kolb-bot onboard --install-daemon` — starts the setup wizard and installs the background service
+
+> **What's pnpm?** It's a package manager (like npm, but faster). Install it with: `npm install -g pnpm`
+
+> **What's Git?** It's a tool for downloading and managing code. Most systems have it already — type `git --version` to check. If not, see [git-scm.com](https://git-scm.com/).
+
+**Option B: One-line installer**
+
+> **Note:** This option requires the `kolb-bot` npm package to be published. It is not available yet — use Option A instead.
+
+<details>
+<summary>Click to expand (not yet available)</summary>
 
 Copy this entire line, paste it into your terminal, and press Enter:
 
@@ -379,53 +407,31 @@ What this does, word by word:
 This handles everything automatically — it checks if Node.js is installed, installs Kolb-Bot, and starts the setup wizard.
 
 <details>
-<summary>Windows (PowerShell) — click to expand</summary>
-
-If you're using PowerShell (not WSL2), paste this instead:
+<summary>Windows (PowerShell)</summary>
 
 ```powershell
 iwr -useb https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.ps1 | iex
 ```
-
-What this does:
-- `iwr` — PowerShell's tool for downloading files from the internet (short for Invoke-WebRequest)
-- `-useb` — tells it to treat the download as a simple string
-- `https://...` — the web address of the Windows install script
-- `|` — sends the downloaded script to the next command
-- `iex` — runs the script (short for Invoke-Expression)
+</details>
 </details>
 
-**Option B: npm install (if you already installed Node.js in Step 3)**
+**Option C: npm install (not yet available)**
+
+> **Note:** The `kolb-bot` package is not yet published on npm. Use Option A (build from source) instead.
+
+<details>
+<summary>Click to expand (not yet available)</summary>
 
 ```bash
 npm install -g kolb-bot@latest
 ```
-
-What this does, word by word:
-- `npm` — Node Package Manager, a tool that comes with Node.js for installing programs
-- `install` — tells npm to install something
-- `-g` — means "global" — installs it so you can use it from anywhere, not just one folder
-- `kolb-bot@latest` — the name of the program to install (`@latest` means get the newest version)
 
 Then start the setup wizard:
 
 ```bash
 kolb-bot onboard --install-daemon
 ```
-
-What this does:
-- `kolb-bot` — runs the Kolb-Bot program
-- `onboard` — starts the setup wizard that walks you through first-time configuration
-- `--install-daemon` — also installs the background service (the "daemon") that keeps Kolb-Bot running even when you close the terminal
-
-**Option C: Homebrew (Mac/Linux only — if you already use Homebrew)**
-
-```bash
-brew install kolb-bot
-kolb-bot onboard --install-daemon
-```
-
-> **What's Homebrew?** It's a package manager for Mac/Linux. If you don't know what that is, use Option A or B instead. You don't need Homebrew.
+</details>
 
 ### Step 5: Run the setup wizard
 
@@ -660,23 +666,12 @@ The setup wizard will walk you through connecting whichever model you choose. Yo
 ## Quick install (for people who don't need hand-holding)
 
 ```bash
-# Option A: One-line installer (easiest)
-curl -fsSL https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.sh | bash
-
-# Option B: Homebrew
-brew install kolb-bot && kolb-bot onboard --install-daemon
-
-# Option C: npm
-npm install -g kolb-bot@latest && kolb-bot onboard --install-daemon
+# Build from source (recommended — npm package not yet published)
+git clone https://github.com/kolbick/Kolb-Bot-Beta-.git
+cd Kolb-Bot-Beta-
+pnpm install && pnpm build
+pnpm kolb-bot onboard --install-daemon
 ```
-
-<details>
-<summary>Windows (PowerShell)</summary>
-
-```powershell
-iwr -useb https://raw.githubusercontent.com/kolbick/Kolb-Bot-Beta-/main/scripts/install.ps1 | iex
-```
-</details>
 
 ## Try it out
 
