@@ -22,6 +22,14 @@ export const theme = {
   heading: baseChalk.bold.hex(PIRATE_PALETTE.accent),
   command: hex(PIRATE_PALETTE.accentBright),
   option: hex(PIRATE_PALETTE.warn),
+  // Pirate ship banner colors
+  ocean: hex(PIRATE_PALETTE.ocean),
+  oceanDark: hex(PIRATE_PALETTE.oceanDark),
+  hull: hex(PIRATE_PALETTE.hull),
+  hullDark: hex(PIRATE_PALETTE.hullDark),
+  sail: hex(PIRATE_PALETTE.sail),
+  flag: hex(PIRATE_PALETTE.flag),
+  mast: hex(PIRATE_PALETTE.mast),
 } as const;
 
 export const isRich = () => Boolean(baseChalk.level > 0);
