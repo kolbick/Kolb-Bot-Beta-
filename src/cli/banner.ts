@@ -216,7 +216,7 @@ export function formatCliBannerArt(options: BannerOptions = {}): string {
   return PIRATE_SHIP_RICH.map((line) => colorShipLine(line.section, line.text)).join("\n");
 }
 
-export function emitCliBanner(version: string, options: BannerOptions = {}) {
+export async function emitCliBanner(version: string, options: BannerOptions = {}) {
   if (bannerEmitted) {
     return;
   }
@@ -230,9 +230,23 @@ export function emitCliBanner(version: string, options: BannerOptions = {}) {
   if (hasVersionFlag(argv)) {
     return;
   }
+  bannerEmitted = true;
+
+  // Use animated Ink banner when the terminal supports rich output
+  const rich = options.richTty ?? isRich();
+  const hideBanner = process.env.KOLB_BOT_HIDE_BANNER === "1";
+  if (rich && !hideBanner) {
+    try {
+      const { renderAnimatedBanner } = await import("./banner-art.js");
+      await renderAnimatedBanner();
+    } catch {
+      // Fall back to static output if Ink rendering fails
+      process.stdout.write(`\n${formatCliBannerArt(options)}\n`);
+    }
+  }
+
   const line = formatCliBannerLine(version, options);
   process.stdout.write(`\n${line}\n\n`);
-  bannerEmitted = true;
 }
 
 export function hasEmittedCliBanner(): boolean {
