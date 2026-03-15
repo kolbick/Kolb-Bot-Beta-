@@ -97,51 +97,126 @@ export function formatCliBannerLine(version: string, options: BannerOptions = {}
   return `${line1}\n${line2}`;
 }
 
-const PIRATE_ASCII = [
-  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄",
-  "██░▄▄▄░██░▄▄░██░▄▄▄██░▀██░██░▄▄▀██░████░▄▄▀██░███░██",
-  "██░███░██░▀▀░██░▄▄▄██░█░█░██░█████░████░▀▀░██░█░█░██",
-  "██░▀▀▀░██░█████░▀▀▀██░██▄░██░▀▀▄██░▀▀░█░██░██▄▀▄▀▄██",
-  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-  "                  🏴‍☠️ KOLB-BOT 🏴‍☠️                    ",
+// Plain-text pirate ship (used when colors are unavailable).
+const PIRATE_SHIP_PLAIN = [
+  "                         🏴‍☠️",
+  "                      .___|___.",
+  "                      |\\   |  /|",
+  "                      | \\  | / |",
+  "                      |  \\ |/  |",
+  "                      |   \\|/  |",
+  "               _______|___/|\\__|_______",
+  "              |    K O L B - B O T     |",
+  "       ~~~~~~ |________________________| ~~~~~~",
+  "     ~~~~~~~~\\__________________________/~~~~~~~~",
+  "   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "      ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~",
+  "   ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~",
+  "                 🏴‍☠️ Kolb-Bot 🏴‍☠️",
   " ",
 ];
+
+// Structured pirate ship for rich color rendering.
+// Each line is tagged with a section for per-line coloring.
+type ShipSection = "flag" | "mast" | "sail" | "hull" | "name" | "wave" | "title" | "blank";
+const PIRATE_SHIP_RICH: Array<{ section: ShipSection; text: string }> = [
+  { section: "flag", text: "                         🏴‍☠️" },
+  { section: "mast", text: "                      .___|___." },
+  { section: "sail", text: "                      |\\   |  /|" },
+  { section: "sail", text: "                      | \\  | / |" },
+  { section: "sail", text: "                      |  \\ |/  |" },
+  { section: "sail", text: "                      |   \\|/  |" },
+  { section: "hull", text: "               _______|___/|\\__|_______" },
+  { section: "name", text: "              |    K O L B - B O T     |" },
+  { section: "wave", text: "       ~~~~~~ |________________________| ~~~~~~" },
+  { section: "wave", text: "     ~~~~~~~~\\__________________________/~~~~~~~~" },
+  { section: "wave", text: "   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" },
+  { section: "wave", text: "      ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~" },
+  { section: "wave", text: "   ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~~~~  ~~~~~" },
+  { section: "title", text: "                 🏴‍☠️ Kolb-Bot 🏴‍☠️" },
+  { section: "blank", text: " " },
+];
+
+function colorShipLine(section: ShipSection, text: string): string {
+  switch (section) {
+    case "flag":
+      return text; // emoji renders natively
+    case "mast":
+      return theme.mast(text);
+    case "sail": {
+      // Color the sail fabric white, mast lines tan
+      return splitGraphemes(text)
+        .map((ch) => {
+          if (ch === "|" || ch === "/" || ch === "\\") {
+            return theme.mast(ch);
+          }
+          return theme.sail(ch);
+        })
+        .join("");
+    }
+    case "hull": {
+      return splitGraphemes(text)
+        .map((ch) => {
+          if (ch === "_" || ch === "|" || ch === "/" || ch === "\\") {
+            return theme.hull(ch);
+          }
+          return theme.hullDark(ch);
+        })
+        .join("");
+    }
+    case "name": {
+      // Ship hull with gold name text
+      return splitGraphemes(text)
+        .map((ch) => {
+          if (ch === "|") {
+            return theme.hull(ch);
+          }
+          if (ch === " ") {
+            return ch;
+          }
+          return theme.info(ch);
+        })
+        .join("");
+    }
+    case "wave": {
+      // Alternate between bright and dark ocean blue for wave motion effect
+      let waveIdx = 0;
+      return splitGraphemes(text)
+        .map((ch) => {
+          if (ch === "~" || ch === "≈") {
+            waveIdx++;
+            return waveIdx % 3 === 0 ? theme.oceanDark(ch) : theme.ocean(ch);
+          }
+          if (ch === "|" || ch === "/" || ch === "\\" || ch === "_") {
+            return theme.hull(ch);
+          }
+          return ch;
+        })
+        .join("");
+    }
+    case "title": {
+      // Center title with colored branding
+      if (text.includes("Kolb-Bot")) {
+        const parts = text.split("Kolb-Bot");
+        return theme.muted(parts[0]!) + theme.info("Kolb-Bot") + theme.muted(parts[1] ?? "");
+      }
+      return theme.muted(text);
+    }
+    case "blank":
+      return text;
+  }
+}
 
 export function formatCliBannerArt(options: BannerOptions = {}): string {
   const rich = options.richTty ?? isRich();
   if (!rich) {
-    return PIRATE_ASCII.join("\n");
+    return PIRATE_SHIP_PLAIN.join("\n");
   }
 
-  const colorChar = (ch: string) => {
-    if (ch === "█") {
-      return theme.accentBright(ch);
-    }
-    if (ch === "░") {
-      return theme.accentDim(ch);
-    }
-    if (ch === "▀") {
-      return theme.accent(ch);
-    }
-    return theme.muted(ch);
-  };
-
-  const colored = PIRATE_ASCII.map((line) => {
-    if (line.includes("KOLB-BOT")) {
-      return (
-        theme.muted("              ") +
-        theme.accent("🏴‍☠️") +
-        theme.info(" KOLB-BOT ") +
-        theme.accent("🏴‍☠️")
-      );
-    }
-    return splitGraphemes(line).map(colorChar).join("");
-  });
-
-  return colored.join("\n");
+  return PIRATE_SHIP_RICH.map((line) => colorShipLine(line.section, line.text)).join("\n");
 }
 
-export function emitCliBanner(version: string, options: BannerOptions = {}) {
+export async function emitCliBanner(version: string, options: BannerOptions = {}) {
   if (bannerEmitted) {
     return;
   }
@@ -155,9 +230,23 @@ export function emitCliBanner(version: string, options: BannerOptions = {}) {
   if (hasVersionFlag(argv)) {
     return;
   }
+  bannerEmitted = true;
+
+  // Use animated Ink banner when the terminal supports rich output
+  const rich = options.richTty ?? isRich();
+  const hideBanner = process.env.KOLB_BOT_HIDE_BANNER === "1";
+  if (rich && !hideBanner) {
+    try {
+      const { renderAnimatedBanner } = await import("./banner-art.js");
+      await renderAnimatedBanner();
+    } catch {
+      // Fall back to static output if Ink rendering fails
+      process.stdout.write(`\n${formatCliBannerArt(options)}\n`);
+    }
+  }
+
   const line = formatCliBannerLine(version, options);
   process.stdout.write(`\n${line}\n\n`);
-  bannerEmitted = true;
 }
 
 export function hasEmittedCliBanner(): boolean {

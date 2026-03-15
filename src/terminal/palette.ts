@@ -10,4 +10,12 @@ export const PIRATE_PALETTE = {
   warn: "#FFB020",
   error: "#E23D2D",
   muted: "#8B7F99",
+  // Pirate ship banner colors
+  ocean: "#1E90FF",
+  oceanDark: "#104E8B",
+  hull: "#8B4513",
+  hullDark: "#654321",
+  sail: "#F5F5DC",
+  flag: "#E23D2D",
+  mast: "#D2B48C",
 } as const;
